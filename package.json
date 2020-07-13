@@ -1,0 +1,22 @@
+{
+  "name": "untitled-stage",
+  "version": "1.0.0",
+  "description": "A style stage style.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://cbirdsong@github.com/cbirdsong/untitled-stage.git"
+  },
+  "author": "Cory Birdsong",
+  "license": "CC0",
+  "bugs": {
+    "url": "https://github.com/cbirdsong/untitled-stage/issues"
+  },
+  "homepage": "https://github.com/cbirdsong/untitled-stage#readme",
+  "scripts": {
+    "build": "sass scss/style.scss style.css",
+    "serve": "sass --watch scss/style.scss style.css"
+  },
+  "devDependencies": {
+    "sass": "^1.26.10"
+  }
+}

@@ -1,0 +1,33 @@
+:root {
+  // Type
+
+  --input-background-color--disabled: #e7e7e7;
+  --font-family-base: "MuseoModerno", cursive;
+  --font-weight-base--normal: 300;
+  --font-weight-base--bold: 600;
+  --font-weight-base--extrabold: 900;
+  --font-size-base: 100%;
+  --font-size-scale: 0.5vmin;
+  --line-height-base: 1.5;
+  --line-length-max: 60ch;
+  --heading-font-family: inherit;
+  --heading-font-weight: 700;
+  --heading-font-size-base: 1.1rem;
+  --heading-line-height: 1.2;
+  --heading-size-scale: 1.12;
+  --h6-font-size: calc(
+    var(--heading-font-size-base) * var(--heading-size-scale)
+  );
+  --h5-font-size: calc(var(--h6-font-size) * var(--heading-size-scale));
+  --h4-font-size: calc(var(--h5-font-size) * var(--heading-size-scale));
+  --h3-font-size: calc(var(--h4-font-size) * var(--heading-size-scale));
+  --h2-font-size: calc(var(--h3-font-size) * var(--heading-size-scale));
+  --h1-font-size: calc(var(--h2-font-size) * var(--heading-size-scale));
+
+  // Colors
+  --text-color: red;
+
+  @supports (color: color(display-p3 1 0 0 / 1)) {
+    --text-color: color(display-p3 1 0 0 / 1);
+  }
+}

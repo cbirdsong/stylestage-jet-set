@@ -1,0 +1,14 @@
+:root {
+  @supports (font-size: var(--font-size-base)) {
+    //This caused odd issues in IE once polyfilled.
+    font-size: var(--font-size-base);
+    font-size: calc(var(--font-size-base) + var(--font-size-scale));
+  }
+
+  line-height: var(--line-height-base);
+
+  font-family: var(--font-family-base);
+  font-weight: var(--font-weight-base--normal);
+
+  color: var(--text-color);
+}
