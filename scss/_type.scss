@@ -1,17 +1,62 @@
+// Links
+
+// $a-tags-base: "a, a:visited";
+$a-tags-base: "a";
+
+a {
+	max-width: intrinsic;
+	max-width: max-content; // This could be bad.
+}
+
+#{$a-tags-base} {
+	color: var(--link-color);
+
+	text-decoration: underline;
+
+	@supports (text-decoration-color: red) {
+		text-decoration-color: var(--link-accent-color);
+		text-decoration-thickness: 0.1em;
+	}
+
+	// @include transition-basic;
+}
+
+#{$a-tags-base} {
+	&:hover {
+		color: var(--link-color--hover);
+	}
+	&:active {
+		color: var(--link-color--active, var(--link-color--hover));
+	}
+	&:focus {
+		color: var(--link-color--focus);
+	}
+}
+
+a:not([href]) {
+}
+
+a svg {
+	display: inline-block;
+	width: auto;
+	height: 1em;
+	fill: currentColor;
+}
+
 //Headings
 
 @for $i from 1 through 6 {
-  h#{$i} {
-    color: var(--h#{$i}-color, var(--heading-color, currentColor));
+	h#{$i} {
+		color: var(--yellow-neon);
 
-    font-family: var(--h#{$i}-family, var(--heading-font-family));
-    font-weight: var(--h#{$i}-weight, var(--heading-font-weight));
+		font-size: var(--heading-font-size, var(--h#{$i}-font-size));
+		line-height: var(--h#{$i}-line-height, var(--heading-line-height));
 
-    font-size: var(--heading-font-size, var(--h#{$i}-font-size));
-    line-height: var(--h#{$i}-line-height, var(--heading-line-height));
+		text-transform: uppercase;
+		font-style: italic;
 
-    + * {
-      margin-top: var(--heading-spacing, 1rem);
-    }
-  }
+		+ * {
+			margin-top: var(--heading-spacing, 1rem);
+		}
+	}
 }

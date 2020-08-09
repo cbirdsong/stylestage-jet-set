@@ -1,0 +1,17 @@
+nav {
+	padding: 3rem 1rem;
+	text-align: center;
+}
+nav ul {
+	display: flex;
+	flex-flow: row wrap;
+	align-items: center;
+	justify-content: center;
+	list-style-type: none;
+}
+nav {
+	li {
+		margin: 0.25em;
+		flex: 1;
+	}
+}

@@ -1,2 +1,3 @@
-# untitled-stage
-Style stage project
+# Tokyo-to
+
+Style stage project inspired by Jet Set Radio.

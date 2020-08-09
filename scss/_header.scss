@@ -1,0 +1,118 @@
+header {
+	text-align: center;
+
+	background-image: repeating-linear-gradient(
+		var(--gradient-angle),
+		var(--purple-dark) 3px,
+		var(--purple-dark) calc(6px),
+		var(--purple) calc(6px),
+		var(--purple) calc(9px),
+		var(--purple-dark) calc(9px),
+		var(--purple-dark) calc(12px)
+	);
+	background-size: 32px 32px;
+	background-repeat: repeat;
+
+	--gradient-angle: 34deg;
+}
+
+header .container {
+	display: grid;
+	grid-template-areas: "credit credit link" "title title title" "subtitle subtitle subtitle";
+	grid-template-rows: 1fr 2fr 1fr;
+	grid-template-columns: max-content auto max-content;
+	height: 100vh;
+
+	padding: 1rem;
+	gap: 1rem;
+}
+
+header {
+	@supports (display: grid) {
+		* {
+			margin: 0;
+		}
+		h1,
+		h2 {
+			align-self: center;
+			justify-self: center;
+		}
+	}
+}
+
+header h1 {
+	position: relative;
+	z-index: 5;
+
+	grid-area: title;
+
+	display: block;
+	font-size: 5rem;
+	width: 6ch;
+
+	font-family: "nyc_zone_123", sans-serif;
+
+	+ * {
+		margin-top: 3rem;
+	}
+
+	margin: 0 auto;
+
+	@supports (-webkit-text-fill-color: white) {
+		transform: rotate(-20deg) translate(1.5rem, -1rem);
+		text-indent: -2.6ch;
+		line-height: 1.45;
+
+		color: white;
+		font-style: normal;
+
+		&::before,
+		&::after {
+			content: "Style Stage";
+			position: absolute;
+			left: 0;
+			right: 0;
+			top: 0;
+
+			animation-name: pulsate;
+			animation-duration: 6s;
+			animation-timing-function: ease-out;
+			animation-direction: alternate-reverse;
+		}
+		&::before {
+			z-index: -2;
+			-webkit-text-fill-color: var(--green-neon);
+			-webkit-text-stroke-width: 0.5em;
+			-webkit-text-stroke-color: var(--yellow-neon);
+
+			animation-delay: 0.05s;
+		}
+		&::after {
+			z-index: -1;
+
+			-webkit-text-fill-color: var(--yellow-neon);
+			-webkit-text-stroke-width: 0.25em;
+			-webkit-text-stroke-color: var(--green-dark);
+
+			animation-delay: 0.1s;
+		}
+	}
+}
+header h1,
+header h1:before,
+header h1:after {
+	padding: 5rem 2rem;
+}
+
+header h2 {
+	grid-area: subtitle;
+	max-width: 30ch;
+}
+
+header p:first-of-type {
+	margin: 0;
+}
+
+header .link-github {
+	grid-area: link;
+}

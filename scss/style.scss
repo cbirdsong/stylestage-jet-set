@@ -1,8 +1,47 @@
-@use "mixins";
-
-@import url("https://fonts.googleapis.com/css2?family=MuseoModerno&display=swap");
+@import "mixins";
 
 @import "reset";
 @import "variables";
+@import "fonts";
 @import "root";
 @import "type";
+
+@import "header";
+@import "nav";
+@import "content";
+@import "footer";
+
+.skip-link {
+}
+.link-github {
+}
+.link-guidelines {
+}
+.link-downloadcss {
+}
+.link-downloadhtml {
+}
+.link-codepen {
+}
+.profile {
+}
+.profile-title {
+}
+.profile-author {
+}
+.profile-twitter {
+}
+.profile-website {
+}
+.features {
+}
+.link-allstyles {
+}
+.page-footer {
+}
+.link-twittercontact {
+}
+.link-rss {
+}
+.link-support {
+}
