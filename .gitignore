@@ -106,3 +106,4 @@ dist
 # 11ty deploy
 /_site
 /_site/*/**
+.DS_Store
