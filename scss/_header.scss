@@ -1,34 +1,58 @@
 header {
-	text-align: center;
+	position: relative;
+	z-index: 100;
+	overflow: hidden;
 
-	background-image: repeating-linear-gradient(
-		var(--gradient-angle),
-		var(--purple-dark) 3px,
-		var(--purple-dark) calc(6px),
-		var(--purple) calc(6px),
-		var(--purple) calc(9px),
-		var(--purple-dark) calc(9px),
-		var(--purple-dark) calc(12px)
-	);
-	background-size: 32px 32px;
-	background-repeat: repeat;
+	&:after {
+		content: "";
+		position: absolute;
+		z-index: -1;
+		top: -1000vh;
+		bottom: -1000vh;
+		left: -1000vh;
+		right: -1000vh;
 
-	--gradient-angle: 34deg;
+		background-image: repeating-linear-gradient(
+			34deg,
+			var(--header-bg-secondary) 3px,
+			var(--header-bg-secondary) calc(6px),
+			var(--header-bg-primary) calc(6px),
+			var(--header-bg-primary) calc(9px),
+			var(--header-bg-secondary) calc(9px),
+			var(--header-bg-secondary) calc(12px)
+		);
+
+		background-size: 24px auto;
+		background-repeat: repeat;
+		background-color: var(--purple-darkest);
+
+		animation-name: rotateGradient;
+		animation-duration: var(--header-bg-swap-interval);
+		animation-timing-function: steps(1);
+		animation-direction: normal;
+		animation-iteration-count: infinite;
+	}
 }
 
 header .container {
-	display: grid;
-	grid-template-areas: "credit credit link" "title title title" "subtitle subtitle subtitle";
-	grid-template-rows: 1fr 2fr 1fr;
-	grid-template-columns: max-content auto max-content;
-	height: 100vh;
-
+	min-height: 100vh;
 	padding: 1rem;
-	gap: 1rem;
-}
 
-header {
+	text-align: center;
+	color: var(--header-text-primary);
+	@include ridiculous-text-shadow($width1: 1px, $width2: 2px, $color1: black, $color2: black);
+	svg * {
+		border: 2px solid black;
+	}
+
 	@supports (display: grid) {
+		display: grid;
+		grid-template-areas: "credit credit link" "title title title" "subtitle subtitle subtitle";
+		grid-template-rows: max-content 3fr 1fr;
+		grid-template-columns: max-content auto max-content;
+
+		gap: 1rem;
+
 		* {
 			margin: 0;
 		}
@@ -40,31 +64,62 @@ header {
 	}
 }
 
+header h1,
+header h2 {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
 header h1 {
-	position: relative;
-	z-index: 5;
-
 	grid-area: title;
 
-	display: block;
-	font-size: 5rem;
+	@include logo-type-style();
+
+	transform: rotate(-20deg) translate(0.5ch, -0.25ch);
+	transform-origin: center center;
+
 	width: 6ch;
+	text-indent: -2.6ch;
 
-	font-family: "nyc_zone_123", sans-serif;
+	font-size: 5rem;
+	line-height: 1.6;
 
-	+ * {
-		margin-top: 3rem;
-	}
+	@include ridiculous-text-shadow;
+}
+header h2 {
+	grid-area: subtitle;
+	max-width: 28ch;
 
-	margin: 0 auto;
+	color: var(--header-text-secondary);
+}
+
+header .link-github {
+	grid-area: link;
+}
+
+header h1 {
+}
+header h1,
+header h1:before,
+header h1:after {
+	padding: 5rem 2rem;
+}
+
+// Crazy Text Effects and Animations
+
+header h1 {
+	animation-name: entrance;
+	animation-duration: 1s;
+	animation-timing-function: ease-out;
+	animation-direction: normal;
+	animation-iteration-count: 1;
 
 	@supports (-webkit-text-fill-color: white) {
-		transform: rotate(-20deg) translate(1.5rem, -1rem);
-		text-indent: -2.6ch;
-		line-height: 1.45;
+		position: relative;
+		z-index: 5;
 
-		color: white;
-		font-style: normal;
+		line-height: 1.45;
+		@include ridiculous-text-shadow($width1: 1px, $width2: 2px, $color1: black, $color2: black);
 
 		&::before,
 		&::after {
@@ -74,45 +129,29 @@ header h1 {
 			right: 0;
 			top: 0;
 
-			animation-name: pulsate;
-			animation-duration: 6s;
+			animation-name: pulse;
+			animation-duration: var(--header-logo-pulse-interval);
 			animation-timing-function: ease-out;
-			animation-direction: alternate-reverse;
+			animation-direction: normal;
+			animation-iteration-count: infinite;
 		}
 		&::before {
-			z-index: -2;
-			-webkit-text-fill-color: var(--green-neon);
-			-webkit-text-stroke-width: 0.5em;
-			-webkit-text-stroke-color: var(--yellow-neon);
-
-			animation-delay: 0.05s;
-		}
-		&::after {
 			z-index: -1;
 
-			-webkit-text-fill-color: var(--yellow-neon);
+			-webkit-text-fill-color: var(--header-text-secondary);
 			-webkit-text-stroke-width: 0.25em;
-			-webkit-text-stroke-color: var(--green-dark);
+			-webkit-text-stroke-color: var(--header-text-tertiary);
 
-			animation-delay: 0.1s;
+			animation-delay: 0.025s;
+		}
+		&::after {
+			z-index: -2;
+			-webkit-text-fill-color: var(--header-text-tertiary);
+			-webkit-text-stroke-width: 0.5em;
+			-webkit-text-stroke-color: var(--header-text-secondary);
+
+			animation-delay: 0.0125s;
+			filter: drop-shadow(0 0 2px black);
 		}
 	}
-}
-header h1,
-header h1:before,
-header h1:after {
-	padding: 5rem 2rem;
-}
-
-header h2 {
-	grid-area: subtitle;
-	max-width: 30ch;
-}
-
-header p:first-of-type {
-	margin: 0;
-}
-
-header .link-github {
-	grid-area: link;
 }

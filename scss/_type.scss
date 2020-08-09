@@ -55,6 +55,8 @@ a svg {
 		text-transform: uppercase;
 		font-style: italic;
 
+		@include ridiculous-text-shadow($width1: 2px, $width2: 3px, $color1: black, $color2: black);
+
 		+ * {
 			margin-top: var(--heading-spacing, 1rem);
 		}

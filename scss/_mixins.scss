@@ -1,4 +1,13 @@
-// content made available only to screen readers
+//Logo Type
+@mixin logo-type-style() {
+	font-family: "nyc_zone_123", sans-serif;
+	text-transform: uppercase;
+	font-style: normal;
+
+	color: var(--header-text-primary);
+}
+
+// a11y: content made available only to screen readers
 @mixin visually-hidden {
 	position: absolute;
 	clip: rect(1px, 1px, 1px, 1px);
@@ -28,28 +37,108 @@
 }
 
 //animations
-/**
- * ----------------------------------------
- * animation pulsate
- * ----------------------------------------
- */
-@keyframes pulsate {
+@keyframes pulse {
 	0% {
 		transform: scale(1);
 	}
-	1% {
-		transform: scale(0.98);
+
+	@for $i from 1 through 4 {
+		#{($i * 25) - 2 + "%"} {
+			transform: scale(1);
+		}
+		#{($i * 25) - 1 + "%"} {
+			@if $i == 4 {
+				transform: scale(1.045);
+			} @else {
+				transform: scale(1.015);
+			}
+		}
+		#{$i * 25 + "%"} {
+			transform: scale(1);
+		}
 	}
-	2% {
-		transform: scale(1);
+}
+@keyframes rotateGradient {
+	$degrees: 34deg;
+	$degrees-prev: 34deg;
+
+	$color1: var(--header-bg-secondary);
+	$color1-prev: var(--header-bg-secondary);
+	$color2: vars(--header-bg-primary);
+	$color2-prev: var(--header-bg-primary);
+
+	0% {
+		background-image: repeating-linear-gradient(
+			var(--gradient-angle),
+			var(--header-bg-secondary) 3px,
+			var(--header-bg-secondary) calc(6px),
+			var(--header-bg-primary) calc(6px),
+			var(--header-bg-primary) calc(9px),
+			var(--header-bg-secondary) calc(9px),
+			var(--header-bg-secondary) calc(12px)
+		);
 	}
-	98% {
-		transform: scale(1);
+
+	@for $i from 1 through 25 {
+		#{($i * 4) - 1 + "%"} {
+			// transform: rotate(#{$degrees-prev});
+			background-image: repeating-linear-gradient(
+				#{$degrees-prev},
+				#{$color1-prev} 3px,
+				#{$color1-prev} calc(6px),
+				#{$color2-prev} calc(6px),
+				#{$color2-prev} calc(9px),
+				#{$color1-prev} calc(9px),
+				#{$color1-prev} calc(12px)
+			);
+		}
+
+		#{($i * 4) - 0 + "%"} {
+			@if $i % 4 == 0 {
+				$degrees: $i * (31 - $i * 1.75) + "deg";
+				$color1: var(--purple-darkest);
+				$color2: var(--purple-dark);
+			} @else if $i % 3 == 0 {
+				$degrees: $i * (13 - $i * 3.5) + "deg";
+				$color1: var(--orange-dark);
+				$color2: var(--orange-light);
+			} @else if $i % 2 == 0 {
+				$degrees: $i * (43 - $i * 2.5) + "deg";
+				$color1: var(--green);
+				$color2: var(--green-neon);
+			} @else {
+				$degrees: $i * (22 - $i * 1.5) + "deg";
+				$color1: var(--orange-dark);
+				$color2: var(--yellow);
+			}
+
+			background-image: repeating-linear-gradient(
+				#{$degrees},
+				#{$color1} 3px,
+				#{$color1} calc(6px),
+				#{$color2} calc(6px),
+				#{$color2} calc(9px),
+				#{$color1} calc(9px),
+				#{$color1} calc(12px)
+			);
+		}
+
+		$color1-prev: $color1;
+		$color2-prev: $color2;
+		$degrees-prev: $degrees;
 	}
-	99% {
-		transform: scale(1.025);
-	}
-	100% {
-		transform: scale(1);
-	}
+}
+
+//text shadow
+@mixin ridiculous-text-shadow(
+	$width1: 0.06em,
+	$width2: 0.12em,
+	$color1: var(--green-dark),
+	$color2: var(--yellow-neon)
+) {
+	text-shadow: 0 #{$width1} #{$color1}, 0 -#{$width1} #{$color1}, #{$width1} 0 #{$color1}, -#{$width1} 0 #{$color1},
+		#{$width1} -#{$width1} #{$color1}, #{$width1} #{$width1} #{$color1}, -#{$width1} #{$width1} #{$color1},
+		-#{$width1} -#{$width1} #{$color1}, 0 #{$width2} #{$color2}, 0 -#{$width2} #{$color2}, #{$width2} 0 #{$color2},
+		-#{$width2} 0 #{$color2}, #{$width2} -#{$width2} #{$color2}, #{$width2} #{$width2} #{$color2},
+		-#{$width2} #{$width2} #{$color2}, -#{$width2} -#{$width2} #{$color2};
 }

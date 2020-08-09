@@ -1,22 +1,27 @@
 {
-  "name": "untitled-stage",
-  "version": "1.0.0",
-  "description": "A style stage style.",
-  "repository": {
-    "type": "git",
-    "url": "git+https://cbirdsong@github.com/cbirdsong/untitled-stage.git"
-  },
-  "author": "Cory Birdsong",
-  "license": "CC0",
-  "bugs": {
-    "url": "https://github.com/cbirdsong/untitled-stage/issues"
-  },
-  "homepage": "https://github.com/cbirdsong/untitled-stage#readme",
-  "scripts": {
-    "build": "sass scss/style.scss style.css",
-    "serve": "sass --watch scss/style.scss style.css"
-  },
-  "devDependencies": {
-    "sass": "^1.26.10"
-  }
+	"name": "untitled-stage",
+	"version": "1.0.0",
+	"description": "A style stage style.",
+	"repository": {
+		"type": "git",
+		"url": "git+https://cbirdsong@github.com/cbirdsong/untitled-stage.git"
+	},
+	"author": "Cory Birdsong",
+	"license": "CC0",
+	"bugs": {
+		"url": "https://github.com/cbirdsong/untitled-stage/issues"
+	},
+	"homepage": "https://github.com/cbirdsong/untitled-stage#readme",
+	"scripts": {
+		"build": "eleventy & sass scss/style.scss style.css",
+		"serve": "eleventy --serve & sass --watch scss/style.scss style.css",
+		"11ty:build": "eleventy",
+		"11ty:serve": "eleventy --serve",
+		"sass:build": "sass scss/style.scss style.css",
+		"sass:serve": "sass --watch scss/style.scss style.css"
+	},
+	"devDependencies": {
+		"@11ty/eleventy": "^0.11.0",
+		"sass": "^1.26.10"
+	}
 }

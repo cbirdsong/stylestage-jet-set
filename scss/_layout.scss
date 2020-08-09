@@ -1,0 +1,34 @@
+body {
+	@supports (display: grid) {
+		display: grid;
+		grid-template-areas:
+			"skip-link skip-link"
+			"header header"
+			"main nav"
+			"profile nav"
+			"styles nav"
+			"footer footer";
+	}
+	grid-template-columns: 3fr 1fr;
+}
+.skip-link {
+	grid-area: "skip-link";
+}
+header {
+	grid-area: header;
+}
+nav {
+	grid-area: nav;
+}
+main {
+	grid-area: main;
+}
+.profile {
+	grid-area: profile;
+}
+#styles {
+	grid-area: styles;
+}
+.page-footer {
+	grid-area: footer;
+}

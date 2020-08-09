@@ -8,11 +8,11 @@ aside {
 }
 
 section {
-	display: grid;
-	grid-template-columns: 30ch 70ch;
-	align-items: center;
-	justify-content: center;
-	padding: 2rem;
+	// display: grid;
+	// grid-template-columns: 30ch 70ch;
+	// align-items: center;
+	// justify-content: center;
+	// padding: 2rem;
 
 	&:nth-child(odd) {
 		// align-items: start;
@@ -29,6 +29,33 @@ section {
 	> h2 {
 		grid-column: 1;
 		grid-row: 1 / -1;
-		padding: 1rem;
+		// padding: 1rem;
 	}
+}
+
+.link-guidelines {
+}
+.link-downloadcss {
+}
+.link-downloadhtml {
+}
+.link-codepen {
+}
+.link-allstyles {
+}
+
+//Current Style
+.profile {
+}
+.profile-title {
+}
+.profile-author {
+}
+.profile-twitter {
+}
+.profile-website {
+}
+
+//Featured Styles
+.features {
 }

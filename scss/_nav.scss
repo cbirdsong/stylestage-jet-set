@@ -1,17 +1,63 @@
 nav {
+	display: flex;
+	flex-flow: column nowrap;
+	align-items: center;
+	justify-content: center;
 	padding: 3rem 1rem;
 	text-align: center;
+
+	&:before,
+	&:after {
+		content: "Style Stage";
+
+		@include logo-type-style();
+
+		position: fixed;
+		z-index: -1;
+
+		display: block;
+		top: 1vh;
+		bottom: 1vh;
+		font-size: 8.5vh;
+
+		writing-mode: vertical-rl;
+		text-orientation: mixed;
+	}
+
+	&::before {
+		z-index: -1;
+		-webkit-text-fill-color: var(--orange-dark);
+		-webkit-text-stroke-width: 1.5px;
+		-webkit-text-stroke-color: var(--yellow);
+	}
+	&::after {
+		z-index: -2;
+
+		-webkit-text-stroke-width: 0.33em;
+		-webkit-text-stroke-color: black;
+	}
 }
+
 nav ul {
 	display: flex;
 	flex-flow: row wrap;
 	align-items: center;
 	justify-content: center;
 	list-style-type: none;
-}
-nav {
-	li {
+
+	padding: 0;
+	margin: 0;
+	> * {
 		margin: 0.25em;
 		flex: 1;
 	}
+
+	@supports (display: grid) {
+		position: fixed;
+		flex-flow: column nowrap;
+		top: 10vh;
+		bottom: 10vh;
+	}
+}
+nav {
 }
