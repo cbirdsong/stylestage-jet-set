@@ -14,15 +14,13 @@ header {
 
 		background-image: repeating-linear-gradient(
 			34deg,
-			var(--header-bg-secondary) 3px,
+			var(--header-bg-secondary) 0,
 			var(--header-bg-secondary) calc(6px),
 			var(--header-bg-primary) calc(6px),
-			var(--header-bg-primary) calc(9px),
-			var(--header-bg-secondary) calc(9px),
-			var(--header-bg-secondary) calc(12px)
+			var(--header-bg-primary) calc(12px)
 		);
 
-		background-size: 24px auto;
+		background-size: 24px 24px;
 		background-repeat: repeat;
 		background-color: var(--purple-dark);
 

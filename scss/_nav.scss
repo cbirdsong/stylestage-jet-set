@@ -19,7 +19,7 @@ nav {
 		display: block;
 		top: 1vh;
 		bottom: 1vh;
-		font-size: 8.5vh;
+		font-size: 8vh;
 
 		writing-mode: vertical-rl;
 		text-orientation: mixed;
@@ -44,29 +44,75 @@ nav ul {
 	display: flex;
 	flex-flow: row wrap;
 	align-items: center;
-	justify-content: center;
+	justify-content: space-around;
+	justify-content: space-evenly;
 	list-style-type: none;
 
 	padding: 0;
 	margin: 0;
 	> * {
-		margin: 0.25em;
+		margin: 0.25em 1em;
 		flex: 1;
 	}
 
 	@supports (display: grid) {
-		position: fixed;
+		position: sticky;
 		flex-flow: column nowrap;
 		top: 10vh;
 		bottom: 10vh;
+		min-height: 80vh;
 	}
 }
 
-nav a {
-	background-color: white;
-	--link-color: black;
-	position: relative;
+nav li {
+	a {
+		position: relative;
+		display: inline-block;
 
-	&::after {
+		padding: 1em 1.2em;
+
+		--link-color: black;
+		--link-color--hover: var(--purple-darkest);
+		--link-color--active: var(--purple-dark);
+		--link-color--focus: var(--orange-dark);
+
+		text-decoration: none;
+	}
+
+	a::after {
+		content: "";
+		display: block;
+		position: absolute;
+		z-index: -1;
+		top: 0;
+		left: 0;
+		bottom: 0;
+		right: 0;
+
+		border-width: 2px;
+		border-style: solid;
+		border-color: currentColor;
+		background-color: white;
+	}
+	$max: 6;
+	@for $i from 1 through $max {
+		&:nth-child(#{$i}n) a {
+			@if $i % 3 == 0 {
+				transform: rotateX(#{$i * -1.33}deg) rotateY(#{$i * 0.95}deg) rotateZ(#{($max - $i) * -1.125}deg);
+			} @else if $i % 2 == 0 {
+				transform: rotateX(#{($max - $i) * 2}deg) rotateY(#{($max - $i * 2) * -1.25}deg) rotateZ(#{$i * -0.67}deg);
+			} @else {
+				transform: rotateX(#{$i * -1.67}deg) rotateY(#{($max - $i) * 1.5}deg) rotateZ(#{$i * 0.67}deg);
+			}
+		}
+		&:nth-child(#{$i}n) a::after {
+			@if $i % 3 == 0 {
+				transform: skew(#{($max - $i) * -0.25}deg, #{$i * -0.75}deg);
+			} @else if $i % 2 == 0 {
+				transform: skew(#{$i * -0.85}deg, #{($max - $i) * 0.5}deg);
+			} @else {
+				transform: skew(#{($max - $i) * -0.8}deg, #{$i * 1.2}deg);
+			}
+		}
 	}
 }

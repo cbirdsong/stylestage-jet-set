@@ -73,9 +73,7 @@
 			var(--header-bg-secondary) 3px,
 			var(--header-bg-secondary) calc(6px),
 			var(--header-bg-primary) calc(6px),
-			var(--header-bg-primary) calc(9px),
-			var(--header-bg-secondary) calc(9px),
-			var(--header-bg-secondary) calc(12px)
+			var(--header-bg-primary) calc(9px)
 		);
 	}
 
@@ -87,9 +85,7 @@
 				#{$color1-prev} 3px,
 				#{$color1-prev} calc(6px),
 				#{$color2-prev} calc(6px),
-				#{$color2-prev} calc(9px),
-				#{$color1-prev} calc(9px),
-				#{$color1-prev} calc(12px)
+				#{$color2-prev} calc(9px)
 			);
 		}
 
@@ -121,9 +117,7 @@
 				#{$color1} 3px,
 				#{$color1} calc(6px),
 				#{$color2} calc(6px),
-				#{$color2} calc(9px),
-				#{$color1} calc(9px),
-				#{$color1} calc(12px)
+				#{$color2} calc(9px)
 			);
 		}
 
