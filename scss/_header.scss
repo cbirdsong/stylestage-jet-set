@@ -24,7 +24,7 @@ header {
 
 		background-size: 24px auto;
 		background-repeat: repeat;
-		background-color: var(--purple-darkest);
+		background-color: var(--purple-dark);
 
 		animation-name: rotateGradient;
 		animation-duration: var(--header-bg-swap-interval);
@@ -41,8 +41,9 @@ header .container {
 	text-align: center;
 	color: var(--header-text-primary);
 	@include ridiculous-text-shadow($width1: 1px, $width2: 2px, $color1: black, $color2: black);
-	svg * {
-		border: 2px solid black;
+	svg {
+		filter: drop-shadow(2px 0 0 black) drop-shadow(-2px 0 0 black) drop-shadow(0 2px 0 black)
+			drop-shadow(0 -2px 0 black);
 	}
 
 	@supports (display: grid) {
@@ -97,8 +98,6 @@ header .link-github {
 	grid-area: link;
 }
 
-header h1 {
-}
 header h1,
 header h1:before,
 header h1:after {
@@ -110,7 +109,7 @@ header h1:after {
 header h1 {
 	animation-name: entrance;
 	animation-duration: 1s;
-	animation-timing-function: ease-out;
+	animation-timing-function: ease-in-out;
 	animation-direction: normal;
 	animation-iteration-count: 1;
 
@@ -119,7 +118,7 @@ header h1 {
 		z-index: 5;
 
 		line-height: 1.45;
-		@include ridiculous-text-shadow($width1: 1px, $width2: 2px, $color1: black, $color2: black);
+		@include ridiculous-text-shadow($width1: 3px, $width2: 4px, $color1: black, $color2: black);
 
 		&::before,
 		&::after {
@@ -134,6 +133,8 @@ header h1 {
 			animation-timing-function: ease-out;
 			animation-direction: normal;
 			animation-iteration-count: infinite;
+
+			text-shadow: none;
 		}
 		&::before {
 			z-index: -1;
@@ -142,7 +143,7 @@ header h1 {
 			-webkit-text-stroke-width: 0.25em;
 			-webkit-text-stroke-color: var(--header-text-tertiary);
 
-			animation-delay: 0.025s;
+			animation-delay: 0.0125s;
 		}
 		&::after {
 			z-index: -2;
@@ -150,8 +151,9 @@ header h1 {
 			-webkit-text-stroke-width: 0.5em;
 			-webkit-text-stroke-color: var(--header-text-secondary);
 
-			animation-delay: 0.0125s;
-			filter: drop-shadow(0 0 2px black);
+			animation-delay: 0.025s;
+			filter: drop-shadow(2px 0 0 black) drop-shadow(-2px 0 0 black) drop-shadow(0 2px 0 black)
+				drop-shadow(0 -2px 0 black);
 		}
 	}
 }

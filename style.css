@@ -78,10 +78,10 @@
     background-image: repeating-linear-gradient(72.5deg, var(--orange-dark) 3px, var(--orange-dark) calc(6px), var(--yellow) calc(6px), var(--yellow) calc(9px), var(--orange-dark) calc(9px), var(--orange-dark) calc(12px));
   }
   24% {
-    background-image: repeating-linear-gradient(-48deg, var(--orange-dark) 3px, var(--orange-dark) calc(6px), var(--orange-light) calc(6px), var(--orange-light) calc(9px), var(--orange-dark) calc(9px), var(--orange-dark) calc(12px));
+    background-image: repeating-linear-gradient(123deg, var(--purple-darkest) 3px, var(--purple-darkest) calc(6px), var(--red) calc(6px), var(--red) calc(9px), var(--purple-darkest) calc(9px), var(--purple-darkest) calc(12px));
   }
   27% {
-    background-image: repeating-linear-gradient(-48deg, var(--orange-dark) 3px, var(--orange-dark) calc(6px), var(--orange-light) calc(6px), var(--orange-light) calc(9px), var(--orange-dark) calc(9px), var(--orange-dark) calc(12px));
+    background-image: repeating-linear-gradient(123deg, var(--purple-darkest) 3px, var(--purple-darkest) calc(6px), var(--red) calc(6px), var(--red) calc(9px), var(--purple-darkest) calc(9px), var(--purple-darkest) calc(12px));
   }
   28% {
     background-image: repeating-linear-gradient(80.5deg, var(--orange-dark) 3px, var(--orange-dark) calc(6px), var(--yellow) calc(6px), var(--yellow) calc(9px), var(--orange-dark) calc(9px), var(--orange-dark) calc(12px));
@@ -114,10 +114,10 @@
     background-image: repeating-linear-gradient(60.5deg, var(--orange-dark) 3px, var(--orange-dark) calc(6px), var(--yellow) calc(6px), var(--yellow) calc(9px), var(--orange-dark) calc(9px), var(--orange-dark) calc(12px));
   }
   48% {
-    background-image: repeating-linear-gradient(120deg, var(--purple-darkest) 3px, var(--purple-darkest) calc(6px), var(--purple-dark) calc(6px), var(--purple-dark) calc(9px), var(--purple-darkest) calc(9px), var(--purple-darkest) calc(12px));
+    background-image: repeating-linear-gradient(120deg, var(--purple-darkest) 3px, var(--purple-darkest) calc(6px), var(--red) calc(6px), var(--red) calc(9px), var(--purple-darkest) calc(9px), var(--purple-darkest) calc(12px));
   }
   51% {
-    background-image: repeating-linear-gradient(120deg, var(--purple-darkest) 3px, var(--purple-darkest) calc(6px), var(--purple-dark) calc(6px), var(--purple-dark) calc(9px), var(--purple-darkest) calc(9px), var(--purple-darkest) calc(12px));
+    background-image: repeating-linear-gradient(120deg, var(--purple-darkest) 3px, var(--purple-darkest) calc(6px), var(--red) calc(6px), var(--red) calc(9px), var(--purple-darkest) calc(9px), var(--purple-darkest) calc(12px));
   }
   52% {
     background-image: repeating-linear-gradient(32.5deg, var(--orange-dark) 3px, var(--orange-dark) calc(6px), var(--yellow) calc(6px), var(--yellow) calc(9px), var(--orange-dark) calc(9px), var(--orange-dark) calc(12px));
@@ -150,10 +150,10 @@
     background-image: repeating-linear-gradient(-59.5deg, var(--orange-dark) 3px, var(--orange-dark) calc(6px), var(--yellow) calc(6px), var(--yellow) calc(9px), var(--orange-dark) calc(9px), var(--orange-dark) calc(12px));
   }
   72% {
-    background-image: repeating-linear-gradient(-900deg, var(--orange-dark) 3px, var(--orange-dark) calc(6px), var(--orange-light) calc(6px), var(--orange-light) calc(9px), var(--orange-dark) calc(9px), var(--orange-dark) calc(12px));
+    background-image: repeating-linear-gradient(-9deg, var(--purple-darkest) 3px, var(--purple-darkest) calc(6px), var(--red) calc(6px), var(--red) calc(9px), var(--purple-darkest) calc(9px), var(--purple-darkest) calc(12px));
   }
   75% {
-    background-image: repeating-linear-gradient(-900deg, var(--orange-dark) 3px, var(--orange-dark) calc(6px), var(--orange-light) calc(6px), var(--orange-light) calc(9px), var(--orange-dark) calc(9px), var(--orange-dark) calc(12px));
+    background-image: repeating-linear-gradient(-9deg, var(--purple-darkest) 3px, var(--purple-darkest) calc(6px), var(--red) calc(6px), var(--red) calc(9px), var(--purple-darkest) calc(9px), var(--purple-darkest) calc(12px));
   }
   76% {
     background-image: repeating-linear-gradient(-123.5deg, var(--orange-dark) 3px, var(--orange-dark) calc(6px), var(--yellow) calc(6px), var(--yellow) calc(9px), var(--orange-dark) calc(9px), var(--orange-dark) calc(12px));
@@ -186,10 +186,10 @@
     background-image: repeating-linear-gradient(-287.5deg, var(--orange-dark) 3px, var(--orange-dark) calc(6px), var(--yellow) calc(6px), var(--yellow) calc(9px), var(--orange-dark) calc(9px), var(--orange-dark) calc(12px));
   }
   96% {
-    background-image: repeating-linear-gradient(-264deg, var(--purple-darkest) 3px, var(--purple-darkest) calc(6px), var(--purple-dark) calc(6px), var(--purple-dark) calc(9px), var(--purple-darkest) calc(9px), var(--purple-darkest) calc(12px));
+    background-image: repeating-linear-gradient(-264deg, var(--purple-darkest) 3px, var(--purple-darkest) calc(6px), var(--red) calc(6px), var(--red) calc(9px), var(--purple-darkest) calc(9px), var(--purple-darkest) calc(12px));
   }
   99% {
-    background-image: repeating-linear-gradient(-264deg, var(--purple-darkest) 3px, var(--purple-darkest) calc(6px), var(--purple-dark) calc(6px), var(--purple-dark) calc(9px), var(--purple-darkest) calc(9px), var(--purple-darkest) calc(12px));
+    background-image: repeating-linear-gradient(-264deg, var(--purple-darkest) 3px, var(--purple-darkest) calc(6px), var(--red) calc(6px), var(--red) calc(9px), var(--purple-darkest) calc(9px), var(--purple-darkest) calc(12px));
   }
   100% {
     background-image: repeating-linear-gradient(-387.5deg, var(--orange-dark) 3px, var(--orange-dark) calc(6px), var(--yellow) calc(6px), var(--yellow) calc(9px), var(--orange-dark) calc(9px), var(--orange-dark) calc(12px));
@@ -543,6 +543,7 @@ template {
   --yellow: #f3dd00;
   --orange-light: #ffb611;
   --orange-dark: #ff5f00;
+  --red: #fa1b28;
   --purple: #8846cc;
   --purple-dark: #7632b9;
   --purple-darkest: #512481;
@@ -578,6 +579,24 @@ template {
   --header-logo-pulse-interval: 2.5s;
   --header-bg-swap-interval: 62.5s;
 }
+@supports (color: color(display-p3 1 0 0/1)) {
+  :root {
+    --green-neon: color(display-p3 0.34 1 0.12);
+    --yellow-neon: color(display-p3 0.927 1 0.405);
+    --green-dark: color(display-p3 0.038 0.625 0.038);
+    --green: color(display-p3 0.293 0.705 0.19);
+    --green-light: color(display-p3 0.612 0.82 0.234);
+    --green-lightest: color(display-p3 0.8898 0.9052 0.7608);
+    --yellow: color(display-p3 0.945 0.862 0.137);
+    --orange-light: color(display-p3 0.96 0.707 0.202);
+    --orange-dark: color(display-p3 0.975 0.376 0.093);
+    --purple: color(display-p3 0.483 0.027 0.785);
+    --purple-dark: color(display-p3 0.41 0.01 0.675);
+    --purple-darkest: color(display-p3 0.402 0.041 0.675);
+    --teal: color(display-p3 0.4467 0.5719 0.5741);
+  }
+}
+
 /* ----------------------------------------------
  * Generated by Animista on 2020-8-9 10:46:44
  * Licensed under FreeBSD License.
@@ -670,6 +689,7 @@ a svg {
 h1 {
   color: var(--yellow-neon);
   font-size: var(--heading-font-size, var(--h1-font-size));
+  font-weight: normal;
   line-height: var(--h1-line-height, var(--heading-line-height));
   text-transform: uppercase;
   font-style: italic;
@@ -682,6 +702,7 @@ h1 + * {
 h2 {
   color: var(--yellow-neon);
   font-size: var(--heading-font-size, var(--h2-font-size));
+  font-weight: normal;
   line-height: var(--h2-line-height, var(--heading-line-height));
   text-transform: uppercase;
   font-style: italic;
@@ -694,6 +715,7 @@ h2 + * {
 h3 {
   color: var(--yellow-neon);
   font-size: var(--heading-font-size, var(--h3-font-size));
+  font-weight: normal;
   line-height: var(--h3-line-height, var(--heading-line-height));
   text-transform: uppercase;
   font-style: italic;
@@ -706,6 +728,7 @@ h3 + * {
 h4 {
   color: var(--yellow-neon);
   font-size: var(--heading-font-size, var(--h4-font-size));
+  font-weight: normal;
   line-height: var(--h4-line-height, var(--heading-line-height));
   text-transform: uppercase;
   font-style: italic;
@@ -718,6 +741,7 @@ h4 + * {
 h5 {
   color: var(--yellow-neon);
   font-size: var(--heading-font-size, var(--h5-font-size));
+  font-weight: normal;
   line-height: var(--h5-line-height, var(--heading-line-height));
   text-transform: uppercase;
   font-style: italic;
@@ -730,6 +754,7 @@ h5 + * {
 h6 {
   color: var(--yellow-neon);
   font-size: var(--heading-font-size, var(--h6-font-size));
+  font-weight: normal;
   line-height: var(--h6-line-height, var(--heading-line-height));
   text-transform: uppercase;
   font-style: italic;
@@ -793,7 +818,7 @@ header:after {
   background-image: repeating-linear-gradient(34deg, var(--header-bg-secondary) 3px, var(--header-bg-secondary) calc(6px), var(--header-bg-primary) calc(6px), var(--header-bg-primary) calc(9px), var(--header-bg-secondary) calc(9px), var(--header-bg-secondary) calc(12px));
   background-size: 24px auto;
   background-repeat: repeat;
-  background-color: var(--purple-darkest);
+  background-color: var(--purple-dark);
   animation-name: rotateGradient;
   animation-duration: var(--header-bg-swap-interval);
   animation-timing-function: steps(1);
@@ -808,8 +833,8 @@ header .container {
   color: var(--header-text-primary);
   text-shadow: 0 1px black, 0 -1px black, 1px 0 black, -1px 0 black, 1px -1px black, 1px 1px black, -1px 1px black, -1px -1px black, 0 2px black, 0 -2px black, 2px 0 black, -2px 0 black, 2px -2px black, 2px 2px black, -2px 2px black, -2px -2px black;
 }
-header .container svg * {
-  border: 2px solid black;
+header .container svg {
+  filter: drop-shadow(2px 0 0 black) drop-shadow(-2px 0 0 black) drop-shadow(0 2px 0 black) drop-shadow(0 -2px 0 black);
 }
 @supports (display: grid) {
   header .container {
@@ -870,7 +895,7 @@ header h1:after {
 header h1 {
   animation-name: entrance;
   animation-duration: 1s;
-  animation-timing-function: ease-out;
+  animation-timing-function: ease-in-out;
   animation-direction: normal;
   animation-iteration-count: 1;
 }
@@ -879,7 +904,7 @@ header h1 {
     position: relative;
     z-index: 5;
     line-height: 1.45;
-    text-shadow: 0 1px black, 0 -1px black, 1px 0 black, -1px 0 black, 1px -1px black, 1px 1px black, -1px 1px black, -1px -1px black, 0 2px black, 0 -2px black, 2px 0 black, -2px 0 black, 2px -2px black, 2px 2px black, -2px 2px black, -2px -2px black;
+    text-shadow: 0 3px black, 0 -3px black, 3px 0 black, -3px 0 black, 3px -3px black, 3px 3px black, -3px 3px black, -3px -3px black, 0 4px black, 0 -4px black, 4px 0 black, -4px 0 black, 4px -4px black, 4px 4px black, -4px 4px black, -4px -4px black;
   }
   header h1::before, header h1::after {
     content: "Style Stage";
@@ -892,21 +917,22 @@ header h1 {
     animation-timing-function: ease-out;
     animation-direction: normal;
     animation-iteration-count: infinite;
+    text-shadow: none;
   }
   header h1::before {
     z-index: -1;
     -webkit-text-fill-color: var(--header-text-secondary);
     -webkit-text-stroke-width: 0.25em;
     -webkit-text-stroke-color: var(--header-text-tertiary);
-    animation-delay: 0.025s;
+    animation-delay: 0.0125s;
   }
   header h1::after {
     z-index: -2;
     -webkit-text-fill-color: var(--header-text-tertiary);
     -webkit-text-stroke-width: 0.5em;
     -webkit-text-stroke-color: var(--header-text-secondary);
-    animation-delay: 0.0125s;
-    filter: drop-shadow(0 0 2px black);
+    animation-delay: 0.025s;
+    filter: drop-shadow(2px 0 0 black) drop-shadow(-2px 0 0 black) drop-shadow(0 2px 0 black) drop-shadow(0 -2px 0 black);
   }
 }
 
@@ -926,6 +952,7 @@ nav:before, nav:after {
   color: var(--header-text-primary);
   position: fixed;
   z-index: -1;
+  right: 1rem;
   display: block;
   top: 1vh;
   bottom: 1vh;
@@ -935,14 +962,14 @@ nav:before, nav:after {
 }
 nav::before {
   z-index: -1;
-  -webkit-text-fill-color: var(--orange-dark);
+  -webkit-text-fill-color: var(--purple);
   -webkit-text-stroke-width: 1.5px;
-  -webkit-text-stroke-color: var(--yellow);
+  -webkit-text-stroke-color: var(--purple-dark);
 }
 nav::after {
   z-index: -2;
   -webkit-text-stroke-width: 0.33em;
-  -webkit-text-stroke-color: black;
+  -webkit-text-stroke-color: var(--purple-darkest);
 }
 
 nav ul {
@@ -967,6 +994,11 @@ nav ul > * {
   }
 }
 
+nav a {
+  background-color: white;
+  --link-color: black;
+  position: relative;
+}
 article,
 aside {
   padding: 2rem;
@@ -988,6 +1020,10 @@ section > * {
 section > h2 {
   grid-column: 1;
   grid-row: 1/-1;
+}
+
+.page-footer {
+  background-color: black;
 }
 
 .page-footer .container {

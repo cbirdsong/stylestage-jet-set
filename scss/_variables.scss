@@ -15,6 +15,8 @@
 	--orange-light: #ffb611;
 	--orange-dark: #ff5f00;
 
+	--red: #fa1b28;
+
 	--purple: #8846cc;
 	--purple-dark: #7632b9;
 	--purple-darkest: #512481;
@@ -22,6 +24,25 @@
 	--teal: #699393;
 
 	@supports (color: color(display-p3 1 0 0 / 1)) {
+		--green-neon: color(display-p3 0.34 1 0.12);
+
+		--yellow-neon: color(display-p3 0.927 1 0.405);
+
+		--green-dark: color(display-p3 0.038 0.625 0.038);
+		--green: color(display-p3 0.293 0.705 0.19);
+		--green-light: color(display-p3 0.612 0.82 0.234);
+		--green-lightest: color(display-p3 0.8898 0.9052 0.7608);
+
+		--yellow: color(display-p3 0.945 0.862 0.137);
+
+		--orange-light: color(display-p3 0.96 0.707 0.202);
+		--orange-dark: color(display-p3 0.975 0.376 0.093);
+
+		--purple: color(display-p3 0.483 0.027 0.785);
+		--purple-dark: color(display-p3 0.41 0.01 0.675);
+		--purple-darkest: color(display-p3 0.402 0.041 0.675);
+
+		--teal: color(display-p3 0.4467 0.5719 0.5741);
 	}
 
 	//Applied

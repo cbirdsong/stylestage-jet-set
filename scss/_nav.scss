@@ -14,6 +14,7 @@ nav {
 
 		position: fixed;
 		z-index: -1;
+		right: 1rem;
 
 		display: block;
 		top: 1vh;
@@ -26,15 +27,16 @@ nav {
 
 	&::before {
 		z-index: -1;
-		-webkit-text-fill-color: var(--orange-dark);
+
+		-webkit-text-fill-color: var(--purple);
 		-webkit-text-stroke-width: 1.5px;
-		-webkit-text-stroke-color: var(--yellow);
+		-webkit-text-stroke-color: var(--purple-dark);
 	}
 	&::after {
 		z-index: -2;
 
 		-webkit-text-stroke-width: 0.33em;
-		-webkit-text-stroke-color: black;
+		-webkit-text-stroke-color: var(--purple-darkest);
 	}
 }
 
@@ -59,5 +61,12 @@ nav ul {
 		bottom: 10vh;
 	}
 }
-nav {
+
+nav a {
+	background-color: white;
+	--link-color: black;
+	position: relative;
+
+	&::after {
+	}
 }

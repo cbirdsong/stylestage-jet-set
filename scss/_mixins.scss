@@ -94,7 +94,11 @@
 		}
 
 		#{($i * 4) - 0 + "%"} {
-			@if $i % 4 == 0 {
+			@if $i % 6 == 0 {
+				$degrees: $i * (31 - $i * 1.75) + "deg";
+				$color1: var(--purple-darkest);
+				$color2: var(--red);
+			} @else if $i % 4 == 0 {
 				$degrees: $i * (31 - $i * 1.75) + "deg";
 				$color1: var(--purple-darkest);
 				$color2: var(--purple-dark);

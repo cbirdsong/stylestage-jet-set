@@ -50,6 +50,7 @@ a svg {
 		color: var(--yellow-neon);
 
 		font-size: var(--heading-font-size, var(--h#{$i}-font-size));
+		font-weight: normal;
 		line-height: var(--h#{$i}-line-height, var(--heading-line-height));
 
 		text-transform: uppercase;
