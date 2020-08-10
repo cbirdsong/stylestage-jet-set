@@ -110,6 +110,18 @@ nav li {
 		rotateY(var(--rotateY)) rotateZ(var(--rotateZ));
 	transform-origin: var(--originX) var(--originY);
 
+	animation: beatNav;
+	animation-duration: calc(var(--beat-interval));
+	animation-timing-function: cubic-bezier(0.31, 0.37, 1, 1.65);
+	animation-iteration-count: infinite;
+
+	&:nth-child(odd) {
+		animation-delay: calc((var(--beat-interval) / 2));
+	}
+	&:nth-child(even) {
+		// animation-delay: calc(var(--beat-interval) / 2);
+	}
+
 	a {
 		position: relative;
 		z-index: 5;
@@ -122,15 +134,6 @@ nav li {
 
 		text-decoration: none;
 	}
-	// &:after {
-	// 	content: "";
-	// 	position: relative;
-	// 	z-index: -1;
-	// 	background-color: var(--link-color);
-
-	// 	transform: scale(1.1, 1.1) translateX(var(--translateX)) skewX(var(--skewX)) skewY(var(--skewY))
-	// 		rotateX(var(--rotateX)) rotateY(var(--rotateY)) rotateZ(var(--rotateZ));
-	// }
 
 	$max: 12;
 	@for $i from 1 through $max {

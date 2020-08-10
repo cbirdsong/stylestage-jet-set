@@ -94,7 +94,19 @@ section {
 		display: inline-block;
 	}
 }
+
+#guidelines {
+}
 .link-guidelines {
+}
+
+#files {
+	a {
+		margin-left: 1em;
+	}
+	a + a {
+		margin-left: 2em;
+	}
 }
 .link-downloadcss {
 }

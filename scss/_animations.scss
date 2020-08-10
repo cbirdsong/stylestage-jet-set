@@ -22,6 +22,61 @@
 		}
 	}
 }
+@keyframes beatNav {
+	0% {
+		transform: translateX(var(--translateX)) skewX(var(--skewX)) skewY(var(--skewY)) rotateX(var(--rotateX))
+			rotateY(var(--rotateY)) rotateZ(var(--rotateZ)) scale(1);
+	}
+
+	@for $i from 1 through 4 {
+		// @if $i % 2 == 0
+		#{($i * 25) - 2 + "%"} {
+			transform: translateX(var(--translateX))
+				skewX(var(--skewX))
+				skewY(var(--skewY))
+				rotateX(var(--rotateX))
+				rotateY(var(--rotateY))
+				rotateZ(var(--rotateZ))
+				scale(1);
+		}
+		#{($i * 25) - 1 + "%"} {
+			@if $i == 4 {
+				transform: translateX(var(--translateX))
+					skewX(var(--skewX))
+					skewY(var(--skewY))
+					rotateX(var(--rotateX))
+					rotateY(var(--rotateY))
+					rotateZ(var(--rotateZ))
+					scale(1.08, 1.06);
+			} @else if $i == 2 {
+				transform: translateX(var(--translateX))
+					skewX(var(--skewX))
+					skewY(var(--skewY))
+					rotateX(var(--rotateX))
+					rotateY(var(--rotateY))
+					rotateZ(var(--rotateZ))
+					scale(1.025, 1.01);
+			} @else {
+				transform: translateX(var(--translateX))
+					skewX(var(--skewX))
+					skewY(var(--skewY))
+					rotateX(var(--rotateX))
+					rotateY(var(--rotateY))
+					rotateZ(var(--rotateZ))
+					scale(1.01, 1.025);
+			}
+		}
+		#{$i * 25 + "%"} {
+			transform: translateX(var(--translateX))
+				skewX(var(--skewX))
+				skewY(var(--skewY))
+				rotateX(var(--rotateX))
+				rotateY(var(--rotateY))
+				rotateZ(var(--rotateZ))
+				scale(1);
+		}
+	}
+}
 
 @keyframes rotateGradient {
 	$degrees: 34deg;
