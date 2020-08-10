@@ -8,10 +8,9 @@ module.exports = function (eleventyConfig) {
 	eleventyConfig.addWatchTarget("style.css");
 
 	// Date formatting (machine readable)
-	eleventyConfig.addFilter("utcDate", dateObj => {
+	eleventyConfig.addFilter("utcDate", (dateObj) => {
 		return DateTime.fromJSDate(dateObj).toFormat("yyyyMMddhhmmss");
 	});
-
 
 	return {
 		templateFormats: ["html"],

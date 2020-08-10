@@ -17,12 +17,12 @@ header {
 		content: "";
 		position: absolute;
 		z-index: 1;
-		width: 120vmax;
-		height: 120vmax;
-		top: -2rem;
-		bottom: -2rem;
-		left: -2rem;
-		right: -2rem;
+		min-width: 120vmax;
+		min-height: 120vmax;
+		top: -60vmax;
+		bottom: -60vmax;
+		left: -60vmax;
+		right: -60vmax;
 
 		width: 2000vmax;
 		height: 2000vmax;
