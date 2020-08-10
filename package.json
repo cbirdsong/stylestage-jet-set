@@ -13,7 +13,7 @@
 	},
 	"homepage": "https://github.com/cbirdsong/untitled-stage#readme",
 	"scripts": {
-		"build": "eleventy & sass scss/style.scss style.css",
+		"build": "sass scss/style.scss style.css && eleventy",
 		"serve": "eleventy --serve & sass --watch scss/style.scss style.css",
 		"11ty:build": "eleventy",
 		"11ty:serve": "eleventy --serve",
