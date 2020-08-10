@@ -463,6 +463,7 @@ a {
   color: var(--link-color);
   text-decoration: underline;
   text-shadow: 0 1px black, 0 -1px black, 1px 0 black, -1px 0 black, 1px -1px black, 1px 1px black, -1px 1px black, -1px -1px black, 0 2px black, 0 -2px black, 2px 0 black, -2px 0 black, 2px -2px black, 2px 2px black, -2px 2px black, -2px -2px black;
+  text-underline-offset: 0.1em;
 }
 @supports (text-decoration-color: red) {
   a {
