@@ -1142,7 +1142,7 @@ section > h2 {
 .container > * + * {
   margin-top: 1.5rem;
 }
-.container > a:last-child {
+.container > a {
   display: inline-block;
 }
 
