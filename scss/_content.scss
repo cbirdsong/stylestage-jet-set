@@ -1,5 +1,7 @@
 article,
 aside {
+	overflow: hidden;
+
 	&:first-child {
 		--background-color: var(--purple-dark);
 		--angle: -0.25deg;

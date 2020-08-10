@@ -1061,6 +1061,10 @@ nav li:nth-child(12n) a {
   --rotateZ: 8.04deg;
 }
 
+article,
+aside {
+  overflow: hidden;
+}
 article:first-child,
 aside:first-child {
   --background-color: var(--purple-dark);
