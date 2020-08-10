@@ -107,10 +107,6 @@ dist
 /_site
 /_site/*/**
 
-# Compiled CSS
-*.css
-*.css.map
-
 # Mac OS detritus
 .DS_Store
 
