@@ -110,6 +110,7 @@ header h2 {
 header .link-github {
 	grid-area: link;
 	display: inline-flex;
+	position: relative;
 
 	span,
 	svg {
@@ -125,9 +126,7 @@ header .link-github {
 	}
 
 	span {
-		position: relative;
-		z-index: -1;
-
+		display: contents;
 		animation-name: beat;
 	}
 	svg {
@@ -141,8 +140,9 @@ header .link-github {
 
 		fill: transparent;
 
-		animation-name: spin, bounceLine;
+		animation-name: beat, moveAlongWord;
 		animation-direction: alternate;
+
 		transition-property: filter, fill;
 		transition-duration: 250ms;
 	}

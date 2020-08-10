@@ -697,6 +697,7 @@ header h2 {
 header .link-github {
   grid-area: link;
   display: inline-flex;
+  position: relative;
 }
 header .link-github span,
 header .link-github svg {
@@ -710,8 +711,7 @@ header .link-github:hover span, header .link-github:hover svg {
   animation-play-state: running;
 }
 header .link-github span {
-  position: relative;
-  z-index: -1;
+  display: contents;
   animation-name: beat;
 }
 header .link-github svg {
@@ -722,7 +722,7 @@ header .link-github svg {
   width: 5ch;
   height: auto;
   fill: transparent;
-  animation-name: spin, bounceLine;
+  animation-name: beat, moveAlongWord;
   animation-direction: alternate;
   transition-property: filter, fill;
   transition-duration: 250ms;
@@ -1101,10 +1101,6 @@ aside {
   position: relative;
   padding: 4rem 2rem;
 }
-article > * > * + *,
-aside > * + * {
-  margin-top: 1.5rem;
-}
 article > *::before, article > *::after,
 aside::before,
 aside::after {
@@ -1143,8 +1139,15 @@ section > h2 {
   grid-row: 1/-1;
 }
 
+.container > * + * {
+  margin-top: 1.5rem;
+}
+.container > a:last-child {
+  display: inline-block;
+}
+
 .page-footer {
-  min-height: 100vh;
+  min-height: 50vh;
   background-color: black;
   overflow: hidden;
   display: flex;
@@ -1156,22 +1159,36 @@ section > h2 {
 .page-footer:before, .page-footer:after {
   content: "Style Stage";
   display: block;
-  margin: -1rem auto;
-  opacity: 0.2;
+  position: absolute;
+  opacity: 0.075;
   font-style: italic;
   font-size: 15vw;
   line-height: 1;
   text-transform: uppercase;
 }
+.page-footer:before {
+  top: -0.5ex;
+  left: -0.5ch;
+}
+.page-footer:after {
+  right: -0.5ch;
+  bottom: -0.5ex;
+}
 
 .page-footer .container {
   padding: 2rem;
+  position: relative;
+  z-index: 5;
+  text-shadow: 0 1px black, 0 -1px black, 1px 0 black, -1px 0 black, 1px -1px black, 1px 1px black, -1px 1px black, -1px -1px black, 0 2px black, 0 -2px black, 2px 0 black, -2px 0 black, 2px -2px black, 2px 2px black, -2px 2px black, -2px -2px black;
 }
 .page-footer .container > * + * {
   margin-top: 2rem;
   max-width: 45ch;
   margin-left: auto;
   margin-right: auto;
+}
+.page-footer .container svg {
+  filter: drop-shadow(2px 0 0 black) drop-shadow(-2px 0 0 black) drop-shadow(0 2px 0 black) drop-shadow(0 -2px 0 black);
 }
 .page-footer .container ul {
   display: flex;
@@ -1185,7 +1202,23 @@ section > h2 {
 }
 .page-footer .container li {
   padding: 0;
-  margin: 0.5em;
+  margin: 0.5em 1em;
+}
+
+.page-footer .link-github {
+  display: inline-flex;
+}
+.page-footer .link-github span {
+  position: relative;
+}
+.page-footer .link-github svg {
+  position: absolute;
+  z-index: -1;
+  top: -0.75ex;
+  left: -1ch;
+  width: 3ch;
+  height: auto;
+  fill: var(--yellow-neon);
 }
 
 @keyframes beat {
@@ -1327,25 +1360,36 @@ section > h2 {
 }
 @keyframes bounce {
   0% {
-    transform: translateY(0) translateX(0);
+    transform: translateY(0);
   }
   25% {
-    transform: translateY(33%) translateX(-2.5%);
-  }
-  38% {
-    transform: translateY(66%) translateX(5%);
+    transform: translateY(100%);
   }
   50% {
-    transform: translateY(100%) translateX(-2.5%);
-  }
-  63% {
-    transform: translateY(66%) translateX(2.5%);
+    transform: translateY(0%);
   }
   75% {
-    transform: translateY(33%) translateX(-5%);
+    transform: translateY(-100%);
   }
   100% {
-    transform: translateY(0) translateX(0);
+    transform: translateY(0);
+  }
+}
+@keyframes moveAlongWord {
+  0% {
+    transform: translateX(0) translateY(0) rotate(0deg);
+  }
+  25% {
+    transform: translateX(50%) translateY(25%);
+  }
+  50% {
+    transform: translateX(100%) translateY(0%) rotate(180deg);
+  }
+  75% {
+    transform: translateX(150%) translateY(-25%);
+  }
+  100% {
+    transform: translateX(200%) translateY(0) rotate(360deg);
   }
 }
 

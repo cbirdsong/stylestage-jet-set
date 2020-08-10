@@ -37,10 +37,6 @@ aside {
 
 	padding: 4rem 2rem;
 
-	> * + * {
-		margin-top: 1.5rem;
-	}
-
 	&::before,
 	&::after {
 		content: "";
@@ -92,6 +88,14 @@ section {
 	}
 }
 
+.container {
+	> * + * {
+		margin-top: 1.5rem;
+	}
+	> a:last-child {
+		display: inline-block;
+	}
+}
 .link-guidelines {
 }
 .link-downloadcss {
