@@ -102,3 +102,36 @@
 		transform: translate(1%, 1%);
 	}
 }
+
+@keyframes spin {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
+@keyframes bounce {
+	0% {
+		transform: translateY(0) translateX(0);
+	}
+	25% {
+		transform: translateY(33%) translateX(-2.5%);
+	}
+	38% {
+		transform: translateY(66%) translateX(5%);
+	}
+	50% {
+		transform: translateY(100%) translateX(-2.5%);
+	}
+	63% {
+		transform: translateY(66%) translateX(2.5%);
+	}
+	75% {
+		transform: translateY(33%) translateX(-5%);
+	}
+	100% {
+		transform: translateY(0) translateX(0);
+	}
+}

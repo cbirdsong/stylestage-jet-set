@@ -698,15 +698,21 @@ header .link-github {
   grid-area: link;
   display: inline-flex;
 }
+header .link-github span,
+header .link-github svg {
+  animation-duration: var(--beat-interval);
+  animation-direction: normal;
+  animation-iteration-count: infinite;
+  animation-play-state: paused;
+  animation-timing-function: cubic-bezier(0.31, 0.37, 1, 1.65);
+}
+header .link-github:hover span, header .link-github:hover svg {
+  animation-play-state: running;
+}
 header .link-github span {
   position: relative;
   z-index: -1;
   animation-name: beat;
-  animation-duration: var(--beat-interval);
-  animation-timing-function: cubic-bezier(0.31, 0.37, 1, 1.65);
-  animation-direction: normal;
-  animation-iteration-count: infinite;
-  animation-play-state: paused;
 }
 header .link-github svg {
   position: absolute;
@@ -715,12 +721,16 @@ header .link-github svg {
   left: -2ch;
   width: 5ch;
   height: auto;
+  fill: transparent;
+  animation-name: spin, bounceLine;
+  animation-direction: alternate;
+  transition-property: filter, fill;
+  transition-duration: 250ms;
+}
+header .link-github:hover svg {
+  animation-duration: calc(var(--beat-interval) / 2);
   fill: var(--header-text-secondary);
   filter: drop-shadow(-0.1rem -0.1rem 0 var(--red)) drop-shadow(0.1rem -0.1rem 0 var(--teal)) drop-shadow(-0.1rem 0.1rem 0 var(--purple)) drop-shadow(0.1rem 0.1rem 0 var(--orange-dark)) drop-shadow(-0.2rem -0.2rem 0 var(--black)) drop-shadow(0.2rem -0.2rem 0 var(--black)) drop-shadow(-0.2rem 0.2rem 0 var(--black)) drop-shadow(0.2rem 0.2rem 0 var(--black));
-  transform: rotate(-10deg);
-}
-header .link-github:hover span {
-  animation-play-state: running;
 }
 
 header h1,
@@ -1301,6 +1311,37 @@ section > h2 {
   }
   100% {
     transform: translate(1%, 1%);
+  }
+}
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes bounce {
+  0% {
+    transform: translateY(0) translateX(0);
+  }
+  25% {
+    transform: translateY(33%) translateX(-2.5%);
+  }
+  38% {
+    transform: translateY(66%) translateX(5%);
+  }
+  50% {
+    transform: translateY(100%) translateX(-2.5%);
+  }
+  63% {
+    transform: translateY(66%) translateX(2.5%);
+  }
+  75% {
+    transform: translateY(33%) translateX(-5%);
+  }
+  100% {
+    transform: translateY(0) translateX(0);
   }
 }
 

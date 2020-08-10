@@ -111,16 +111,24 @@ header .link-github {
 	grid-area: link;
 	display: inline-flex;
 
+	span,
+	svg {
+		animation-duration: var(--beat-interval);
+		animation-direction: normal;
+		animation-iteration-count: infinite;
+		animation-play-state: paused;
+		animation-timing-function: cubic-bezier(0.31, 0.37, 1, 1.65);
+	}
+	&:hover span,
+	&:hover svg {
+		animation-play-state: running;
+	}
+
 	span {
 		position: relative;
 		z-index: -1;
 
 		animation-name: beat;
-		animation-duration: var(--beat-interval);
-		animation-timing-function: cubic-bezier(0.31, 0.37, 1, 1.65);
-		animation-direction: normal;
-		animation-iteration-count: infinite;
-		animation-play-state: paused;
 	}
 	svg {
 		position: absolute;
@@ -131,17 +139,21 @@ header .link-github {
 		width: 5ch;
 		height: auto;
 
+		fill: transparent;
+
+		animation-name: spin, bounceLine;
+		animation-direction: alternate;
+		transition-property: filter, fill;
+		transition-duration: 250ms;
+	}
+	&:hover svg {
+		animation-duration: calc(var(--beat-interval) / 2);
+
 		fill: var(--header-text-secondary);
 		filter: drop-shadow(-0.1rem -0.1rem 0 var(--red)) drop-shadow(0.1rem -0.1rem 0 var(--teal))
 			drop-shadow(-0.1rem 0.1rem 0 var(--purple)) drop-shadow(0.1rem 0.1rem 0 var(--orange-dark))
 			drop-shadow(-0.2rem -0.2rem 0 var(--black)) drop-shadow(0.2rem -0.2rem 0 var(--black))
 			drop-shadow(-0.2rem 0.2rem 0 var(--black)) drop-shadow(0.2rem 0.2rem 0 var(--black));
-
-		transform: rotate(-10deg);
-	}
-
-	&:hover span {
-		animation-play-state: running;
 	}
 }
 
