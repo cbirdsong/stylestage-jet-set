@@ -17,19 +17,13 @@ header {
 		content: "";
 		position: absolute;
 		z-index: 1;
-		min-width: 120vmax;
-		min-height: 120vmax;
-		top: -60vmax;
-		bottom: -60vmax;
-		left: -60vmax;
-		right: -60vmax;
 
-		width: 2000vmax;
-		height: 2000vmax;
-		top: -25%;
-		bottom: -25%;
-		left: -25%;
-		right: -25%;
+		width: 200vw;
+		height: 200vh;
+		top: -25vh;
+		bottom: -25vh;
+		left: -25vw;
+		right: -25vw;
 
 		transform-origin: center center;
 

@@ -96,10 +96,10 @@
 
 @keyframes panGradient {
 	0% {
-		transform: translate(-3%, -3%);
+		transform: translate(-20vmin, -20vmin);
 	}
 	100% {
-		transform: translate(3%, 3%);
+		transform: translate(20vmin, 20vmin);
 	}
 }
 

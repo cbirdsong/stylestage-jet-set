@@ -1,7 +1,5 @@
 article,
 aside {
-	overflow: hidden;
-
 	&:first-child {
 		--background-color: var(--purple-dark);
 		--angle: -0.25deg;
@@ -44,11 +42,11 @@ aside {
 		// box-shadow: inset 0 0 0 1rem var(--background-color);
 		display: block;
 		position: absolute;
+		z-index: -1;
 		top: 0;
 		left: 0;
-		right: -100%;
 		bottom: -1rem;
-		z-index: -1;
+		width: 100vw;
 
 		mix-blend-mode: hue;
 		opacity: 0.5;

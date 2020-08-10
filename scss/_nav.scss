@@ -60,12 +60,6 @@ nav ul {
 	padding: 0;
 	margin: 0;
 
-	> * {
-		width: 100%;
-		padding: 0.25em 1em;
-		flex: 1;
-	}
-
 	@supports (display: grid) {
 		position: sticky;
 		flex-flow: column nowrap;
@@ -78,63 +72,65 @@ nav ul {
 nav li {
 	position: sticky;
 
-	display: flex;
+	display: inline-flex;
 	align-items: center;
 	justify-content: center;
 
+	--translateX: 0rem;
+	--skewX: 0deg;
+	--skewY: 0deg;
+	--rotateX: 0deg;
+	--rotateY: 0deg;
+	--rotateZ: 0deg;
+
+	--border-top-width: 0.125rem;
+	--border-left-width: 0.125rem;
+	--border-bottom-width: 0.125rem;
+	--border-right-width: 0.125rem;
+
+	--link-color: black;
+	--link-color--hover: var(--red-dark);
+	--link-color--active: var(--red);
+	--link-color--focus: var(--orange-dark);
+	--background-color: white;
+
+	color: var(--link-color);
+
+	outline: 0.125rem solid currentColor;
+	@supports (filter: drop-shadow(0 0 0 black)) {
+		outline-width: 0;
+
+		filter: drop-shadow(0 var(--border-top-width) 0 currentColor)
+			drop-shadow(var(--border-right-width) 0 0 currentColor)
+			drop-shadow(0 calc(var(--border-bottom-width) * -1) 0 currentColor)
+			drop-shadow(calc(var(--border-left-width) * -1) 0 0 currentColor);
+	}
+
+	transform: translateX(var(--translateX)) skewX(var(--skewX)) skewY(var(--skewY)) rotateX(var(--rotateX))
+		rotateY(var(--rotateY)) rotateZ(var(--rotateZ));
+	transform-origin: var(--originX) var(--originY);
+
 	a {
 		position: relative;
+		z-index: 5;
 		display: inline-block;
-
 		padding: 1em 1.2em;
 
-		--link-color: black;
-		--link-color--hover: var(--red-dark);
-		--link-color--active: var(--red);
-		--link-color--focus: var(--orange-dark);
-
 		background-color: var(--background-color);
-		--background-color: white;
 
-		border: 0.125rem solid currentColor;
-		@supports (filter: drop-shadow(0 0 0 black)) {
-			border-width: 0;
-			--border-left-width: 0.125rem;
-			--border-bottom-width: 0.125rem;
-			--border-right-width: 0.125rem;
-			--border-top-width: 0.125rem;
-			filter: drop-shadow(0 var(--border-top-width) 0 currentColor)
-				drop-shadow(var(--border-right-width) 0 0 currentColor)
-				drop-shadow(0 calc(var(--border-bottom-width) * -1) 0 currentColor)
-				drop-shadow(calc(var(--border-left-width) * -1) 0 0 currentColor);
-		}
-
-		--translateX: 0rem;
-		--skewX: 0deg;
-		--skewY: 0deg;
-		--rotateX: 0deg;
-		--rotateY: 0deg;
-		--rotateZ: 0deg;
-		transform: translateX(var(--translateX)) skewX(var(--skewX)) skewY(var(--skewY)) rotateX(var(--rotateX))
-			rotateY(var(--rotateY)) rotateZ(var(--rotateZ));
-		transform-origin: var(--originX) var(--originY);
-
-		&:after {
-			content: "";
-			position: absolute;
-			z-index: -1;
-			top: 0;
-			left: 0;
-			right: 0;
-			bottom: 0;
-			// background-color: currentColor;
-
-			transform: scale(1.1, 1.1) skewX(var(--skewX)) skewY(var(--skewY)) rotateX(var(--rotateX)) rotateY(var(--rotateY))
-				rotateZ(var(--rotateZ));
-		}
+		text-shadow: none;
 
 		text-decoration: none;
 	}
+	// &:after {
+	// 	content: "";
+	// 	position: relative;
+	// 	z-index: -1;
+	// 	background-color: var(--link-color);
+
+	// 	transform: scale(1.1, 1.1) translateX(var(--translateX)) skewX(var(--skewX)) skewY(var(--skewY))
+	// 		rotateX(var(--rotateX)) rotateY(var(--rotateY)) rotateZ(var(--rotateZ));
+	// }
 
 	$max: 12;
 	@for $i from 1 through $max {
@@ -142,45 +138,50 @@ nav li {
 			$h: $max - $i;
 			$j: $max + $i;
 
-			z-index: $max - $i;
+			$p: ($max + $i) * 10;
+			$z: ($max - $i) * 10;
+
+			z-index: $z;
+			perspective: $p;
+			a {
+				z-index: $z + 1;
+			}
 
 			top: calc(#{($i * 0.33) + "rem"} + 0.05vh);
 			bottom: calc(#{($i * -0.33) + "rem"} + 0.05vh);
 
-			a {
-				@if $i % 6 == 0 {
-					--border-top-width: #{"0.1" + $i + "5" + "rem"};
-					--translateX: #{$i * -0.0625 + "rem"};
-					--skewX: #{$j * -0.4 + "deg"};
-					--skewY: #{$i * 0.35 + "deg"};
-					--rotateX: #{$h * 1.25 + "deg"};
-					--rotateY: #{$h * -1.75 + "deg"};
-					--rotateZ: #{$i * 0.67 + "deg"};
-				} @else if $i % 3 == 0 {
-					--border-bottom-width: #{"0.1" + $i + "5" + "rem"};
-					--translateX: #{$i * -0.0385 + "rem"};
-					--skewX: #{$h * -0.025 + "deg"};
-					--skewY: #{$i * -0.75 + "deg"};
-					--rotateX: #{$i * -1.33 + "deg"};
-					--rotateY: #{$i * -1.475 + "deg"};
-					--rotateZ: #{$h * 1.125 + "deg"};
-				} @else if $i % 2 == 0 {
-					--border-right-width: #{"0.1" + $i + "5" + "rem"};
-					--translateX: #{$i * 0.042 + "rem"};
-					--skewX: #{$i * -0.85 + "deg"};
-					--skewY: #{$h * 0.5 + "deg"};
-					--rotateX: #{$h * 0.685 + "deg"};
-					--rotateY: #{$j * -0.825 + "deg"};
-					--rotateZ: #{$i * -0.95 + "deg"};
-				} @else {
-					--border-top-width: #{"0.1" + $i + "5" + "rem"};
-					--translateX: #{$i * -0.055 + "rem"};
-					--skewX: #{$h * -0.8 + "deg"};
-					--skewY: #{$i * 1.2 + "deg"};
-					--rotateX: #{$i * -1.33 + "deg"};
-					--rotateY: #{$j * 0.95 + "deg"};
-					--rotateZ: #{$h * -1.75 + "deg"};
-				}
+			@if $i % 6 == 0 {
+				--border-top-width: #{"0.1" + $i + "5" + "rem"};
+				--translateX: #{$i * -0.0625 + "rem"};
+				--skewX: #{$j * -0.4 + "deg"};
+				--skewY: #{$i * 0.35 + "deg"};
+				--rotateX: #{$h * 1.25 + "deg"};
+				--rotateY: #{$h * -1.75 + "deg"};
+				--rotateZ: #{$i * 0.67 + "deg"};
+			} @else if $i % 3 == 0 {
+				--border-bottom-width: #{"0.1" + $i + "5" + "rem"};
+				--translateX: #{$i * -0.0385 + "rem"};
+				--skewX: #{$h * -0.025 + "deg"};
+				--skewY: #{$i * -0.75 + "deg"};
+				--rotateX: #{$i * -1.33 + "deg"};
+				--rotateY: #{$i * -1.475 + "deg"};
+				--rotateZ: #{$h * 1.125 + "deg"};
+			} @else if $i % 2 == 0 {
+				--border-right-width: #{"0.1" + $i + "5" + "rem"};
+				--translateX: #{$i * 0.042 + "rem"};
+				--skewX: #{$i * -0.85 + "deg"};
+				--skewY: #{$h * 0.5 + "deg"};
+				--rotateX: #{$h * 0.685 + "deg"};
+				--rotateY: #{$j * -0.825 + "deg"};
+				--rotateZ: #{$i * -0.95 + "deg"};
+			} @else {
+				--border-top-width: #{"0.1" + $i + "5" + "rem"};
+				--translateX: #{$i * -0.055 + "rem"};
+				--skewX: #{$h * -0.8 + "deg"};
+				--skewY: #{$i * 1.2 + "deg"};
+				--rotateX: #{$i * -1.33 + "deg"};
+				--rotateY: #{$j * 0.95 + "deg"};
+				--rotateZ: #{$h * -1.75 + "deg"};
 			}
 		}
 	}

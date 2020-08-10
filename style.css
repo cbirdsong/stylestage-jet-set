@@ -462,6 +462,7 @@ a {
 a {
   color: var(--link-color);
   text-decoration: underline;
+  text-shadow: 0 1px black, 0 -1px black, 1px 0 black, -1px 0 black, 1px -1px black, 1px 1px black, -1px 1px black, -1px -1px black, 0 2px black, 0 -2px black, 2px 0 black, -2px 0 black, 2px -2px black, 2px 2px black, -2px 2px black, -2px -2px black;
 }
 @supports (text-decoration-color: red) {
   a {
@@ -614,18 +615,12 @@ header:after {
   content: "";
   position: absolute;
   z-index: 1;
-  min-width: 120vmax;
-  min-height: 120vmax;
-  top: -60vmax;
-  bottom: -60vmax;
-  left: -60vmax;
-  right: -60vmax;
-  width: 2000vmax;
-  height: 2000vmax;
-  top: -25%;
-  bottom: -25%;
-  left: -25%;
-  right: -25%;
+  width: 200vw;
+  height: 200vh;
+  top: -25vh;
+  bottom: -25vh;
+  left: -25vw;
+  right: -25vw;
   transform-origin: center center;
   background-repeat: repeat;
   background-color: var(--purple-darkest);
@@ -830,11 +825,6 @@ nav ul {
   padding: 0;
   margin: 0;
 }
-nav ul > * {
-  width: 100%;
-  padding: 0.25em 1em;
-  flex: 1;
-}
 @supports (display: grid) {
   nav ul {
     position: sticky;
@@ -847,57 +837,49 @@ nav ul > * {
 
 nav li {
   position: sticky;
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-}
-nav li a {
-  position: relative;
-  display: inline-block;
-  padding: 1em 1.2em;
-  --link-color: black;
-  --link-color--hover: var(--red-dark);
-  --link-color--active: var(--red);
-  --link-color--focus: var(--orange-dark);
-  background-color: var(--background-color);
-  --background-color: white;
-  border: 0.125rem solid currentColor;
   --translateX: 0rem;
   --skewX: 0deg;
   --skewY: 0deg;
   --rotateX: 0deg;
   --rotateY: 0deg;
   --rotateZ: 0deg;
+  --border-top-width: 0.125rem;
+  --border-left-width: 0.125rem;
+  --border-bottom-width: 0.125rem;
+  --border-right-width: 0.125rem;
+  --link-color: black;
+  --link-color--hover: var(--red-dark);
+  --link-color--active: var(--red);
+  --link-color--focus: var(--orange-dark);
+  --background-color: white;
+  color: var(--link-color);
+  outline: 0.125rem solid currentColor;
   transform: translateX(var(--translateX)) skewX(var(--skewX)) skewY(var(--skewY)) rotateX(var(--rotateX)) rotateY(var(--rotateY)) rotateZ(var(--rotateZ));
   transform-origin: var(--originX) var(--originY);
-  text-decoration: none;
 }
 @supports (filter: drop-shadow(0 0 0 black)) {
-  nav li a {
-    border-width: 0;
-    --border-left-width: 0.125rem;
-    --border-bottom-width: 0.125rem;
-    --border-right-width: 0.125rem;
-    --border-top-width: 0.125rem;
+  nav li {
+    outline-width: 0;
     filter: drop-shadow(0 var(--border-top-width) 0 currentColor) drop-shadow(var(--border-right-width) 0 0 currentColor) drop-shadow(0 calc(var(--border-bottom-width) * -1) 0 currentColor) drop-shadow(calc(var(--border-left-width) * -1) 0 0 currentColor);
   }
 }
-nav li a:after {
-  content: "";
-  position: absolute;
-  z-index: -1;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  transform: scale(1.1, 1.1) skewX(var(--skewX)) skewY(var(--skewY)) rotateX(var(--rotateX)) rotateY(var(--rotateY)) rotateZ(var(--rotateZ));
+nav li a {
+  position: relative;
+  z-index: 5;
+  display: inline-block;
+  padding: 1em 1.2em;
+  background-color: var(--background-color);
+  text-shadow: none;
+  text-decoration: none;
 }
 nav li:nth-child(1n) {
-  z-index: 11;
+  z-index: 110;
+  perspective: 130;
   top: calc(0.33rem + 0.05vh);
   bottom: calc(-0.33rem + 0.05vh);
-}
-nav li:nth-child(1n) a {
   --border-top-width: 0.115rem;
   --translateX: -0.055rem;
   --skewX: -8.8deg;
@@ -906,12 +888,14 @@ nav li:nth-child(1n) a {
   --rotateY: 12.35deg;
   --rotateZ: -19.25deg;
 }
+nav li:nth-child(1n) a {
+  z-index: 111;
+}
 nav li:nth-child(2n) {
-  z-index: 10;
+  z-index: 100;
+  perspective: 140;
   top: calc(0.66rem + 0.05vh);
   bottom: calc(-0.66rem + 0.05vh);
-}
-nav li:nth-child(2n) a {
   --border-right-width: 0.125rem;
   --translateX: 0.084rem;
   --skewX: -1.7deg;
@@ -920,12 +904,14 @@ nav li:nth-child(2n) a {
   --rotateY: -11.55deg;
   --rotateZ: -1.9deg;
 }
+nav li:nth-child(2n) a {
+  z-index: 101;
+}
 nav li:nth-child(3n) {
-  z-index: 9;
+  z-index: 90;
+  perspective: 150;
   top: calc(0.99rem + 0.05vh);
   bottom: calc(-0.99rem + 0.05vh);
-}
-nav li:nth-child(3n) a {
   --border-bottom-width: 0.135rem;
   --translateX: -0.1155rem;
   --skewX: -0.225deg;
@@ -934,12 +920,14 @@ nav li:nth-child(3n) a {
   --rotateY: -4.425deg;
   --rotateZ: 10.125deg;
 }
+nav li:nth-child(3n) a {
+  z-index: 91;
+}
 nav li:nth-child(4n) {
-  z-index: 8;
+  z-index: 80;
+  perspective: 160;
   top: calc(1.32rem + 0.05vh);
   bottom: calc(-1.32rem + 0.05vh);
-}
-nav li:nth-child(4n) a {
   --border-right-width: 0.145rem;
   --translateX: 0.168rem;
   --skewX: -3.4deg;
@@ -948,12 +936,14 @@ nav li:nth-child(4n) a {
   --rotateY: -13.2deg;
   --rotateZ: -3.8deg;
 }
+nav li:nth-child(4n) a {
+  z-index: 81;
+}
 nav li:nth-child(5n) {
-  z-index: 7;
+  z-index: 70;
+  perspective: 170;
   top: calc(1.65rem + 0.05vh);
   bottom: calc(-1.65rem + 0.05vh);
-}
-nav li:nth-child(5n) a {
   --border-top-width: 0.155rem;
   --translateX: -0.275rem;
   --skewX: -5.6deg;
@@ -962,12 +952,14 @@ nav li:nth-child(5n) a {
   --rotateY: 16.15deg;
   --rotateZ: -12.25deg;
 }
+nav li:nth-child(5n) a {
+  z-index: 71;
+}
 nav li:nth-child(6n) {
-  z-index: 6;
+  z-index: 60;
+  perspective: 180;
   top: calc(1.98rem + 0.05vh);
   bottom: calc(-1.98rem + 0.05vh);
-}
-nav li:nth-child(6n) a {
   --border-top-width: 0.165rem;
   --translateX: -0.375rem;
   --skewX: -7.2deg;
@@ -976,12 +968,14 @@ nav li:nth-child(6n) a {
   --rotateY: -10.5deg;
   --rotateZ: 4.02deg;
 }
+nav li:nth-child(6n) a {
+  z-index: 61;
+}
 nav li:nth-child(7n) {
-  z-index: 5;
+  z-index: 50;
+  perspective: 190;
   top: calc(2.31rem + 0.05vh);
   bottom: calc(-2.31rem + 0.05vh);
-}
-nav li:nth-child(7n) a {
   --border-top-width: 0.175rem;
   --translateX: -0.385rem;
   --skewX: -4deg;
@@ -990,12 +984,14 @@ nav li:nth-child(7n) a {
   --rotateY: 18.05deg;
   --rotateZ: -8.75deg;
 }
+nav li:nth-child(7n) a {
+  z-index: 51;
+}
 nav li:nth-child(8n) {
-  z-index: 4;
+  z-index: 40;
+  perspective: 200;
   top: calc(2.64rem + 0.05vh);
   bottom: calc(-2.64rem + 0.05vh);
-}
-nav li:nth-child(8n) a {
   --border-right-width: 0.185rem;
   --translateX: 0.336rem;
   --skewX: -6.8deg;
@@ -1004,12 +1000,14 @@ nav li:nth-child(8n) a {
   --rotateY: -16.5deg;
   --rotateZ: -7.6deg;
 }
+nav li:nth-child(8n) a {
+  z-index: 41;
+}
 nav li:nth-child(9n) {
-  z-index: 3;
+  z-index: 30;
+  perspective: 210;
   top: calc(2.97rem + 0.05vh);
   bottom: calc(-2.97rem + 0.05vh);
-}
-nav li:nth-child(9n) a {
   --border-bottom-width: 0.195rem;
   --translateX: -0.3465rem;
   --skewX: -0.075deg;
@@ -1018,12 +1016,14 @@ nav li:nth-child(9n) a {
   --rotateY: -13.275deg;
   --rotateZ: 3.375deg;
 }
+nav li:nth-child(9n) a {
+  z-index: 31;
+}
 nav li:nth-child(10n) {
-  z-index: 2;
+  z-index: 20;
+  perspective: 220;
   top: calc(3.3rem + 0.05vh);
   bottom: calc(-3.3rem + 0.05vh);
-}
-nav li:nth-child(10n) a {
   --border-right-width: 0.1105rem;
   --translateX: 0.42rem;
   --skewX: -8.5deg;
@@ -1032,12 +1032,14 @@ nav li:nth-child(10n) a {
   --rotateY: -18.15deg;
   --rotateZ: -9.5deg;
 }
+nav li:nth-child(10n) a {
+  z-index: 21;
+}
 nav li:nth-child(11n) {
-  z-index: 1;
+  z-index: 10;
+  perspective: 230;
   top: calc(3.63rem + 0.05vh);
   bottom: calc(-3.63rem + 0.05vh);
-}
-nav li:nth-child(11n) a {
   --border-top-width: 0.1115rem;
   --translateX: -0.605rem;
   --skewX: -0.8deg;
@@ -1046,12 +1048,14 @@ nav li:nth-child(11n) a {
   --rotateY: 21.85deg;
   --rotateZ: -1.75deg;
 }
+nav li:nth-child(11n) a {
+  z-index: 11;
+}
 nav li:nth-child(12n) {
   z-index: 0;
+  perspective: 240;
   top: calc(3.96rem + 0.05vh);
   bottom: calc(-3.96rem + 0.05vh);
-}
-nav li:nth-child(12n) a {
   --border-top-width: 0.1125rem;
   --translateX: -0.75rem;
   --skewX: -9.6deg;
@@ -1060,11 +1064,10 @@ nav li:nth-child(12n) a {
   --rotateY: 0deg;
   --rotateZ: 8.04deg;
 }
-
-article,
-aside {
-  overflow: hidden;
+nav li:nth-child(12n) a {
+  z-index: 1;
 }
+
 article:first-child,
 aside:first-child {
   --background-color: var(--purple-dark);
@@ -1108,11 +1111,11 @@ aside::after {
   background-color: var(--background-color);
   display: block;
   position: absolute;
+  z-index: -1;
   top: 0;
   left: 0;
-  right: -100%;
   bottom: -1rem;
-  z-index: -1;
+  width: 100vw;
   mix-blend-mode: hue;
   opacity: 0.5;
   transform: rotate(var(--angle));
@@ -1344,10 +1347,10 @@ section > h2 {
 }
 @keyframes panGradient {
   0% {
-    transform: translate(-3%, -3%);
+    transform: translate(-20vmin, -20vmin);
   }
   100% {
-    transform: translate(3%, 3%);
+    transform: translate(20vmin, 20vmin);
   }
 }
 @keyframes spin {
