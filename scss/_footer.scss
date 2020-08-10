@@ -1,8 +1,52 @@
 .page-footer {
+	min-height: 100vh;
 	background-color: black;
+	overflow: hidden;
+
+	display: flex;
+	align-items: center;
+	flex-flow: column;
+	justify-content: center;
+
+	text-align: center;
+
+	&:before,
+	&:after {
+		content: "Style Stage";
+		display: block;
+		margin: -1rem auto;
+
+		opacity: 0.2;
+		font-style: italic;
+		font-size: 15vw;
+		line-height: 1;
+		text-transform: uppercase;
+	}
 }
 .page-footer .container {
 	padding: 2rem;
+
+	> * + * {
+		margin-top: 2rem;
+		max-width: 45ch;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	ul {
+		display: flex;
+		flex-flow: row wrap;
+		max-width: 100%;
+		padding: 0;
+		margin: 2rem 0 0;
+		list-style-type: none;
+		align-items: center;
+		justify-content: center;
+	}
+	li {
+		padding: 0;
+		margin: 0.5em;
+	}
 }
 
 .link-twittercontact {

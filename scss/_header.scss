@@ -3,36 +3,51 @@ header {
 	z-index: 100;
 	overflow: hidden;
 
+	--link-color: var(--green-neon);
+
+	background-image: repeating-linear-gradient(
+		34deg,
+		var(--header-bg-secondary) 8px,
+		var(--header-bg-secondary) 16px,
+		var(--header-bg-primary) 16px,
+		var(--header-bg-primary) 32px
+	);
+
 	&:after {
 		content: "";
 		position: absolute;
-		z-index: -1;
-		top: -1000vh;
-		bottom: -1000vh;
-		left: -1000vh;
-		right: -1000vh;
+		z-index: 1;
+		width: 120vmax;
+		height: 120vmax;
+		top: -2rem;
+		bottom: -2rem;
+		left: -2rem;
+		right: -2rem;
 
-		background-image: repeating-linear-gradient(
-			34deg,
-			var(--header-bg-secondary) 0,
-			var(--header-bg-secondary) calc(6px),
-			var(--header-bg-primary) calc(6px),
-			var(--header-bg-primary) calc(12px)
-		);
+		width: 2000vmax;
+		height: 2000vmax;
+		top: -25%;
+		bottom: -25%;
+		left: -25%;
+		right: -25%;
 
-		background-size: 24px 24px;
+		transform-origin: center center;
+
 		background-repeat: repeat;
-		background-color: var(--purple-dark);
+		background-color: var(--purple-darkest);
 
-		animation-name: rotateGradient;
-		animation-duration: var(--header-bg-swap-interval);
-		animation-timing-function: steps(1);
-		animation-direction: normal;
+		animation-name: rotateGradient, panGradient;
+		animation-duration: var(--beat-bg-swap-interval), calc(var(--beat-interval) * 4);
+		animation-timing-function: steps(1), linear;
+		animation-direction: normal, alternate;
 		animation-iteration-count: infinite;
 	}
 }
 
 header .container {
+	position: relative;
+	z-index: 10;
+
 	min-height: 100vh;
 	padding: 1rem;
 
@@ -94,6 +109,40 @@ header h2 {
 
 header .link-github {
 	grid-area: link;
+	display: inline-flex;
+
+	span {
+		position: relative;
+		z-index: -1;
+
+		animation-name: beat;
+		animation-duration: var(--beat-interval);
+		animation-timing-function: cubic-bezier(0.31, 0.37, 1, 1.65);
+		animation-direction: normal;
+		animation-iteration-count: infinite;
+		animation-play-state: paused;
+	}
+	svg {
+		position: absolute;
+		z-index: -1;
+		top: -1.5ex;
+		left: -2ch;
+
+		width: 5ch;
+		height: auto;
+
+		fill: var(--header-text-secondary);
+		filter: drop-shadow(-0.1rem -0.1rem 0 var(--red)) drop-shadow(0.1rem -0.1rem 0 var(--teal))
+			drop-shadow(-0.1rem 0.1rem 0 var(--purple)) drop-shadow(0.1rem 0.1rem 0 var(--orange-dark))
+			drop-shadow(-0.2rem -0.2rem 0 var(--black)) drop-shadow(0.2rem -0.2rem 0 var(--black))
+			drop-shadow(-0.2rem 0.2rem 0 var(--black)) drop-shadow(0.2rem 0.2rem 0 var(--black));
+
+		transform: rotate(-10deg);
+	}
+
+	&:hover span {
+		animation-play-state: running;
+	}
 }
 
 header h1,
@@ -105,11 +154,11 @@ header h1:after {
 // Crazy Text Effects and Animations
 
 header h1 {
-	animation-name: entrance;
-	animation-duration: 1s;
-	animation-timing-function: ease-in-out;
+	animation-name: entrance, beat;
+	animation-duration: 1s, calc(var(--beat-interval) * 1);
+	animation-timing-function: ease-in-out, cubic-bezier(0.31, 0.37, 1, 1.65);
 	animation-direction: normal;
-	animation-iteration-count: 1;
+	animation-iteration-count: 1, infinite;
 
 	@supports (-webkit-text-fill-color: white) {
 		position: relative;
@@ -126,10 +175,9 @@ header h1 {
 			right: 0;
 			top: 0;
 
-			animation-name: pulse;
-			animation-duration: var(--header-logo-pulse-interval);
-			animation-timing-function: ease-out;
-			animation-direction: normal;
+			animation-name: beat;
+			animation-duration: var(--beat-interval);
+			animation-timing-function: cubic-bezier(0.31, 0.37, 1, 1.65);
 			animation-iteration-count: infinite;
 
 			text-shadow: none;
@@ -141,7 +189,7 @@ header h1 {
 			-webkit-text-stroke-width: 0.25em;
 			-webkit-text-stroke-color: var(--header-text-tertiary);
 
-			animation-delay: 0.0125s;
+			// animation-delay: 0.0125s;
 		}
 		&::after {
 			z-index: -2;
@@ -149,7 +197,7 @@ header h1 {
 			-webkit-text-stroke-width: 0.5em;
 			-webkit-text-stroke-color: var(--header-text-secondary);
 
-			animation-delay: 0.025s;
+			// animation-delay: 0.025s;
 			filter: drop-shadow(2px 0 0 black) drop-shadow(-2px 0 0 black) drop-shadow(0 2px 0 black)
 				drop-shadow(0 -2px 0 black);
 		}

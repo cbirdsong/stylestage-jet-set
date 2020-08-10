@@ -1,7 +1,6 @@
-@import "mixins";
-
 @import "reset";
 @import "variables";
+@import "mixins";
 @import "fonts";
 
 @import "root";
@@ -12,3 +11,5 @@
 @import "nav";
 @import "content";
 @import "footer";
+
+@import "animations";

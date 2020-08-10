@@ -1,9 +1,66 @@
 article,
 aside {
-	padding: 2rem;
+	&:first-child {
+		--background-color: var(--purple-dark);
+		--angle: -0.25deg;
+	}
+	&:nth-child(odd) {
+		--background-color: var(--purple-darkest);
+		--angle: 0.25deg;
+	}
+	&:nth-child(even) {
+		--background-color: var(--purple-darker);
+		--angle: -0.25deg;
+	}
+	&:last-child {
+		--background-color: var(--purple-darkest);
+		--angle: 0.25deg;
+	}
+
+	> * {
+		&:nth-child(odd):not(:only-child) {
+			--background-color: var(--purple-darker);
+			--angle: -0.5deg;
+		}
+		&:nth-child(even):not(:only-child) {
+			--background-color: var(--purple-darkest);
+			--angle: -0.5deg;
+		}
+	}
+}
+
+article > *,
+aside {
+	position: relative;
+
+	padding: 4rem 2rem;
 
 	> * + * {
 		margin-top: 1.5rem;
+	}
+
+	&::before,
+	&::after {
+		content: "";
+		background-color: var(--background-color);
+		// box-shadow: inset 0 0 0 1rem var(--background-color);
+		display: block;
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: -100%;
+		bottom: -1rem;
+		z-index: -1;
+
+		mix-blend-mode: hue;
+		opacity: 0.5;
+		transform: rotate(var(--angle));
+		transform-origin: center left;
+		backdrop-filter: saturate(110%);
+	}
+	&::after {
+		transform: rotate(calc(var(--angle) * -1));
+		transform-origin: center right;
 	}
 }
 
