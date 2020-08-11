@@ -178,10 +178,6 @@ header h1,
 header h1:before,
 header h1:after {
 	padding: 5rem 2rem;
-
-	@media (prefers-reduced-motion: reduce) {
-		animation: none !important;
-	}
 }
 
 // Crazy Text Effects and Animations

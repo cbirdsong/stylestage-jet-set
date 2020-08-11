@@ -237,10 +237,14 @@ a[class^=link-] svg,
 a[class^=link-]:before,
 .profile .container > a:before {
   visibility: visible;
+  --scaleX-fudge: 0.02;
+  --scaleY-fudge: 0.02;
 }
 a[class^=link-]:after,
 .profile .container > a:after {
   visibility: hidden;
+  --scaleX-fudge: 0.085;
+  --scaleY-fudge: 0.085;
 }
 a[class^=link-]:hover:before, a[class^=link-]:focus:before, a[class^=link-]:active:before,
 .profile .container > a:hover:before,
@@ -582,13 +586,6 @@ header h1,
 header h1:before,
 header h1:after {
   padding: 5rem 2rem;
-}
-@media (prefers-reduced-motion: reduce) {
-  header h1,
-header h1:before,
-header h1:after {
-    animation: none !important;
-  }
 }
 
 header h1 {

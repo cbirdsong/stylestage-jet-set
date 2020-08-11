@@ -83,9 +83,13 @@ a[class^="link-"],
 
 	&:before {
 		visibility: visible;
+		--scaleX-fudge: 0.02;
+		--scaleY-fudge: 0.02;
 	}
 	&:after {
 		visibility: hidden;
+		--scaleX-fudge: 0.085;
+		--scaleY-fudge: 0.085;
 	}
 	&:hover,
 	&:focus,
