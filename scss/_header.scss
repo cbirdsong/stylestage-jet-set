@@ -56,8 +56,6 @@ header .container {
 	@include ridiculous-text-shadow($width1: 1px, $width2: 2px, $color1: black, $color2: black);
 
 	@supports (display: grid) {
-		text-align: unset;
-
 		display: grid;
 		gap: 2rem;
 		grid-template-areas: "link" "title" "subtitle" "credit";
@@ -67,22 +65,19 @@ header .container {
 		@media (min-width: 65rem) {
 			min-height: 100vh;
 			gap: 1rem;
-			grid-template-areas: "credit link" "title title" "subtitle subtitle";
-			grid-template-columns: max-content auto;
-			grid-template-rows: max-content 3fr 1fr;
+			// grid-template-areas: "credit link" "title title" "subtitle subtitle";
+			// grid-template-columns: max-content auto;
+			// grid-template-rows: max-content 3fr 1fr;
 		}
-
-		gap: 1rem;
 
 		* {
 			margin: 0;
-			align-self: start;
-			justify-self: start;
+			align-self: end;
+			justify-self: center;
 		}
 		h1,
 		h2 {
 			align-self: center;
-			justify-self: center;
 		}
 		.link-github {
 			justify-self: end;

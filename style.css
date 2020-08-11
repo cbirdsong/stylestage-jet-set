@@ -484,32 +484,26 @@ header .container {
 }
 @supports (display: grid) {
   header .container {
-    text-align: unset;
     display: grid;
     gap: 2rem;
     grid-template-areas: "link" "title" "subtitle" "credit";
     grid-template-columns: 100%;
     grid-template-rows: max-content max-content max-content max-content;
-    gap: 1rem;
   }
   @media (min-width: 65rem) {
     header .container {
       min-height: 100vh;
       gap: 1rem;
-      grid-template-areas: "credit link" "title title" "subtitle subtitle";
-      grid-template-columns: max-content auto;
-      grid-template-rows: max-content 3fr 1fr;
     }
   }
   header .container * {
     margin: 0;
-    align-self: start;
-    justify-self: start;
+    align-self: end;
+    justify-self: center;
   }
   header .container h1,
 header .container h2 {
     align-self: center;
-    justify-self: center;
   }
   header .container .link-github {
     justify-self: end;
@@ -1124,13 +1118,13 @@ aside:nth-child(n):only-child {
 
 article .container,
 aside .container {
-  max-width: min(calc(var(--line-length-max) * 1.5), 100%);
   margin-left: auto;
   margin-right: auto;
   padding: 4rem 2rem;
 }
 article .container > * + *,
 aside .container > * + * {
+  max-width: min(calc(var(--line-length-max) * 1.5), 100%);
   margin-top: 1.5rem;
 }
 article .container::before, article .container::after,
