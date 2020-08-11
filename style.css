@@ -707,7 +707,7 @@ ol li {
 }
 
 body {
-  grid-template-areas: "skiplink" "header" "nav" "main" "styles" "profile" "footer";
+  grid-template-areas: "skiplink" "header" "nav" "main" "profile" "styles" "footer";
   grid-template-columns: 1fr;
 }
 @supports (display: grid) {
@@ -717,7 +717,7 @@ body {
 }
 @media (min-width: 50rem) {
   body {
-    grid-template-areas: "skiplink skiplink" "header header" "main nav" "styles nav" "profile nav" "footer footer";
+    grid-template-areas: "skiplink skiplink" "header header" "main nav" "profile nav" "styles nav" "footer footer";
     grid-template-columns: 3fr 1fr;
   }
 }
