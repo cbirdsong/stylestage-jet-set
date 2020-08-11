@@ -12,8 +12,19 @@
 
 	color: var(--white);
 	background-color: var(--purple-darkest);
+
+	overflow-x: hidden;
 }
 
 .skip-link {
 	@include visually-hidden;
+}
+
+::-webkit-scrollbar {
+}
+
+::-webkit-scrollbar-track {
+}
+
+::-webkit-scrollbar-thumb {
 }

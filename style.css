@@ -368,6 +368,7 @@ template {
   --header-bg-primary: var(--purple-darkest);
   --header-bg-secondary: var(--purple-darker);
   --header-bg-tertiary: var(--purple-dark);
+  --footer-icon: var(--yellow-neon);
   --font-family-base: "jet_set", sans-serif;
   --font-weight-base--normal: 400;
   --font-size-base: 100%;
@@ -376,7 +377,7 @@ template {
   --line-length-max: 60ch;
   --heading-font-size-base: 1.1rem;
   --heading-line-height: 1.2;
-  --heading-size-scale: 1.12;
+  --heading-size-scale: 1.18;
   --h6-font-size: calc(var(--heading-font-size-base) * var(--heading-size-scale));
   --h5-font-size: calc(var(--h6-font-size) * var(--heading-size-scale));
   --h4-font-size: calc(var(--h5-font-size) * var(--heading-size-scale));
@@ -434,6 +435,7 @@ template {
   font-weight: var(--font-weight-base--normal);
   color: var(--white);
   background-color: var(--purple-darkest);
+  overflow-x: hidden;
 }
 @supports (font-size: var(--font-size-base)) {
   :root {
@@ -486,7 +488,30 @@ a svg {
   display: inline-block;
   width: auto;
   height: 1em;
-  fill: currentColor;
+  fill: var(--icon-color, currentColor);
+}
+
+a[class^=link-] {
+  display: inline-flex;
+  position: relative;
+}
+a[class^=link-]::before,
+a[class^=link-] svg {
+  content: var(--icon, "");
+  font-family: sans-serif;
+  font-size: 2em;
+  line-height: 1;
+  position: absolute;
+  z-index: -1;
+  top: -0.3em;
+  left: -0.4em;
+  width: 1em;
+  height: 1em;
+  fill: var(--icon-color);
+  color: var(--icon-color);
+}
+a.link-github {
+  content: none;
 }
 
 h1 {
@@ -610,6 +635,7 @@ header {
   z-index: 100;
   overflow: hidden;
   --link-color: var(--green-neon);
+  --icon-color: var(--black);
   background-image: repeating-linear-gradient(34deg, var(--header-bg-secondary) 8px, var(--header-bg-secondary) 16px, var(--header-bg-primary) 16px, var(--header-bg-primary) 32px);
 }
 header:after {
@@ -641,24 +667,27 @@ header .container {
   color: var(--header-text-primary);
   text-shadow: 0 1px black, 0 -1px black, 1px 0 black, -1px 0 black, 1px -1px black, 1px 1px black, -1px 1px black, -1px -1px black, 0 2px black, 0 -2px black, 2px 0 black, -2px 0 black, 2px -2px black, 2px 2px black, -2px 2px black, -2px -2px black;
 }
-header .container svg {
-  filter: drop-shadow(2px 0 0 black) drop-shadow(-2px 0 0 black) drop-shadow(0 2px 0 black) drop-shadow(0 -2px 0 black);
-}
 @supports (display: grid) {
   header .container {
     display: grid;
     grid-template-areas: "credit credit link" "title title title" "subtitle subtitle subtitle";
     grid-template-rows: max-content 3fr 1fr;
     grid-template-columns: max-content auto max-content;
+    text-align: unset;
     gap: 1rem;
   }
   header .container * {
     margin: 0;
+    align-self: start;
+    justify-self: start;
   }
   header .container h1,
 header .container h2 {
     align-self: center;
     justify-self: center;
+  }
+  header .container .link-github {
+    justify-self: end;
   }
 }
 
@@ -667,6 +696,7 @@ header h2 {
   display: block;
   margin-left: auto;
   margin-right: auto;
+  text-align: center;
 }
 
 header h1 {
@@ -675,8 +705,6 @@ header h1 {
   text-transform: uppercase;
   font-style: normal;
   color: var(--header-text-primary);
-  transform: rotate(-20deg) translate(0.5ch, -0.25ch);
-  transform-origin: center center;
   width: 6ch;
   text-indent: -2.6ch;
   font-size: 5rem;
@@ -694,6 +722,7 @@ header .link-github {
   grid-area: link;
   display: inline-flex;
   position: relative;
+  --icon-color: var(--black);
 }
 header .link-github span,
 header .link-github svg {
@@ -711,21 +740,15 @@ header .link-github span {
   animation-name: beat;
 }
 header .link-github svg {
-  position: absolute;
-  z-index: -1;
-  top: -1.5ex;
-  left: -2ch;
-  width: 5ch;
-  height: auto;
-  fill: transparent;
+  filter: drop-shadow(2px 0 0 var(--icon-color)) drop-shadow(-2px 0 0 var(--icon-color)) drop-shadow(0 2px 0 var(--icon-color)) drop-shadow(0 -2px 0 var(--icon-color));
   animation-name: beat, moveAlongWord;
   animation-direction: alternate;
-  transition-property: filter, fill;
+  transition-property: filter, color, fill;
   transition-duration: 250ms;
 }
-header .link-github:hover svg {
+header .link-github:hover svg, header .link-github:focus svg {
   animation-duration: calc(var(--beat-interval) / 2);
-  fill: var(--header-text-secondary);
+  --icon-color: var(--header-text-secondary);
   filter: drop-shadow(-0.1rem -0.1rem 0 var(--red)) drop-shadow(0.1rem -0.1rem 0 var(--teal)) drop-shadow(-0.1rem 0.1rem 0 var(--purple)) drop-shadow(0.1rem 0.1rem 0 var(--orange-dark)) drop-shadow(-0.2rem -0.2rem 0 var(--black)) drop-shadow(0.2rem -0.2rem 0 var(--black)) drop-shadow(-0.2rem 0.2rem 0 var(--black)) drop-shadow(0.2rem 0.2rem 0 var(--black));
 }
 
@@ -741,6 +764,10 @@ header h1 {
   animation-timing-function: ease-in-out, cubic-bezier(0.31, 0.37, 1, 1.65);
   animation-direction: normal;
   animation-iteration-count: 1, infinite;
+  --rotate: -20deg;
+  --translateX: 0.5ch;
+  --translateY: -0.25ch;
+  transform-origin: center center;
 }
 @supports (-webkit-text-fill-color: white) {
   header h1 {
@@ -755,6 +782,9 @@ header h1 {
     left: 0;
     right: 0;
     top: 0;
+    --rotate: 0;
+    --translateX: 0;
+    --translateY: -0;
     animation-name: beat;
     animation-duration: var(--beat-interval);
     animation-timing-function: cubic-bezier(0.31, 0.37, 1, 1.65);
@@ -1076,6 +1106,10 @@ nav li:nth-child(12n) a {
   z-index: 1;
 }
 
+article,
+aside {
+  --icon-color: var(--yellow-neon);
+}
 article:first-child,
 aside:first-child {
   --background-color: var(--purple-dark);
@@ -1107,19 +1141,27 @@ aside > *:nth-child(even):not(:only-child) {
   --angle: -0.5deg;
 }
 
-article > *,
-aside {
+article .container,
+aside .container {
   position: relative;
   padding: 4rem 2rem;
 }
-article > *::before, article > *::after,
-aside::before,
-aside::after {
+article .container > * + *,
+aside .container > * + * {
+  margin-top: 1.5rem;
+}
+article .container > a,
+aside .container > a {
+  display: inline-block;
+}
+article .container::before, article .container::after,
+aside .container::before,
+aside .container::after {
   content: "";
   background-color: var(--background-color);
   display: block;
   position: absolute;
-  z-index: -1;
+  z-index: -10;
   top: 0;
   left: 0;
   bottom: -1rem;
@@ -1128,10 +1170,9 @@ aside::after {
   opacity: 0.5;
   transform: rotate(var(--angle));
   transform-origin: center left;
-  backdrop-filter: saturate(110%);
 }
-article > *::after,
-aside::after {
+article .container::after,
+aside .container::after {
   transform: rotate(calc(var(--angle) * -1));
   transform-origin: center right;
 }
@@ -1150,18 +1191,23 @@ section > h2 {
   grid-row: 1/-1;
 }
 
-.container > * + * {
-  margin-top: 1.5rem;
-}
-.container > a {
-  display: inline-block;
-}
-
 #files a {
   margin-left: 1em;
 }
 #files a + a {
   margin-left: 2em;
+}
+
+.link-downloadcss {
+  --icon: "❴";
+}
+
+.link-downloadhtml {
+  --icon: "❰";
+}
+
+.link-codepen {
+  --icon: "♆";
 }
 
 .page-footer {
@@ -1173,6 +1219,7 @@ section > h2 {
   flex-flow: column;
   justify-content: center;
   text-align: center;
+  --icon-color: var(--yellow-neon);
 }
 .page-footer:before, .page-footer:after {
   content: "Style Stage";
@@ -1223,102 +1270,98 @@ section > h2 {
   margin: 0.5em 1em;
 }
 
-.page-footer .link-github {
-  display: inline-flex;
+.link-twittercontact {
+  --icon: "♣";
 }
-.page-footer .link-github span {
-  position: relative;
+
+.link-rss {
+  --icon: "♥";
 }
-.page-footer .link-github svg {
-  position: absolute;
-  z-index: -1;
-  top: -0.75ex;
-  left: -1ch;
-  width: 3ch;
-  height: auto;
-  fill: var(--yellow-neon);
+
+.link-support {
+  --icon: "✔";
 }
 
 @keyframes beat {
   0% {
-    transform: scale(1);
+    transform: translateX(var(--translateX, 0)) translateY(var(--translateY, 0)) skewX(var(--skewX, 0)) skewY(var(--skewY, 0)) rotate(var(--rotate, 0)) rotateX(var(--rotateX, 0)) rotateY(var(--rotateY, 0)) rotateZ(var(--rotateZ, 0)) scale(1);
   }
   23% {
-    transform: scale(1);
+    transform: translateX(var(--translateX, 0)) translateY(var(--translateY, 0)) skewX(var(--skewX, 0)) skewY(var(--skewY, 0)) rotate(var(--rotate, 0)) rotateX(var(--rotateX, 0)) rotateY(var(--rotateY, 0)) rotateZ(var(--rotateZ, 0)) scale(1);
   }
   24% {
-    transform: scale(1.01, 1.025);
+    transform: translateX(var(--translateX, 0)) translateY(var(--translateY, 0)) skewX(var(--skewX, 0)) skewY(var(--skewY, 0)) rotate(var(--rotate, 0)) scale(1.01, 1.025);
   }
   25% {
-    transform: scale(1);
+    transform: translateX(var(--translateX, 0)) translateY(var(--translateY, 0)) skewX(var(--skewX, 0)) skewY(var(--skewY, 0)) rotate(var(--rotate, 0)) rotateX(var(--rotateX, 0)) rotateY(var(--rotateY, 0)) rotateZ(var(--rotateZ, 0)) scale(1);
   }
   48% {
-    transform: scale(1);
+    transform: translateX(var(--translateX, 0)) translateY(var(--translateY, 0)) skewX(var(--skewX, 0)) skewY(var(--skewY, 0)) rotate(var(--rotate, 0)) rotateX(var(--rotateX, 0)) rotateY(var(--rotateY, 0)) rotateZ(var(--rotateZ, 0)) scale(1);
   }
   49% {
-    transform: scale(1.025, 1.01);
+    transform: translateX(var(--translateX, 0)) translateY(var(--translateY, 0)) skewX(var(--skewX, 0)) skewY(var(--skewY, 0)) rotate(var(--rotate, 0)) rotateX(var(--rotateX, 0)) rotateY(var(--rotateY, 0)) rotateZ(var(--rotateZ, 0)) scale(1.025, 1.01);
   }
   50% {
-    transform: scale(1);
+    transform: translateX(var(--translateX, 0)) translateY(var(--translateY, 0)) skewX(var(--skewX, 0)) skewY(var(--skewY, 0)) rotate(var(--rotate, 0)) rotateX(var(--rotateX, 0)) rotateY(var(--rotateY, 0)) rotateZ(var(--rotateZ, 0)) scale(1);
   }
   73% {
-    transform: scale(1);
+    transform: translateX(var(--translateX, 0)) translateY(var(--translateY, 0)) skewX(var(--skewX, 0)) skewY(var(--skewY, 0)) rotate(var(--rotate, 0)) rotateX(var(--rotateX, 0)) rotateY(var(--rotateY, 0)) rotateZ(var(--rotateZ, 0)) scale(1);
   }
   74% {
-    transform: scale(1.01, 1.025);
+    transform: translateX(var(--translateX, 0)) translateY(var(--translateY, 0)) skewX(var(--skewX, 0)) skewY(var(--skewY, 0)) rotate(var(--rotate, 0)) scale(1.01, 1.025);
   }
   75% {
-    transform: scale(1);
+    transform: translateX(var(--translateX, 0)) translateY(var(--translateY, 0)) skewX(var(--skewX, 0)) skewY(var(--skewY, 0)) rotate(var(--rotate, 0)) rotateX(var(--rotateX, 0)) rotateY(var(--rotateY, 0)) rotateZ(var(--rotateZ, 0)) scale(1);
   }
   98% {
-    transform: scale(1);
+    transform: translateX(var(--translateX, 0)) translateY(var(--translateY, 0)) skewX(var(--skewX, 0)) skewY(var(--skewY, 0)) rotate(var(--rotate, 0)) rotateX(var(--rotateX, 0)) rotateY(var(--rotateY, 0)) rotateZ(var(--rotateZ, 0)) scale(1);
   }
   99% {
-    transform: scale(1.08, 1.06);
+    transform: translateX(var(--translateX, 0)) translateY(var(--translateY, 0)) skewX(var(--skewX, 0)) skewY(var(--skewY, 0)) rotate(var(--rotate, 0)) rotateX(var(--rotateX, 0)) rotateY(var(--rotateY, 0)) rotateZ(var(--rotateZ, 0)) scale(1.08, 1.06);
   }
   100% {
-    transform: scale(1);
+    transform: translateX(var(--translateX, 0)) translateY(var(--translateY, 0)) skewX(var(--skewX, 0)) skewY(var(--skewY, 0)) rotate(var(--rotate, 0)) rotateX(var(--rotateX, 0)) rotateY(var(--rotateY, 0)) rotateZ(var(--rotateZ, 0)) scale(1);
   }
 }
 @keyframes beatNav {
   0% {
-    transform: translateX(var(--translateX)) skewX(var(--skewX)) skewY(var(--skewY)) rotateX(var(--rotateX)) rotateY(var(--rotateY)) rotateZ(var(--rotateZ)) scale(1);
+    transform: translateX(var(--translateX, 0)) translateY(var(--translateY, 0)) skewX(var(--skewX, 0)) skewY(var(--skewY, 0)) rotateX(var(--rotateX, 0)) rotateY(var(--rotateY, 0)) rotateZ(var(--rotateZ, 0)) scale(1);
   }
   23% {
-    transform: translateX(var(--translateX)) skewX(var(--skewX)) skewY(var(--skewY)) rotateX(var(--rotateX)) rotateY(var(--rotateY)) rotateZ(var(--rotateZ)) scale(1);
+    transform: translateX(var(--translateX, 0)) translateY(var(--translateY, 0)) skewX(var(--skewX, 0)) skewY(var(--skewY, 0)) rotateX(var(--rotateX, 0)) rotateY(var(--rotateY, 0)) rotateZ(var(--rotateZ, 0)) scale(1);
   }
   24% {
-    transform: translateX(var(--translateX)) skewX(var(--skewX)) skewY(var(--skewY)) rotateX(var(--rotateX)) rotateY(var(--rotateY)) rotateZ(var(--rotateZ)) scale(1.01, 1.025);
+    transform: translateX(var(--translateX, 0)) translateY(var(--translateY, 0)) skewX(var(--skewX, 0)) skewY(var(--skewY, 0)) rotateX(var(--rotateX, 0)) rotateY(var(--rotateY, 0)) rotateZ(var(--rotateZ, 0)) scale(1.01, 1.025);
   }
   25% {
-    transform: translateX(var(--translateX)) skewX(var(--skewX)) skewY(var(--skewY)) rotateX(var(--rotateX)) rotateY(var(--rotateY)) rotateZ(var(--rotateZ)) scale(1);
+    transform: translateX(var(--translateX, 0)) translateY(var(--translateY, 0)) skewX(var(--skewX, 0)) skewY(var(--skewY, 0)) rotateX(var(--rotateX, 0)) rotateY(var(--rotateY, 0)) rotateZ(var(--rotateZ, 0)) scale(1);
   }
   48% {
-    transform: translateX(var(--translateX)) skewX(var(--skewX)) skewY(var(--skewY)) rotateX(var(--rotateX)) rotateY(var(--rotateY)) rotateZ(var(--rotateZ)) scale(1);
+    transform: translateX(var(--translateX, 0)) translateY(var(--translateY, 0)) skewX(var(--skewX, 0)) skewY(var(--skewY, 0)) rotateX(var(--rotateX, 0)) rotateY(var(--rotateY, 0)) rotateZ(var(--rotateZ, 0)) scale(1);
   }
   49% {
-    transform: translateX(var(--translateX)) skewX(var(--skewX)) skewY(var(--skewY)) rotateX(var(--rotateX)) rotateY(var(--rotateY)) rotateZ(var(--rotateZ)) scale(1.025, 1.01);
+    transform: translateX(var(--translateX, 0)) translateY(var(--translateY, 0)) skewX(var(--skewX, 0)) skewY(var(--skewY, 0)) rotateX(var(--rotateX, 0)) rotateY(var(--rotateY, 0)) rotateZ(var(--rotateZ, 0)) scale(1.025, 1.01);
   }
   50% {
-    transform: translateX(var(--translateX)) skewX(var(--skewX)) skewY(var(--skewY)) rotateX(var(--rotateX)) rotateY(var(--rotateY)) rotateZ(var(--rotateZ)) scale(1);
+    transform: translateX(var(--translateX, 0)) translateY(var(--translateY, 0)) skewX(var(--skewX, 0)) skewY(var(--skewY, 0)) rotateX(var(--rotateX, 0)) rotateY(var(--rotateY, 0)) rotateZ(var(--rotateZ, 0)) scale(1);
   }
   73% {
-    transform: translateX(var(--translateX)) skewX(var(--skewX)) skewY(var(--skewY)) rotateX(var(--rotateX)) rotateY(var(--rotateY)) rotateZ(var(--rotateZ)) scale(1);
+    transform: translateX(var(--translateX, 0)) translateY(var(--translateY, 0)) skewX(var(--skewX, 0)) skewY(var(--skewY, 0)) rotateX(var(--rotateX, 0)) rotateY(var(--rotateY, 0)) rotateZ(var(--rotateZ, 0)) scale(1);
   }
   74% {
-    transform: translateX(var(--translateX)) skewX(var(--skewX)) skewY(var(--skewY)) rotateX(var(--rotateX)) rotateY(var(--rotateY)) rotateZ(var(--rotateZ)) scale(1.01, 1.025);
+    transform: translateX(var(--translateX, 0)) translateY(var(--translateY, 0)) skewX(var(--skewX, 0)) skewY(var(--skewY, 0)) rotateX(var(--rotateX, 0)) rotateY(var(--rotateY, 0)) rotateZ(var(--rotateZ, 0)) scale(1.01, 1.025);
   }
   75% {
-    transform: translateX(var(--translateX)) skewX(var(--skewX)) skewY(var(--skewY)) rotateX(var(--rotateX)) rotateY(var(--rotateY)) rotateZ(var(--rotateZ)) scale(1);
+    transform: translateX(var(--translateX, 0)) translateY(var(--translateY, 0)) skewX(var(--skewX, 0)) skewY(var(--skewY, 0)) rotateX(var(--rotateX, 0)) rotateY(var(--rotateY, 0)) rotateZ(var(--rotateZ, 0)) scale(1);
   }
   98% {
-    transform: translateX(var(--translateX)) skewX(var(--skewX)) skewY(var(--skewY)) rotateX(var(--rotateX)) rotateY(var(--rotateY)) rotateZ(var(--rotateZ)) scale(1);
+    transform: translateX(var(--translateX, 0)) translateY(var(--translateY, 0)) skewX(var(--skewX, 0)) skewY(var(--skewY, 0)) rotateX(var(--rotateX, 0)) rotateY(var(--rotateY, 0)) rotateZ(var(--rotateZ, 0)) scale(1);
   }
   99% {
-    transform: translateX(var(--translateX)) skewX(var(--skewX)) skewY(var(--skewY)) rotateX(var(--rotateX)) rotateY(var(--rotateY)) rotateZ(var(--rotateZ)) scale(1.08, 1.06);
+    transform: translateX(var(--translateX, 0)) translateY(var(--translateY, 0)) skewX(var(--skewX, 0)) skewY(var(--skewY, 0)) rotateX(var(--rotateX, 0)) rotateY(var(--rotateY, 0)) rotateZ(var(--rotateZ, 0)) scale(1.08, 1.06);
   }
   100% {
-    transform: translateX(var(--translateX)) skewX(var(--skewX)) skewY(var(--skewY)) rotateX(var(--rotateX)) rotateY(var(--rotateY)) rotateZ(var(--rotateZ)) scale(1);
+    transform: translateX(var(--translateX, 0)) translateY(var(--translateY, 0)) skewX(var(--skewX, 0)) skewY(var(--skewY, 0)) rotateX(var(--rotateX, 0)) rotateY(var(--rotateY, 0)) rotateZ(var(--rotateZ, 0)) scale(1);
   }
 }
 @keyframes rotateGradient {

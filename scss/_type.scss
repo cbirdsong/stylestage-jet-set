@@ -43,7 +43,36 @@ a svg {
 	display: inline-block;
 	width: auto;
 	height: 1em;
-	fill: currentColor;
+	fill: var(--icon-color, currentColor);
+}
+
+a[class^="link-"] {
+	display: inline-flex;
+	position: relative;
+
+	&::before,
+	svg {
+		content: var(--icon, "");
+		font-family: sans-serif;
+		font-size: 2em;
+		line-height: 1;
+
+		position: absolute;
+		z-index: -1;
+		top: -0.3em;
+		left: -0.4em;
+
+		width: 1em;
+		height: 1em;
+
+		fill: var(--icon-color);
+		color: var(--icon-color);
+	}
+	&::before {
+	}
+}
+a.link-github {
+	content: none;
 }
 
 //Headings

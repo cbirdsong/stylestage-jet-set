@@ -1,5 +1,7 @@
 article,
 aside {
+	--icon-color: var(--yellow-neon);
+
 	&:first-child {
 		--background-color: var(--purple-dark);
 		--angle: -0.25deg;
@@ -29,9 +31,16 @@ aside {
 	}
 }
 
-article > *,
-aside {
+article .container,
+aside .container {
 	position: relative;
+
+	> * + * {
+		margin-top: 1.5rem;
+	}
+	> a {
+		display: inline-block;
+	}
 
 	padding: 4rem 2rem;
 
@@ -42,7 +51,7 @@ aside {
 		// box-shadow: inset 0 0 0 1rem var(--background-color);
 		display: block;
 		position: absolute;
-		z-index: -1;
+		z-index: -10;
 		top: 0;
 		left: 0;
 		bottom: -1rem;
@@ -52,7 +61,7 @@ aside {
 		opacity: 0.5;
 		transform: rotate(var(--angle));
 		transform-origin: center left;
-		backdrop-filter: saturate(110%);
+		// backdrop-filter: saturate(110%);
 	}
 	&::after {
 		transform: rotate(calc(var(--angle) * -1));
@@ -86,15 +95,6 @@ section {
 	}
 }
 
-.container {
-	> * + * {
-		margin-top: 1.5rem;
-	}
-	> a {
-		display: inline-block;
-	}
-}
-
 #guidelines {
 }
 .link-guidelines {
@@ -109,10 +109,13 @@ section {
 	}
 }
 .link-downloadcss {
+	--icon: "\002774";
 }
 .link-downloadhtml {
+	--icon: "\002770";
 }
 .link-codepen {
+	--icon: "\002646";
 }
 .link-allstyles {
 }

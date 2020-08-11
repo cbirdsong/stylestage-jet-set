@@ -70,6 +70,8 @@ $bg-count: 25; // must be divisible by 100
 	--header-bg-secondary: var(--purple-darker);
 	--header-bg-tertiary: var(--purple-dark);
 
+	--footer-icon: var(--yellow-neon);
+
 	// ========
 
 	//Type
@@ -83,7 +85,7 @@ $bg-count: 25; // must be divisible by 100
 
 	--heading-font-size-base: 1.1rem;
 	--heading-line-height: 1.2;
-	--heading-size-scale: 1.12;
+	--heading-size-scale: 1.18;
 
 	--h6-font-size: calc(var(--heading-font-size-base) * var(--heading-size-scale));
 	--h5-font-size: calc(var(--h6-font-size) * var(--heading-size-scale));

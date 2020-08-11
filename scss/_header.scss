@@ -4,6 +4,7 @@ header {
 	overflow: hidden;
 
 	--link-color: var(--green-neon);
+	--icon-color: var(--black);
 
 	background-image: repeating-linear-gradient(
 		34deg,
@@ -48,26 +49,28 @@ header .container {
 	text-align: center;
 	color: var(--header-text-primary);
 	@include ridiculous-text-shadow($width1: 1px, $width2: 2px, $color1: black, $color2: black);
-	svg {
-		filter: drop-shadow(2px 0 0 black) drop-shadow(-2px 0 0 black) drop-shadow(0 2px 0 black)
-			drop-shadow(0 -2px 0 black);
-	}
 
 	@supports (display: grid) {
 		display: grid;
 		grid-template-areas: "credit credit link" "title title title" "subtitle subtitle subtitle";
 		grid-template-rows: max-content 3fr 1fr;
 		grid-template-columns: max-content auto max-content;
+		text-align: unset;
 
 		gap: 1rem;
 
 		* {
 			margin: 0;
+			align-self: start;
+			justify-self: start;
 		}
 		h1,
 		h2 {
 			align-self: center;
 			justify-self: center;
+		}
+		.link-github {
+			justify-self: end;
 		}
 	}
 }
@@ -77,14 +80,12 @@ header h2 {
 	display: block;
 	margin-left: auto;
 	margin-right: auto;
+	text-align: center;
 }
 header h1 {
 	grid-area: title;
 
 	@include logo-type-style();
-
-	transform: rotate(-20deg) translate(0.5ch, -0.25ch);
-	transform-origin: center center;
 
 	width: 6ch;
 	text-indent: -2.6ch;
@@ -105,7 +106,10 @@ header .link-github {
 	grid-area: link;
 	display: inline-flex;
 	position: relative;
+	--icon-color: var(--black);
 
+	svg {
+	}
 	span,
 	svg {
 		animation-duration: var(--beat-interval);
@@ -124,30 +128,26 @@ header .link-github {
 		animation-name: beat;
 	}
 	svg {
-		position: absolute;
-		z-index: -1;
-		top: -1.5ex;
-		left: -2ch;
-
-		width: 5ch;
-		height: auto;
-
-		fill: transparent;
+		filter: drop-shadow(2px 0 0 var(--icon-color)) drop-shadow(-2px 0 0 var(--icon-color))
+			drop-shadow(0 2px 0 var(--icon-color)) drop-shadow(0 -2px 0 var(--icon-color));
 
 		animation-name: beat, moveAlongWord;
 		animation-direction: alternate;
 
-		transition-property: filter, fill;
+		transition-property: filter, color, fill;
 		transition-duration: 250ms;
 	}
-	&:hover svg {
-		animation-duration: calc(var(--beat-interval) / 2);
+	&:hover,
+	&:focus {
+		svg {
+			animation-duration: calc(var(--beat-interval) / 2);
 
-		fill: var(--header-text-secondary);
-		filter: drop-shadow(-0.1rem -0.1rem 0 var(--red)) drop-shadow(0.1rem -0.1rem 0 var(--teal))
-			drop-shadow(-0.1rem 0.1rem 0 var(--purple)) drop-shadow(0.1rem 0.1rem 0 var(--orange-dark))
-			drop-shadow(-0.2rem -0.2rem 0 var(--black)) drop-shadow(0.2rem -0.2rem 0 var(--black))
-			drop-shadow(-0.2rem 0.2rem 0 var(--black)) drop-shadow(0.2rem 0.2rem 0 var(--black));
+			--icon-color: var(--header-text-secondary);
+			filter: drop-shadow(-0.1rem -0.1rem 0 var(--red)) drop-shadow(0.1rem -0.1rem 0 var(--teal))
+				drop-shadow(-0.1rem 0.1rem 0 var(--purple)) drop-shadow(0.1rem 0.1rem 0 var(--orange-dark))
+				drop-shadow(-0.2rem -0.2rem 0 var(--black)) drop-shadow(0.2rem -0.2rem 0 var(--black))
+				drop-shadow(-0.2rem 0.2rem 0 var(--black)) drop-shadow(0.2rem 0.2rem 0 var(--black));
+		}
 	}
 }
 
@@ -166,6 +166,11 @@ header h1 {
 	animation-direction: normal;
 	animation-iteration-count: 1, infinite;
 
+	--rotate: -20deg;
+	--translateX: 0.5ch;
+	--translateY: -0.25ch;
+	transform-origin: center center;
+
 	@supports (-webkit-text-fill-color: white) {
 		position: relative;
 		z-index: 5;
@@ -180,6 +185,9 @@ header h1 {
 			left: 0;
 			right: 0;
 			top: 0;
+			--rotate: 0;
+			--translateX: 0;
+			--translateY: -0;
 
 			animation-name: beat;
 			animation-duration: var(--beat-interval);
@@ -194,8 +202,6 @@ header h1 {
 			-webkit-text-fill-color: var(--header-text-secondary);
 			-webkit-text-stroke-width: 0.25em;
 			-webkit-text-stroke-color: var(--header-text-tertiary);
-
-			// animation-delay: 0.0125s;
 		}
 		&::after {
 			z-index: -2;
@@ -203,7 +209,6 @@ header h1 {
 			-webkit-text-stroke-width: 0.5em;
 			-webkit-text-stroke-color: var(--header-text-secondary);
 
-			// animation-delay: 0.025s;
 			filter: drop-shadow(2px 0 0 black) drop-shadow(-2px 0 0 black) drop-shadow(0 2px 0 black)
 				drop-shadow(0 -2px 0 black);
 		}

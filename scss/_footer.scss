@@ -10,6 +10,8 @@
 
 	text-align: center;
 
+	--icon-color: var(--yellow-neon);
+
 	&:before,
 	&:after {
 		content: "Style Stage";
@@ -65,27 +67,14 @@
 	}
 }
 .page-footer .link-github {
-	display: inline-flex;
-
-	span {
-		position: relative;
-	}
-	svg {
-		position: absolute;
-		z-index: -1;
-		top: -0.75ex;
-		left: -1ch;
-
-		width: 3ch;
-		height: auto;
-
-		fill: var(--yellow-neon);
-	}
 }
 
 .link-twittercontact {
+	--icon: "\002663";
 }
 .link-rss {
+	--icon: "\002665";
 }
 .link-support {
+	--icon: "\002714";
 }
