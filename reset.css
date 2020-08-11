@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /* Box sizing rules */
 *,
 *::before,
@@ -9,10 +10,8 @@
 /* Set core body defaults */
 :root {
   text-rendering: optimizeLegibility;
-
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
-
   scroll-behavior: smooth;
 }
 
@@ -54,26 +53,48 @@ summary {
   margin-left: 0;
   margin-right: 0;
   margin-bottom: 0;
-
   /* Add reasonable defaults back */
-  + * {
-    margin-top: 1rem;
-    margin-top: var(--flow-spacing, 1rem);
-  }
+}
+h1 + *,
+h2 + *,
+h3 + *,
+h4 + *,
+h5 + *,
+h6 + *,
+p + *,
+ul + *,
+ol + *,
+dl + *,
+li + *,
+dt + *,
+dd + *,
+hr + *,
+img + *,
+audio + *,
+video + *,
+figure + *,
+figcaption + *,
+blockquote + *,
+address + *,
+table + *,
+caption + *,
+form + *,
+fieldset + *,
+pre + *,
+details + *,
+summary + * {
+  margin-top: 1rem;
+  margin-top: var(--flow-spacing, 1rem);
 }
 
-//Reasonable list defaults
 ul,
 ol,
 dl {
   padding-left: 1.25em;
 }
+
 li + li {
   margin-top: 0.25em;
-}
-dt,
-dd {
-  // @todo: base definition list styling
 }
 
 hr {
@@ -94,7 +115,6 @@ img {
   border-style: none;
 }
 
-// Collapse table borders
 table {
   border-collapse: collapse;
   border-spacing: 0;
@@ -108,7 +128,6 @@ select {
   font: inherit;
 }
 
-// Max width on inputs and buttons
 input,
 button,
 textarea,
@@ -116,16 +135,14 @@ select {
   max-width: 100%;
 }
 
-// Consistent search input styling in webkit
-input[type="search"] {
+input[type=search] {
   -webkit-appearance: textfield;
   -moz-appearance: textfield;
   appearance: textfield;
 }
 
-// Align checkboxes and radio buttons
-input[type="checkbox"],
-input[type="radio"] {
+input[type=checkbox],
+input[type=radio] {
   margin: 0;
   vertical-align: middle;
 }
@@ -134,24 +151,27 @@ input[type="radio"] {
  * Correct the inability to style clickable types in iOS and Safari.
  */
 button,
-[type="button"],
-[type="reset"],
-[type="submit"] {
+[type=button],
+[type=reset],
+[type=submit] {
   -webkit-appearance: button;
 }
 
-//Strip down selects to make consistent
 select,
 option {
-  -webkit-appearance: none; /* WebKit/Chromium */
-  -moz-appearance: none; /* Gecko */
-  appearance: none; /* future (or now) */
-}
-select::-ms-expand {
-  display: none; /* Internet Explorer 10–11 and Edge */
+  -webkit-appearance: none;
+  /* WebKit/Chromium */
+  -moz-appearance: none;
+  /* Gecko */
+  appearance: none;
+  /* future (or now) */
 }
 
-// Set up HTML 5 Elements in old browsers
+select::-ms-expand {
+  display: none;
+  /* Internet Explorer 10–11 and Edge */
+}
+
 article,
 aside,
 figure,
@@ -164,12 +184,10 @@ details {
   display: block;
 }
 
-// Override browser default on <address>
 address {
   font-style: normal;
 }
 
-// Set up fieldsets to be less ugly
 fieldset {
   border-width: 1px;
   border-style: solid;
@@ -187,12 +205,12 @@ a {
  * 1. Correct the inheritance and scaling of font size in all browsers.
  * 2. Correct the odd `em` font sizing in all browsers.
  */
-
 code,
 pre {
-  font-family: monospace, monospace; /* 1 */
-  font-size: 1em; /* 2 */
-
+  font-family: monospace, monospace;
+  /* 1 */
+  font-size: 1em;
+  /* 2 */
   -moz-osx-font-smoothing: auto;
   -webkit-font-smoothing: auto;
 }
@@ -201,18 +219,18 @@ pre {
  * 1. Correct the inheritance and scaling of font size in all browsers.
  * 2. Correct the odd `em` font sizing in all browsers.
  */
-
 code,
 kbd,
 samp {
-  font-family: monospace, monospace; /* 1 */
-  font-size: 1em; /* 2 */
+  font-family: monospace, monospace;
+  /* 1 */
+  font-size: 1em;
+  /* 2 */
 }
 
 /**
  * Make [hidden] work on all browsers.
  */
-
 [hidden] {
   display: none !important;
 }
@@ -229,9 +247,12 @@ a {
  * 2. Add the correct text decoration in Chrome, Edge, IE, Opera, and Safari.
  */
 abbr[title] {
-  border-bottom: none; /* 1 */
-  text-decoration: underline; /* 2 */
-  text-decoration: underline dotted; /* 2 */
+  border-bottom: none;
+  /* 1 */
+  text-decoration: underline;
+  /* 2 */
+  text-decoration: underline dotted;
+  /* 2 */
 }
 
 /**
@@ -245,9 +266,11 @@ sup {
   position: relative;
   vertical-align: baseline;
 }
+
 sub {
   bottom: -0.25em;
 }
+
 sup {
   top: -0.5em;
 }
@@ -259,13 +282,19 @@ sup {
  *    `fieldset` elements in all browsers.
  */
 legend {
-  box-sizing: border-box; /* 1 */
-  color: inherit; /* 2 */
-  display: table; /* 1 */
-  max-width: 100%; /* 1 */
-  padding: 0; /* 3 */
+  box-sizing: border-box;
+  /* 1 */
+  color: inherit;
+  /* 2 */
+  display: table;
+  /* 1 */
+  max-width: 100%;
+  /* 1 */
+  padding: 0;
+  /* 3 */
   margin: 0;
-  white-space: normal; /* 1 */
+  white-space: normal;
+  /* 1 */
 }
 
 /**
@@ -273,31 +302,26 @@ legend {
  * 2. Show the overflow in Edge and IE.
  */
 hr {
-  box-sizing: content-box; /* 1 */
-  height: 0; /* 1 */
-  overflow: visible; /* 2 */
+  box-sizing: content-box;
+  /* 1 */
+  height: 0;
+  /* 1 */
+  overflow: visible;
+  /* 2 */
 }
-
-// Correct element displays
 
 output {
   display: inline-block;
 }
 
-// 1. Add the correct display in all browsers
-
 summary {
-  display: list-item; // 1
+  display: list-item;
   cursor: pointer;
 }
-
-// Add the correct display for template in IE 11
 
 template {
   display: none;
 }
-
-// Always hide an element with the `hidden` HTML attribute.
 
 [hidden] {
   display: none !important;
@@ -312,3 +336,5 @@ template {
     scroll-behavior: auto !important;
   }
 }
+
+/*# sourceMappingURL=reset.css.map */
