@@ -95,6 +95,55 @@ section {
 	}
 }
 
+main {
+	ul {
+		display: flex;
+		flex-flow: row wrap;
+		align-items: center;
+		justify-content: center;
+		list-style-type: none;
+		margin-left: 0;
+
+		li {
+			padding: 1rem;
+			margin: var(--list-spacing, 0);
+			backdrop-filter: hue-rotate(10deg);
+			mix-blend-mode: luminosity;
+
+			@for $i from 1 through 30 {
+				&:nth-child(#{$i}n) {
+					$j: 20 - $i;
+
+					$x: $j * ($i / -100);
+					$y: $j * ($i / 100);
+
+					@if $i % 6 == 0 {
+						$x: $x * 1.49;
+						$y: $y * -1.359;
+					}
+					@if $i % 5 == 0 {
+						$x: $x * -1.89;
+						$y: $y * 1.559;
+					}
+					@if $i % 4 == 0 {
+						$x: $x * 1.89;
+						$y: $y * -1.925;
+					}
+					@if $i % 3 == 0 {
+						$x: $x * -1.626;
+						$y: $y * 1.426;
+					}
+					@if $i % 2 == 0 {
+						$x: $x * 1.603;
+						$y: $y * -1.441;
+					}
+					transform: translateX(#{$x + "px"}) translateY(#{$y + "px"});
+				}
+			}
+		}
+	}
+}
+
 #guidelines {
 }
 .link-guidelines {
@@ -112,7 +161,7 @@ section {
 	--icon: "\002774";
 }
 .link-downloadhtml {
-	--icon: "\002770";
+	--icon: "\00276E";
 }
 .link-codepen {
 	--icon: "\002646";
@@ -122,6 +171,39 @@ section {
 
 //Current Style
 .profile {
+	ul {
+		list-style-type: none;
+		padding: 0;
+		margin-left: 0;
+
+		display: flex;
+		flex-flow: row wrap;
+
+		> * {
+			margin-top: 1em;
+			margin-right: 1em;
+			margin-bottom: 1em;
+			flex-basis: calc(50% - 2em);
+			// min-width: fit-content;
+		}
+	}
+	li {
+		display: flex;
+		flex-flow: column nowrap;
+
+		@include ridiculous-text-shadow($width1: 2px, $width2: 3px, $color1: black, $color2: black);
+
+		span:first-child {
+			text-transform: uppercase;
+			font-style: italic;
+			font-style: 0.9em;
+		}
+		span + span {
+			margin-top: 0em;
+			font-size: 1.2em;
+			color: var(--orange-light);
+		}
+	}
 }
 .profile-title {
 }
@@ -134,4 +216,17 @@ section {
 
 //Featured Styles
 .features {
+	list-style-type: none;
+	padding: 0;
+	margin-left: 0;
+	max-width: none;
+
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-between;
+
+	li > span {
+		display: flex;
+		flex-flow: column nowrap;
+	}
 }
