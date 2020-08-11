@@ -17,14 +17,6 @@ $font-root: "https://cbirdsong.github.io/stylestage-jet-set/fonts/";
 }
 
 @font-face {
-	font-family: "capconstruct";
-	src: url($font-root + "capconst-webfont.woff2") format("woff2"),
-		url($font-root + "capconst-webfont.woff") format("woff");
-	font-weight: normal;
-	font-style: normal;
-}
-
-@font-face {
 	font-family: "nyc_zone_123";
 	src: url($font-root + "nyc_zone_123-webfont.woff2") format("woff2"),
 		url($font-root + "nyc_zone_123-webfont.woff") format("woff");
