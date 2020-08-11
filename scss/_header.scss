@@ -180,7 +180,7 @@ header h1:after {
 	padding: 5rem 2rem;
 
 	@media (prefers-reduced-motion: reduce) {
-		animation-name: unset !important;
+		animation: none !important;
 	}
 }
 
@@ -198,6 +198,8 @@ header h1 {
 	--rotate: -65deg;
 	--translateX: -0.4ch;
 	--translateY: 0ch;
+	--scaleX-fudge: 0;
+	--scaleY-fudge: 0;
 	@media (min-width: $breakpoint-sm) {
 		--rotate: -20deg;
 		--translateX: 0ch;

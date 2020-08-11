@@ -178,16 +178,6 @@ a {
   transition-duration: 300ms;
   transition-timing-function: ease-in-out;
 }
-@supports (text-underline-offset: 0.15rem) {
-  a {
-    animation-duration: calc(var(--beat-interval));
-    animation-timing-function: cubic-bezier(0.31, 0.37, 1, 1.65);
-    animation-iteration-count: infinite;
-  }
-  a :hover {
-    animation-name: beatLine;
-  }
-}
 @supports (text-decoration-color: red) {
   a {
     text-decoration-color: var(--link-accent-color);
@@ -227,6 +217,10 @@ a[class^=link-] svg,
 .profile .container > a::after,
 .profile .container > a svg {
   order: -1;
+  animation-name: beat;
+  animation-duration: calc(var(--beat-interval));
+  animation-timing-function: cubic-bezier(0.31, 0.37, 1, 1.65);
+  animation-iteration-count: infinite;
   content: var(--icon, "");
   font-family: sans-serif;
   font-size: 2em;
@@ -247,10 +241,6 @@ a[class^=link-]:before,
 a[class^=link-]:after,
 .profile .container > a:after {
   visibility: hidden;
-  animation-name: beat;
-  animation-duration: calc(var(--beat-interval));
-  animation-timing-function: cubic-bezier(0.31, 0.37, 1, 1.65);
-  animation-iteration-count: infinite;
 }
 a[class^=link-]:hover:before, a[class^=link-]:focus:before, a[class^=link-]:active:before,
 .profile .container > a:hover:before,
@@ -597,7 +587,7 @@ header h1:after {
   header h1,
 header h1:before,
 header h1:after {
-    animation-name: unset !important;
+    animation: none !important;
   }
 }
 
@@ -611,6 +601,8 @@ header h1 {
   --rotate: -65deg;
   --translateX: -0.4ch;
   --translateY: 0ch;
+  --scaleX-fudge: 0;
+  --scaleY-fudge: 0;
 }
 @media (min-width: 30rem) {
   header h1 {
@@ -1479,52 +1471,40 @@ aside .container::after {
     transform: translateX(var(--translateX, 0)) translateY(var(--translateY, 0)) skewX(var(--skewX, 0)) skewY(var(--skewY, 0)) rotate(var(--rotate, 0)) rotateX(var(--rotateX, 0)) rotateY(var(--rotateY, 0)) scale(1);
   }
   23% {
-    text-underline-offset: 0.15em;
-    transform: translateX(var(--translateX, 0)) translateY(var(--translateY, 0)) skewX(var(--skewX, 0)) skewY(var(--skewY, 0)) rotate(var(--rotate, 0)) rotateX(var(--rotateX, 0)) rotateY(var(--rotateY, 0)) scale(1);
+    transform: translateX(var(--translateX, 0)) translateY(var(--translateY, 0)) skewX(var(--skewX, 0)) skewY(var(--skewY, 0)) rotate(var(--rotate, 0)) rotateX(var(--rotateX, 0)) rotateY(var(--rotateY, 0)) scaleX(1) scaleY(1);
   }
   24% {
-    text-underline-offset: 0.25em;
-    transform: translateX(var(--translateX, 0)) translateY(var(--translateY, 0)) skewX(var(--skewX, 0)) skewY(var(--skewY, 0)) rotate(var(--rotate, 0)) rotateX(var(--rotateX, 0)) rotateY(var(--rotateY, 0)) scale(1.01, 1.025);
+    transform: translateX(var(--translateX, 0)) translateY(var(--translateY, 0)) skewX(var(--skewX, 0)) skewY(var(--skewY, 0)) rotate(var(--rotate, 0)) rotateX(var(--rotateX, 0)) rotateY(var(--rotateY, 0)) scaleX(calc(var(--scaleX-fudge, 0) + 1.01)) scaleY(calc(var(--scaleY-fudge, 0) + 1.025));
   }
   25% {
-    text-underline-offset: 0.15em;
-    transform: translateX(var(--translateX, 0)) translateY(var(--translateY, 0)) skewX(var(--skewX, 0)) skewY(var(--skewY, 0)) rotate(var(--rotate, 0)) rotateX(var(--rotateX, 0)) rotateY(var(--rotateY, 0)) scale(1);
+    transform: translateX(var(--translateX, 0)) translateY(var(--translateY, 0)) skewX(var(--skewX, 0)) skewY(var(--skewY, 0)) rotate(var(--rotate, 0)) rotateX(var(--rotateX, 0)) rotateY(var(--rotateY, 0)) scaleX(1) scaleY(1);
   }
   48% {
-    text-underline-offset: 0.15em;
-    transform: translateX(var(--translateX, 0)) translateY(var(--translateY, 0)) skewX(var(--skewX, 0)) skewY(var(--skewY, 0)) rotate(var(--rotate, 0)) rotateX(var(--rotateX, 0)) rotateY(var(--rotateY, 0)) scale(1);
+    transform: translateX(var(--translateX, 0)) translateY(var(--translateY, 0)) skewX(var(--skewX, 0)) skewY(var(--skewY, 0)) rotate(var(--rotate, 0)) rotateX(var(--rotateX, 0)) rotateY(var(--rotateY, 0)) scaleX(1) scaleY(1);
   }
   49% {
-    text-underline-offset: 0.25em;
-    transform: translateX(var(--translateX, 0)) translateY(var(--translateY, 0)) skewX(var(--skewX, 0)) skewY(var(--skewY, 0)) rotate(var(--rotate, 0)) rotateX(var(--rotateX, 0)) rotateY(var(--rotateY, 0)) scale(1.025, 1.01);
+    transform: translateX(var(--translateX, 0)) translateY(var(--translateY, 0)) skewX(var(--skewX, 0)) skewY(var(--skewY, 0)) rotate(var(--rotate, 0)) rotateX(var(--rotateX, 0)) rotateY(var(--rotateY, 0)) scaleX(calc(var(--scaleX-fudge, 0) + 1.025)) scaleY(calc(var(--scaleY-fudge, 0) + 1.01));
   }
   50% {
-    text-underline-offset: 0.15em;
-    transform: translateX(var(--translateX, 0)) translateY(var(--translateY, 0)) skewX(var(--skewX, 0)) skewY(var(--skewY, 0)) rotate(var(--rotate, 0)) rotateX(var(--rotateX, 0)) rotateY(var(--rotateY, 0)) scale(1);
+    transform: translateX(var(--translateX, 0)) translateY(var(--translateY, 0)) skewX(var(--skewX, 0)) skewY(var(--skewY, 0)) rotate(var(--rotate, 0)) rotateX(var(--rotateX, 0)) rotateY(var(--rotateY, 0)) scaleX(1) scaleY(1);
   }
   73% {
-    text-underline-offset: 0.15em;
-    transform: translateX(var(--translateX, 0)) translateY(var(--translateY, 0)) skewX(var(--skewX, 0)) skewY(var(--skewY, 0)) rotate(var(--rotate, 0)) rotateX(var(--rotateX, 0)) rotateY(var(--rotateY, 0)) scale(1);
+    transform: translateX(var(--translateX, 0)) translateY(var(--translateY, 0)) skewX(var(--skewX, 0)) skewY(var(--skewY, 0)) rotate(var(--rotate, 0)) rotateX(var(--rotateX, 0)) rotateY(var(--rotateY, 0)) scaleX(1) scaleY(1);
   }
   74% {
-    text-underline-offset: 0.25em;
-    transform: translateX(var(--translateX, 0)) translateY(var(--translateY, 0)) skewX(var(--skewX, 0)) skewY(var(--skewY, 0)) rotate(var(--rotate, 0)) rotateX(var(--rotateX, 0)) rotateY(var(--rotateY, 0)) scale(1.01, 1.025);
+    transform: translateX(var(--translateX, 0)) translateY(var(--translateY, 0)) skewX(var(--skewX, 0)) skewY(var(--skewY, 0)) rotate(var(--rotate, 0)) rotateX(var(--rotateX, 0)) rotateY(var(--rotateY, 0)) scaleX(calc(var(--scaleX-fudge, 0) + 1.01)) scaleY(calc(var(--scaleY-fudge, 0) + 1.025));
   }
   75% {
-    text-underline-offset: 0.15em;
-    transform: translateX(var(--translateX, 0)) translateY(var(--translateY, 0)) skewX(var(--skewX, 0)) skewY(var(--skewY, 0)) rotate(var(--rotate, 0)) rotateX(var(--rotateX, 0)) rotateY(var(--rotateY, 0)) scale(1);
+    transform: translateX(var(--translateX, 0)) translateY(var(--translateY, 0)) skewX(var(--skewX, 0)) skewY(var(--skewY, 0)) rotate(var(--rotate, 0)) rotateX(var(--rotateX, 0)) rotateY(var(--rotateY, 0)) scaleX(1) scaleY(1);
   }
   98% {
-    text-underline-offset: 0.15em;
-    transform: translateX(var(--translateX, 0)) translateY(var(--translateY, 0)) skewX(var(--skewX, 0)) skewY(var(--skewY, 0)) rotate(var(--rotate, 0)) rotateX(var(--rotateX, 0)) rotateY(var(--rotateY, 0)) scale(1);
+    transform: translateX(var(--translateX, 0)) translateY(var(--translateY, 0)) skewX(var(--skewX, 0)) skewY(var(--skewY, 0)) rotate(var(--rotate, 0)) rotateX(var(--rotateX, 0)) rotateY(var(--rotateY, 0)) scaleX(1) scaleY(1);
   }
   99% {
-    text-underline-offset: 0.375em;
-    transform: translateX(var(--translateX, 0)) translateY(var(--translateY, 0)) skewX(var(--skewX, 0)) skewY(var(--skewY, 0)) rotate(var(--rotate, 0)) rotateX(var(--rotateX, 0)) rotateY(var(--rotateY, 0)) scale(1.08, 1.06);
+    transform: translateX(var(--translateX, 0)) translateY(var(--translateY, 0)) skewX(var(--skewX, 0)) skewY(var(--skewY, 0)) rotate(var(--rotate, 0)) rotateX(var(--rotateX, 0)) rotateY(var(--rotateY, 0)) scaleX(calc(var(--scaleX-fudge, 0) + 1.08)) scaleY(calc(var(--scaleY-fudge, 0) + 1.06));
   }
   100% {
-    text-underline-offset: 0.15em;
-    transform: translateX(var(--translateX, 0)) translateY(var(--translateY, 0)) skewX(var(--skewX, 0)) skewY(var(--skewY, 0)) rotate(var(--rotate, 0)) rotateX(var(--rotateX, 0)) rotateY(var(--rotateY, 0)) scale(1);
+    transform: translateX(var(--translateX, 0)) translateY(var(--translateY, 0)) skewX(var(--skewX, 0)) skewY(var(--skewY, 0)) rotate(var(--rotate, 0)) rotateX(var(--rotateX, 0)) rotateY(var(--rotateY, 0)) scaleX(1) scaleY(1);
   }
 }
 @keyframes beatLine {

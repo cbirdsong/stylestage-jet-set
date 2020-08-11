@@ -14,16 +14,6 @@ a {
 	text-decoration: underline;
 	text-underline-offset: 0.15em;
 
-	@supports (text-underline-offset: 0.15rem) {
-		animation-duration: calc(var(--beat-interval));
-		animation-timing-function: cubic-bezier(0.31, 0.37, 1, 1.65);
-		animation-iteration-count: infinite;
-
-		:hover {
-			animation-name: beatLine;
-		}
-	}
-
 	@include ridiculous-text-shadow($width1: 1px, $width2: 2px, $color1: black, $color2: black);
 
 	@supports (text-decoration-color: red) {
@@ -69,6 +59,10 @@ a[class^="link-"],
 	&::after,
 	svg {
 		order: -1;
+		animation-name: beat;
+		animation-duration: calc(var(--beat-interval));
+		animation-timing-function: cubic-bezier(0.31, 0.37, 1, 1.65);
+		animation-iteration-count: infinite;
 
 		content: var(--icon, "");
 		font-family: sans-serif;
@@ -92,10 +86,6 @@ a[class^="link-"],
 	}
 	&:after {
 		visibility: hidden;
-		animation-name: beat;
-		animation-duration: calc(var(--beat-interval));
-		animation-timing-function: cubic-bezier(0.31, 0.37, 1, 1.65);
-		animation-iteration-count: infinite;
 	}
 	&:hover,
 	&:focus,

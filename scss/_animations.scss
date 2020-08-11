@@ -9,7 +9,6 @@
 
 	@for $i from 1 through 4 {
 		#{($i * 25) - 2 + "%"} {
-			text-underline-offset: 0.15em;
 			transform: translateX(var(--translateX, 0))
 				translateY(var(--translateY, 0))
 				skewX(var(--skewX, 0))
@@ -17,11 +16,11 @@
 				rotate(var(--rotate, 0))
 				rotateX(var(--rotateX, 0))
 				rotateY(var(--rotateY, 0))
-				scale(1);
+				scaleX(1)
+				scaleY(1);
 		}
 		#{($i * 25) - 1 + "%"} {
 			@if $i == 4 {
-				text-underline-offset: 0.375em;
 				transform: translateX(var(--translateX, 0))
 					translateY(var(--translateY, 0))
 					skewX(var(--skewX, 0))
@@ -29,9 +28,9 @@
 					rotate(var(--rotate, 0))
 					rotateX(var(--rotateX, 0))
 					rotateY(var(--rotateY, 0))
-					scale(1.08, 1.06);
+					scaleX(calc(var(--scaleX-fudge, 0) + 1.08))
+					scaleY(calc(var(--scaleY-fudge, 0) + 1.06));
 			} @else if $i == 2 {
-				text-underline-offset: 0.25em;
 				transform: translateX(var(--translateX, 0))
 					translateY(var(--translateY, 0))
 					skewX(var(--skewX, 0))
@@ -39,9 +38,9 @@
 					rotate(var(--rotate, 0))
 					rotateX(var(--rotateX, 0))
 					rotateY(var(--rotateY, 0))
-					scale(1.025, 1.01);
+					scaleX(calc(var(--scaleX-fudge, 0) + 1.025))
+					scaleY(calc(var(--scaleY-fudge, 0) + 1.01));
 			} @else {
-				text-underline-offset: 0.25em;
 				transform: translateX(var(--translateX, 0))
 					translateY(var(--translateY, 0))
 					skewX(var(--skewX, 0))
@@ -49,11 +48,11 @@
 					rotate(var(--rotate, 0))
 					rotateX(var(--rotateX, 0))
 					rotateY(var(--rotateY, 0))
-					scale(1.01, 1.025);
+					scaleX(calc(var(--scaleX-fudge, 0) + 1.01))
+					scaleY(calc(var(--scaleY-fudge, 0) + 1.025));
 			}
 		}
 		#{$i * 25 + "%"} {
-			text-underline-offset: 0.15em;
 			transform: translateX(var(--translateX, 0))
 				translateY(var(--translateY, 0))
 				skewX(var(--skewX, 0))
@@ -61,7 +60,8 @@
 				rotate(var(--rotate, 0))
 				rotateX(var(--rotateX, 0))
 				rotateY(var(--rotateY, 0))
-				scale(1);
+				scaleX(1)
+				scaleY(1);
 		}
 	}
 }
