@@ -206,8 +206,8 @@ nav li {
 				--gradient-degrees: #{$i * (11 - $i * 1.25) + "deg"};
 				--gradient-size1: #{$size1 * 1.75};
 				--gradient-size2: #{$size2 * 2.125};
-				--gradient-color1: var(--orange-neon);
-				--gradient-color2: var(--red);
+				--gradient-color1: var(--teal);
+				--gradient-color2: var(--blue-dark);
 				--border-top-width: #{"0.1" + $i + "5" + "rem"};
 				--translateX: #{$i * -0.0625 + "rem"};
 				--skewX: #{$j * -0.4 + "deg"};
@@ -232,8 +232,8 @@ nav li {
 				--gradient-degrees: #{$i * (43 - $i * 2.15) + "deg"};
 				--gradient-size1: #{$size1 * 0.45};
 				--gradient-size2: #{$size2 * 1.4};
-				--gradient-color1: var(--red-dark);
-				--gradient-color2: var(--orange-dark);
+				--gradient-color1: var(--red);
+				--gradient-color2: var(--orange-neon);
 				--border-right-width: #{"0.1" + $i + "5" + "rem"};
 				--translateX: #{$i * 0.042 + "rem"};
 				--skewX: #{$i * -0.85 + "deg"};
@@ -245,8 +245,8 @@ nav li {
 				--gradient-degrees: #{$i * (13 - $i * 3.325) + "deg"};
 				--gradient-size1: #{$size1 * 0.75};
 				--gradient-size2: #{$size2 * 1.125};
-				--gradient-color1: var(--green-dark);
-				--gradient-color2: var(--green-darker);
+				--gradient-color1: var(--green-neon);
+				--gradient-color2: var(--yellow-neon);
 				--border-top-width: #{"0.1" + $i + "5" + "rem"};
 				--translateX: #{$i * -0.055 + "rem"};
 				--skewX: #{$h * -0.8 + "deg"};

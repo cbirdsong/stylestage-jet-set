@@ -1062,8 +1062,8 @@ nav li:nth-child(1n) {
   --gradient-degrees: 9.675deg;
   --gradient-size1: 9px;
   --gradient-size2: 13.5px;
-  --gradient-color1: var(--green-dark);
-  --gradient-color2: var(--green-darker);
+  --gradient-color1: var(--green-neon);
+  --gradient-color2: var(--yellow-neon);
   --border-top-width: 0.115rem;
   --translateX: -0.055rem;
   --skewX: -8.8deg;
@@ -1083,8 +1083,8 @@ nav li:nth-child(2n) {
   --gradient-degrees: 77.4deg;
   --gradient-size1: 5.4px;
   --gradient-size2: 16.8px;
-  --gradient-color1: var(--red-dark);
-  --gradient-color2: var(--orange-dark);
+  --gradient-color1: var(--red);
+  --gradient-color2: var(--orange-neon);
   --border-right-width: 0.125rem;
   --translateX: 0.084rem;
   --skewX: -1.7deg;
@@ -1125,8 +1125,8 @@ nav li:nth-child(4n) {
   --gradient-degrees: 137.6deg;
   --gradient-size1: 5.4px;
   --gradient-size2: 16.8px;
-  --gradient-color1: var(--red-dark);
-  --gradient-color2: var(--orange-dark);
+  --gradient-color1: var(--red);
+  --gradient-color2: var(--orange-neon);
   --border-right-width: 0.145rem;
   --translateX: 0.168rem;
   --skewX: -3.4deg;
@@ -1146,8 +1146,8 @@ nav li:nth-child(5n) {
   --gradient-degrees: -18.125deg;
   --gradient-size1: 9px;
   --gradient-size2: 13.5px;
-  --gradient-color1: var(--green-dark);
-  --gradient-color2: var(--green-darker);
+  --gradient-color1: var(--green-neon);
+  --gradient-color2: var(--yellow-neon);
   --border-top-width: 0.155rem;
   --translateX: -0.275rem;
   --skewX: -5.6deg;
@@ -1167,8 +1167,8 @@ nav li:nth-child(6n) {
   --gradient-degrees: 21deg;
   --gradient-size1: 21px;
   --gradient-size2: 25.5px;
-  --gradient-color1: var(--orange-neon);
-  --gradient-color2: var(--red);
+  --gradient-color1: var(--teal);
+  --gradient-color2: var(--blue-dark);
   --border-top-width: 0.165rem;
   --translateX: -0.375rem;
   --skewX: -7.2deg;
@@ -1188,8 +1188,8 @@ nav li:nth-child(7n) {
   --gradient-degrees: -71.925deg;
   --gradient-size1: 9px;
   --gradient-size2: 13.5px;
-  --gradient-color1: var(--green-dark);
-  --gradient-color2: var(--green-darker);
+  --gradient-color1: var(--green-neon);
+  --gradient-color2: var(--yellow-neon);
   --border-top-width: 0.175rem;
   --translateX: -0.385rem;
   --skewX: -4deg;
@@ -1209,8 +1209,8 @@ nav li:nth-child(8n) {
   --gradient-degrees: 206.4deg;
   --gradient-size1: 5.4px;
   --gradient-size2: 16.8px;
-  --gradient-color1: var(--red-dark);
-  --gradient-color2: var(--orange-dark);
+  --gradient-color1: var(--red);
+  --gradient-color2: var(--orange-neon);
   --border-right-width: 0.185rem;
   --translateX: 0.336rem;
   --skewX: -6.8deg;
@@ -1251,8 +1251,8 @@ nav li:nth-child(10n) {
   --gradient-degrees: 215deg;
   --gradient-size1: 5.4px;
   --gradient-size2: 16.8px;
-  --gradient-color1: var(--red-dark);
-  --gradient-color2: var(--orange-dark);
+  --gradient-color1: var(--red);
+  --gradient-color2: var(--orange-neon);
   --border-right-width: 0.1105rem;
   --translateX: 0.42rem;
   --skewX: -8.5deg;
@@ -1272,8 +1272,8 @@ nav li:nth-child(11n) {
   --gradient-degrees: -259.325deg;
   --gradient-size1: 9px;
   --gradient-size2: 13.5px;
-  --gradient-color1: var(--green-dark);
-  --gradient-color2: var(--green-darker);
+  --gradient-color1: var(--green-neon);
+  --gradient-color2: var(--yellow-neon);
   --border-top-width: 0.1115rem;
   --translateX: -0.605rem;
   --skewX: -0.8deg;
@@ -1293,8 +1293,8 @@ nav li:nth-child(12n) {
   --gradient-degrees: -48deg;
   --gradient-size1: 21px;
   --gradient-size2: 25.5px;
-  --gradient-color1: var(--orange-neon);
-  --gradient-color2: var(--red);
+  --gradient-color1: var(--teal);
+  --gradient-color2: var(--blue-dark);
   --border-top-width: 0.1125rem;
   --translateX: -0.75rem;
   --skewX: -9.6deg;
@@ -1326,7 +1326,7 @@ aside:nth-child(n):only-child {
 aside {
   --heading-color: var(--green-neon);
   --link-color: var(--teal);
-  --link-color-hover: var(--orange-neon);
+  --link-color--hover: var(--yellow-neon);
 }
 aside:nth-child(odd) {
   --background-color: var(--green-darkest);
