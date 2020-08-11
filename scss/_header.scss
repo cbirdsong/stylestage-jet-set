@@ -57,17 +57,14 @@ header .container {
 
 	@supports (display: grid) {
 		display: grid;
-		gap: 2rem;
 		grid-template-areas: "link" "title" "subtitle" "credit";
 		grid-template-columns: 100%;
 		grid-template-rows: max-content max-content max-content max-content;
+		min-height: 100vh;
 
+		gap: 2rem;
 		@media (min-width: 65rem) {
-			min-height: 100vh;
 			gap: 1rem;
-			// grid-template-areas: "credit link" "title title" "subtitle subtitle";
-			// grid-template-columns: max-content auto;
-			// grid-template-rows: max-content 3fr 1fr;
 		}
 
 		* {

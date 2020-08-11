@@ -39,18 +39,6 @@ body {
 ::-webkit-scrollbar-thumb {
 }
 
-*,
-*:before,
-*:after {
-	@media (prefers-reduced-motion: reduce) {
-		animation-duration: 0.01ms !important;
-		animation-iteration-count: 1 !important;
-		transition-duration: 0.01ms !important;
-		scroll-behavior: auto !important;
-		--transition-duration: 0.01ms !important;
-	}
-}
-
 .skip-link {
 	display: inline-block;
 	margin: 1rem auto;
