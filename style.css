@@ -370,8 +370,8 @@ template {
   --icon-color: var(--yellow-neon);
   --link-color: var(--green-neon);
   --link-color--hover: var(--teal);
-  --link-color--active: var(--link-color--hover);
-  --link-color--focus: var(--link-color--hover);
+  --link-color--active: var(--red);
+  --link-color--focus: var(--orange-neon);
   --header-text-primary: var(--white);
   --header-text-secondary: var(--yellow-neon);
   --header-text-tertiary: var(--green-neon);
@@ -540,7 +540,11 @@ a:active {
   color: var(--link-color--active, var(--link-color--hover));
 }
 a:focus {
-  color: var(--link-color--focus);
+  color: var(--link-color);
+  outline: 0.15em solid var(--link-color--focus);
+  outline-offset: 0.25em;
+  box-shadow: 0 0 0 0.25em var(--link-color--hover);
+  background-color: var(--black);
 }
 
 a svg {
@@ -597,6 +601,11 @@ a[class^=link-]:hover:after, a[class^=link-]:focus:after, a[class^=link-]:active
 .profile .container > a:focus:after,
 .profile .container > a:active:after {
   visibility: visible;
+}
+a[class^=link-]:focus:before, a[class^=link-]:focus:after,
+.profile .container > a:focus:before,
+.profile .container > a:focus:after {
+  text-indent: -0.5em;
 }
 
 a.link-github {
@@ -704,7 +713,7 @@ ol li {
 }
 
 body {
-  grid-template-areas: "skip-link" "header" "nav" "main" "styles" "profile" "footer";
+  grid-template-areas: "skiplink" "header" "nav" "main" "styles" "profile" "footer";
   grid-template-columns: 1fr;
 }
 @supports (display: grid) {
@@ -714,13 +723,13 @@ body {
 }
 @media (min-width: 50rem) {
   body {
-    grid-template-areas: "skip-link skip-link" "header header" "main nav" "styles nav" "profile nav" "footer footer";
+    grid-template-areas: "skiplink skiplink" "header header" "main nav" "styles nav" "profile nav" "footer footer";
     grid-template-columns: 3fr 1fr;
   }
 }
 
 .skip-link {
-  grid-area: "skip-link";
+  grid-area: skiplink;
 }
 
 header {
@@ -994,9 +1003,9 @@ nav {
   text-align: center;
   padding: 3rem 1rem;
   --link-color: var(--black);
-  --link-color--hover: var(--white);
-  --link-color--active: var(--white);
-  --link-color--focus: var(--white);
+  --link-color--hover: var(--red);
+  --link-color--active: var(--green-neon);
+  --link-color--focus: var(--yellow-neon);
 }
 nav:before, nav:after {
   content: "Style Stage";
@@ -1104,7 +1113,13 @@ nav li a {
   text-decoration: none;
 }
 nav li a:hover, nav li a:focus, nav li a:active {
-  text-shadow: 0 2px var(--link-color), 0 -2px var(--link-color), 2px 0 var(--link-color), -2px 0 var(--link-color), 2px -2px var(--link-color), 2px 2px var(--link-color), -2px 2px var(--link-color), -2px -2px var(--link-color), 0 3px var(--black), 0 -3px var(--black), 3px 0 var(--black), -3px 0 var(--black), 3px -3px var(--black), 3px 3px var(--black), -3px 3px var(--black), -3px -3px var(--black);
+  text-shadow: 0 2px var(--white), 0 -2px var(--white), 2px 0 var(--white), -2px 0 var(--white), 2px -2px var(--white), 2px 2px var(--white), -2px 2px var(--white), -2px -2px var(--white), 0 3px var(--white), 0 -3px var(--white), 3px 0 var(--white), -3px 0 var(--white), 3px -3px var(--white), 3px 3px var(--white), -3px 3px var(--white), -3px -3px var(--white);
+}
+@supports (-webkit-text-fill-color: var(--white)) {
+  nav li a:hover, nav li a:focus, nav li a:active {
+    -webkit-text-fill-color: var(--white);
+    text-shadow: 0 2px var(--black), 0 -2px var(--black), 2px 0 var(--black), -2px 0 var(--black), 2px -2px var(--black), 2px 2px var(--black), -2px 2px var(--black), -2px -2px var(--black), 0 3px var(--black), 0 -3px var(--black), 3px 0 var(--black), -3px 0 var(--black), 3px -3px var(--black), 3px 3px var(--black), -3px 3px var(--black), -3px -3px var(--black);
+  }
 }
 nav li a::before, nav li a::after {
   content: "";

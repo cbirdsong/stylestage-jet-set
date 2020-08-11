@@ -3,7 +3,7 @@ body {
 		display: grid;
 	}
 	grid-template-areas:
-		"skip-link"
+		"skiplink"
 		"header"
 		"nav"
 		"main"
@@ -14,7 +14,7 @@ body {
 
 	@media (min-width: 50rem) {
 		grid-template-areas:
-			"skip-link skip-link"
+			"skiplink skiplink"
 			"header header"
 			"main nav"
 			"styles nav"
@@ -24,7 +24,7 @@ body {
 	}
 }
 .skip-link {
-	grid-area: "skip-link";
+	grid-area: skiplink;
 }
 header {
 	grid-area: header;

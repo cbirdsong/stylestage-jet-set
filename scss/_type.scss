@@ -43,7 +43,11 @@ a {
 		color: var(--link-color--active, var(--link-color--hover));
 	}
 	&:focus {
-		color: var(--link-color--focus);
+		color: var(--link-color);
+		outline: 0.15em solid var(--link-color--focus);
+		outline-offset: 0.25em;
+		box-shadow: 0 0 0 0.25em var(--link-color--hover);
+		background-color: var(--black);
 	}
 }
 
@@ -102,6 +106,12 @@ a[class^="link-"],
 		}
 		&:after {
 			visibility: visible;
+		}
+	}
+	&:focus {
+		&:before,
+		&:after {
+			text-indent: -0.5em;
 		}
 	}
 }

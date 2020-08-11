@@ -8,9 +8,9 @@ nav {
 	padding: 3rem 1rem;
 
 	--link-color: var(--black);
-	--link-color--hover: var(--white);
-	--link-color--active: var(--white);
-	--link-color--focus: var(--white);
+	--link-color--hover: var(--red);
+	--link-color--active: var(--green-neon);
+	--link-color--focus: var(--yellow-neon);
 
 	&:before,
 	&:after {
@@ -134,7 +134,11 @@ nav li {
 		&:hover,
 		&:focus,
 		&:active {
-			@include ridiculous-text-shadow($width1: 2px, $width2: 3px, $color1: var(--link-color), $color2: var(--black));
+			@include ridiculous-text-shadow($width1: 2px, $width2: 3px, $color1: var(--white), $color2: var(--white));
+			@supports (-webkit-text-fill-color: var(--white)) {
+				-webkit-text-fill-color: var(--white);
+				@include ridiculous-text-shadow($width1: 2px, $width2: 3px, $color1: var(--black), $color2: var(--black));
+			}
 		}
 		&:focus {
 		}

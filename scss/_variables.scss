@@ -83,8 +83,8 @@ $bg-count: 25; // must be divisible by 100
 
 	--link-color: var(--green-neon);
 	--link-color--hover: var(--teal);
-	--link-color--active: var(--link-color--hover);
-	--link-color--focus: var(--link-color--hover);
+	--link-color--active: var(--red);
+	--link-color--focus: var(--orange-neon);
 
 	--header-text-primary: var(--white);
 	--header-text-secondary: var(--yellow-neon);
