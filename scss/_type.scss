@@ -12,6 +12,18 @@ a {
 	color: var(--link-color);
 
 	text-decoration: underline;
+	text-underline-offset: 0.15em;
+
+	@supports (text-underline-offset: 0.15rem) {
+		animation: beatLine;
+		animation-duration: calc(var(--beat-interval));
+		animation-timing-function: cubic-bezier(0.31, 0.37, 1, 1.65);
+		animation-iteration-count: infinite;
+
+		&:not(:hover) {
+			text-underline-offset: 0.15em !important;
+		}
+	}
 
 	@include ridiculous-text-shadow($width1: 1px, $width2: 2px, $color1: black, $color2: black);
 
@@ -19,9 +31,8 @@ a {
 		text-decoration-color: var(--link-accent-color);
 		text-decoration-thickness: 0.1em;
 	}
-	text-underline-offset: 0.1em;
 
-	// @include transition-basic;
+	@include transition-basic($property: "transform, filter, opacity, text-underline-offset");
 }
 
 #{$a-tags-base} {
@@ -52,7 +63,10 @@ a[class^="link-"],
 	margin-left: 1em;
 
 	&::before,
+	&::after,
 	svg {
+		order: -1;
+
 		content: var(--icon, "");
 		font-family: sans-serif;
 		font-size: 2em;
@@ -69,7 +83,26 @@ a[class^="link-"],
 		fill: var(--icon-color);
 		color: var(--icon-color);
 	}
-	&::before {
+
+	&:before {
+		visibility: visible;
+	}
+	&:after {
+		visibility: hidden;
+		animation: beat;
+		animation-duration: calc(var(--beat-interval));
+		animation-timing-function: cubic-bezier(0.31, 0.37, 1, 1.65);
+		animation-iteration-count: infinite;
+	}
+	&:hover,
+	&:focus,
+	&:active {
+		&:before {
+			visibility: hidden;
+		}
+		&:after {
+			visibility: visible;
+		}
 	}
 }
 a.link-github {
@@ -91,7 +124,7 @@ a.link-github {
 
 		@include ridiculous-text-shadow(
 			$width1: 2px,
-			$width2: 3px,
+			$width2: 4px,
 			$color1: var(--heading-stroke-color),
 			$color2: var(--heading-stroke-color)
 		);

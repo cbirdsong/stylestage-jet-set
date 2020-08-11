@@ -22,7 +22,8 @@
 
 //transitions
 @mixin transition-basic(
-	$property: "color, background-color, border-color, text-decoration-color, box-shadow, transform, filter, opacity",
+	$property:
+		"color, background-color, border-color, text-decoration-color, box-shadow, transform, filter, opacity, text-underline-offset",
 	$duration: 300ms,
 	$easing: ease-in-out
 ) {

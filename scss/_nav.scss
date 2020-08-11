@@ -33,20 +33,23 @@ nav {
 			right: 2.5vw;
 		}
 
-		opacity: 0.25;
-		// filter: opacity(0.5) brightness(1.5);
-		// mix-blend-mode: multiply;
-		// mix-blend-mode: luminosity;
+		isolation: isolate;
+		backdrop-filter: saturate(80%);
+		mix-blend-mode: color-dodge;
+		filter: contrast(0.5) brightness(0.5) opacity(0.25);
+
+		animation: beat;
+		animation-duration: calc(var(--beat-interval));
+		animation-timing-function: cubic-bezier(0.31, 0.37, 1, 1.65);
+		animation-iteration-count: infinite;
 	}
 
 	&::before {
-		-webkit-text-fill-color: var(--purple);
-		-webkit-text-stroke-width: 1.5px;
-		-webkit-text-stroke-color: var(--purple-dark);
+		-webkit-text-fill-color: var(--black);
 	}
 	&::after {
 		-webkit-text-stroke-width: 0.33em;
-		-webkit-text-stroke-color: var(--purple-darkest);
+		-webkit-text-stroke-color: var(--black);
 	}
 }
 
@@ -138,6 +141,7 @@ nav li {
 		&:active {
 		}
 
+		&::before,
 		&::after {
 			content: "";
 			display: inline-block;
@@ -158,18 +162,31 @@ nav li {
 					drop-shadow(0 calc(var(--border-bottom-width) * -1) 0 var(--link-color))
 					drop-shadow(calc(var(--border-left-width) * -1) 0 0 var(--link-color));
 			}
-
+			--translateX: 0rem;
+			--skewX: 0deg;
+			--skewY: 0deg;
+			--rotateX: 0deg;
+			--rotateY: 0deg;
+			--rotateZ: 0deg;
+		}
+		&:before {
+			visibility: visible;
+		}
+		&:after {
+			visibility: hidden;
 			animation: beat;
 			animation-duration: calc(var(--beat-interval));
 			animation-timing-function: cubic-bezier(0.31, 0.37, 1, 1.65);
 			animation-iteration-count: infinite;
-			animation-play-state: paused;
 		}
 		&:hover,
 		&:focus,
 		&:active {
+			&:before {
+				visibility: hidden;
+			}
 			&:after {
-				animation-play-state: running;
+				visibility: visible;
 				background-image: repeating-linear-gradient(
 					var(--gradient-degrees),
 					var(--gradient-color1) var(--gradient-size1),

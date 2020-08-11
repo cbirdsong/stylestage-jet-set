@@ -14,14 +14,22 @@
 	background-color: var(--black);
 
 	overflow-x: hidden;
+
+	text-rendering: optimizeLegibility;
+
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-font-smoothing: antialiased;
+
+	scroll-behavior: smooth;
 }
 
 body {
 	background-color: var(--purple-darkest);
 }
 
-.skip-link {
-	@include visually-hidden;
+::selection {
+	color: var(--teal);
+	background-color: var(--purple-darkest);
 }
 
 ::-webkit-scrollbar {
@@ -31,4 +39,20 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
+}
+
+*,
+*:before,
+*:after {
+	@media (prefers-reduced-motion: reduce) {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.01ms !important;
+		scroll-behavior: auto !important;
+		--transition-duration: 0.01ms !important;
+	}
+}
+
+.skip-link {
+	@include visually-hidden;
 }

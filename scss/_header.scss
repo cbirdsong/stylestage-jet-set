@@ -11,6 +11,12 @@ header {
 		var(--header-bg-primary) 16px,
 		var(--header-bg-primary) 32px
 	);
+	@media (prefers-reduced-motion: reduce) {
+		&:before,
+		&:after {
+			content: none !important;
+		}
+	}
 
 	&:before,
 	&:after {
@@ -177,6 +183,10 @@ header h1,
 header h1:before,
 header h1:after {
 	padding: 5rem 2rem;
+
+	@media (prefers-reduced-motion: reduce) {
+		animation-name: unset !important;
+	}
 }
 
 // Crazy Text Effects and Animations

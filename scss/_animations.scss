@@ -1,40 +1,20 @@
 //animations
 @keyframes beat {
 	0% {
-		transform: scale(1);
-	}
-
-	@for $i from 1 through 4 {
-		#{($i * 25) - 2 + "%"} {
-			transform: scale(1);
-		}
-		#{($i * 25) - 1 + "%"} {
-			@if $i == 4 {
-				transform: scale(1.08, 1.06);
-			} @else if $i == 2 {
-				transform: scale(1.025, 1.01);
-			} @else {
-				transform: scale(1.01, 1.025);
-			}
-		}
-		#{$i * 25 + "%"} {
-			transform: scale(1);
-		}
-	}
-}
-
-@keyframes beatNav {
-	0% {
+		text-underline-offset: 0.1em;
 		transform: translateX(var(--translateX, 0)) translateY(var(--translateY, 0)) skewX(var(--skewX, 0))
-			skewY(var(--skewY, 0)) rotateX(var(--rotateX, 0)) rotateY(var(--rotateY, 0)) rotateZ(var(--rotateZ, 0)) scale(1);
+			skewY(var(--skewY, 0)) rotate(var(--rotate, 0)) rotateX(var(--rotateX, 0)) rotateY(var(--rotateY, 0))
+			rotateZ(var(--rotateZ, 0)) scale(1);
 	}
 
 	@for $i from 1 through 4 {
 		#{($i * 25) - 2 + "%"} {
+			text-underline-offset: 0.1em;
 			transform: translateX(var(--translateX, 0))
 				translateY(var(--translateY, 0))
 				skewX(var(--skewX, 0))
 				skewY(var(--skewY, 0))
+				rotate(var(--rotate, 0))
 				rotateX(var(--rotateX, 0))
 				rotateY(var(--rotateY, 0))
 				rotateZ(var(--rotateZ, 0))
@@ -42,31 +22,34 @@
 		}
 		#{($i * 25) - 1 + "%"} {
 			@if $i == 4 {
+				text-underline-offset: 0.3em;
 				transform: translateX(var(--translateX, 0))
 					translateY(var(--translateY, 0))
 					skewX(var(--skewX, 0))
 					skewY(var(--skewY, 0))
+					rotate(var(--rotate, 0))
 					rotateX(var(--rotateX, 0))
 					rotateY(var(--rotateY, 0))
 					rotateZ(var(--rotateZ, 0))
 					scale(1.08, 1.06);
 			} @else if $i == 2 {
+				text-underline-offset: 0.2em;
 				transform: translateX(var(--translateX, 0))
 					translateY(var(--translateY, 0))
 					skewX(var(--skewX, 0))
 					skewY(var(--skewY, 0))
+					rotate(var(--rotate, 0))
 					rotateX(var(--rotateX, 0))
 					rotateY(var(--rotateY, 0))
 					rotateZ(var(--rotateZ, 0))
 					scale(1.025, 1.01);
 			} @else {
+				text-underline-offset: 0.2em;
 				transform: translateX(var(--translateX, 0))
 					translateY(var(--translateY, 0))
 					skewX(var(--skewX, 0))
 					skewY(var(--skewY, 0))
-					rotateX(var(--rotateX, 0))
-					rotateY(var(--rotateY, 0))
-					rotateZ(var(--rotateZ, 0))
+					rotate(var(--rotate, 0))
 					scale(1.01, 1.025);
 			}
 		}
@@ -75,10 +58,32 @@
 				translateY(var(--translateY, 0))
 				skewX(var(--skewX, 0))
 				skewY(var(--skewY, 0))
+				rotate(var(--rotate, 0))
 				rotateX(var(--rotateX, 0))
 				rotateY(var(--rotateY, 0))
 				rotateZ(var(--rotateZ, 0))
 				scale(1);
+		}
+	}
+}
+@keyframes beatLine {
+	0% {
+		text-underline-offset: 0.15em;
+	}
+
+	@for $i from 1 through 4 {
+		#{($i * 25) - 2 + "%"} {
+			text-underline-offset: 0.15em;
+		}
+		#{($i * 25) - 1 + "%"} {
+			@if $i == 4 {
+				text-underline-offset: 0.375em;
+			} @else {
+				text-underline-offset: 0.25em;
+			}
+		}
+		#{$i * 25 + "%"} {
+			text-underline-offset: 0.15em;
 		}
 	}
 }
