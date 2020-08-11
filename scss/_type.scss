@@ -46,9 +46,10 @@ a svg {
 	fill: var(--icon-color, currentColor);
 }
 
-a[class^="link-"] {
+a[class^="link-"],
+.profile .container > a {
 	display: inline-flex;
-	position: relative;
+	margin-left: 1em;
 
 	&::before,
 	svg {
@@ -59,8 +60,8 @@ a[class^="link-"] {
 
 		position: absolute;
 		z-index: -1;
-		top: -0.3em;
-		left: -0.4em;
+		top: var(--icon-fudge-x, -0.1em);
+		left: var(--icon-fudge-y, -0.5em);
 
 		width: 1em;
 		height: 1em;
@@ -79,7 +80,7 @@ a.link-github {
 
 @for $i from 1 through 6 {
 	h#{$i} {
-		color: var(--yellow-neon);
+		color: var(--heading-color);
 
 		font-size: var(--heading-font-size, var(--h#{$i}-font-size));
 		font-weight: normal;
@@ -88,12 +89,17 @@ a.link-github {
 		text-transform: uppercase;
 		font-style: italic;
 
-		@include ridiculous-text-shadow($width1: 2px, $width2: 3px, $color1: black, $color2: black);
+		@include ridiculous-text-shadow(
+			$width1: 2px,
+			$width2: 3px,
+			$color1: var(--heading-stroke-color),
+			$color2: var(--heading-stroke-color)
+		);
 
 		+ * {
 			margin-top: var(--heading-spacing, 1rem);
 		}
-		max-width: var(--line-length-max);
+		max-width: max(var(--line-length-max), 100%);
 	}
 }
 
@@ -101,13 +107,13 @@ a.link-github {
 
 p,
 blockquote {
-	max-width: var(--line-length-max);
+	max-width: max(var(--line-length-max), 100%);
 }
 
 // Lists
 ul,
 ol {
-	max-width: var(--line-length-max);
+	max-width: max(var(--line-length-max), 100%);
 }
 
 ol {

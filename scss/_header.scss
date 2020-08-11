@@ -1,6 +1,4 @@
 header {
-	position: relative;
-	z-index: 100;
 	overflow: hidden;
 
 	--link-color: var(--green-neon);
@@ -14,11 +12,13 @@ header {
 		var(--header-bg-primary) 32px
 	);
 
+	&:before,
 	&:after {
 		content: "";
 		position: absolute;
-		z-index: 1;
+	}
 
+	&:before {
 		width: 200vw;
 		height: 200vh;
 		top: -25vh;
@@ -37,13 +37,12 @@ header {
 		animation-direction: normal, alternate;
 		animation-iteration-count: infinite;
 	}
+	&:after {
+	}
 }
 
 header .container {
-	position: relative;
-	z-index: 10;
-
-	min-height: 100vh;
+	max-width: 100%;
 	padding: 1rem;
 
 	text-align: center;
@@ -51,11 +50,21 @@ header .container {
 	@include ridiculous-text-shadow($width1: 1px, $width2: 2px, $color1: black, $color2: black);
 
 	@supports (display: grid) {
-		display: grid;
-		grid-template-areas: "credit credit link" "title title title" "subtitle subtitle subtitle";
-		grid-template-rows: max-content 3fr 1fr;
-		grid-template-columns: max-content auto max-content;
 		text-align: unset;
+
+		display: grid;
+		gap: 2rem;
+		grid-template-areas: "link" "title" "subtitle" "credit";
+		grid-template-columns: 100%;
+		grid-template-rows: max-content max-content max-content max-content;
+
+		@media (min-width: 65rem) {
+			min-height: 100vh;
+			gap: 1rem;
+			grid-template-areas: "credit link" "title title" "subtitle subtitle";
+			grid-template-columns: max-content auto;
+			grid-template-rows: max-content 3fr 1fr;
+		}
 
 		gap: 1rem;
 
@@ -88,16 +97,30 @@ header h1 {
 	@include logo-type-style();
 
 	width: 6ch;
+	max-width: 15ch;
 	text-indent: -2.6ch;
 
-	font-size: 5rem;
+	font-size: calc(1.5rem + 9vw);
+	@media (min-width: $breakpoint-md) {
+		font-size: 6rem;
+	}
 	line-height: 1.6;
 
 	@include ridiculous-text-shadow;
 }
 header h2 {
 	grid-area: subtitle;
+
 	max-width: 28ch;
+	padding: 1rem;
+
+	font-size: var(--h4-font-size);
+	@media (min-width: $breakpoint-sm) {
+		font-size: var(--h3-font-size);
+	}
+	@media (min-width: $breakpoint-md) {
+		font-size: var(--h2-font-size);
+	}
 
 	color: var(--header-text-secondary);
 }
@@ -105,7 +128,6 @@ header h2 {
 header .link-github {
 	grid-area: link;
 	display: inline-flex;
-	position: relative;
 	--icon-color: var(--black);
 
 	svg {
@@ -144,7 +166,7 @@ header .link-github {
 
 			--icon-color: var(--header-text-secondary);
 			filter: drop-shadow(-0.1rem -0.1rem 0 var(--red)) drop-shadow(0.1rem -0.1rem 0 var(--teal))
-				drop-shadow(-0.1rem 0.1rem 0 var(--purple)) drop-shadow(0.1rem 0.1rem 0 var(--orange-dark))
+				drop-shadow(-0.1rem 0.1rem 0 var(--purple)) drop-shadow(0.1rem 0.1rem 0 var(--orange-neon))
 				drop-shadow(-0.2rem -0.2rem 0 var(--black)) drop-shadow(0.2rem -0.2rem 0 var(--black))
 				drop-shadow(-0.2rem 0.2rem 0 var(--black)) drop-shadow(0.2rem 0.2rem 0 var(--black));
 		}
@@ -166,13 +188,18 @@ header h1 {
 	animation-direction: normal;
 	animation-iteration-count: 1, infinite;
 
-	--rotate: -20deg;
-	--translateX: 0.5ch;
-	--translateY: -0.25ch;
 	transform-origin: center center;
 
+	--rotate: -65deg;
+	--translateX: -0.4ch;
+	--translateY: 0ch;
+	@media (min-width: $breakpoint-sm) {
+		--rotate: -20deg;
+		--translateX: 0ch;
+		--translateY: -0.4ch;
+	}
+
 	@supports (-webkit-text-fill-color: white) {
-		position: relative;
 		z-index: 5;
 
 		line-height: 1.45;
@@ -187,7 +214,7 @@ header h1 {
 			top: 0;
 			--rotate: 0;
 			--translateX: 0;
-			--translateY: -0;
+			--translateY: 0;
 
 			animation-name: beat;
 			animation-duration: var(--beat-interval);

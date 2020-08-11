@@ -11,9 +11,13 @@
 	font-weight: var(--font-weight-base--normal);
 
 	color: var(--white);
-	background-color: var(--purple-darkest);
+	background-color: var(--black);
 
 	overflow-x: hidden;
+}
+
+body {
+	background-color: var(--purple-darkest);
 }
 
 .skip-link {

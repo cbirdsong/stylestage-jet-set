@@ -1,3 +1,6 @@
+$breakpoint-md: 50rem;
+$breakpoint-sm: 30rem;
+
 $beat-interval: 2.5;
 $bg-count: 25; // must be divisible by 100
 
@@ -7,8 +10,11 @@ $bg-count: 25; // must be divisible by 100
 	--black: #000;
 
 	--green-neon: #34ff22;
+	--orange-neon: #ff5f00;
 	--yellow-neon: #e4ff03;
 
+	--green-darkest: #04440e;
+	--green-darker: #065814;
 	--green-dark: #08751a;
 	--green: #4fb54b;
 	--green-light: #a4cf63;
@@ -17,23 +23,30 @@ $bg-count: 25; // must be divisible by 100
 	--yellow: #f3dd00;
 
 	--orange-light: #ffb611;
-	--orange-dark: #ff5f00;
+	--orange: #fa792e;
+	--orange-dark: #f15b04;
+	--orange-darker: #cf4c00;
 
 	--red: #fa1b28;
 	--red-dark: #e3000c;
 
+	--purple-light: #e8d5fc;
 	--purple: #8846cc;
-	--purple-dark: #7632b9;
+	--purple-dark: #7830c0;
 	--purple-darker: #642b9d;
 	--purple-darkest: #512481;
 
 	--teal: #50f7f7;
 
+	--blue-dark: #0068f1;
+
 	@supports (color: color(display-p3 1 0 0 / 1)) {
 		--green-neon: color(display-p3 0.34 1 0.12);
-
+		--orange-neon: color(display-p3 1 0.321 0);
 		--yellow-neon: color(display-p3 0.927 1 0.405);
 
+		--green-darkest: color(display-p3 0.053 0.225 0.03);
+		--green-darker: color(display-p3 0.089 0.345 0.059);
 		--green-dark: color(display-p3 0.038 0.625 0.038);
 		--green: color(display-p3 0.293 0.705 0.19);
 		--green-light: color(display-p3 0.612 0.82 0.234);
@@ -42,25 +55,36 @@ $bg-count: 25; // must be divisible by 100
 		--yellow: color(display-p3 0.945 0.862 0.137);
 
 		--orange-light: color(display-p3 0.96 0.707 0.202);
+		--orange: color(display-p3 0.965 0.505 0.236);
 		--orange-dark: color(display-p3 0.975 0.376 0.093);
+		--orange-darker: color(display-p3 0.92 0.325 0.041);
 
+		--red: color(display-p3 0.96 0.144 0.125);
+		--red-dark: color(display-p3 0.84 0.107 0.067);
+
+		--purple-light: color(display-p3 0.857 0.75 1);
 		--purple: color(display-p3 0.483 0.027 0.785);
 		--purple-dark: color(display-p3 0.41 0.01 0.675);
-		// --purple-darker: color(display-p3 0.41 0.01 0.675);
-		--purple-darkest: color(display-p3 0.402 0.041 0.675);
+		--purple-darker: color(display-p3 0.328 0.013 0.535);
+		--purple-darkest: color(display-p3 0.201 0.002 0.35);
 
-		--teal: color(display-p3 0.4467 0.5719 0.5741);
+		--teal: color(display-p3 0.24 0.993 1);
+
+		--blue-dark: color(display-p3 0.059 0.325 0.91);
 	}
 
 	//Applied
 	--text-color: var(--white);
+	--text-stroke-color: var(--black);
 	--heading-color: var(--yellow-neon);
+	--heading-stroke-color: var(--text-stroke-color);
 	--background-color: var(--purple-darkest);
+	--icon-color: var(--yellow-neon);
 
 	--link-color: var(--green-neon);
-	--link-color--hover: var(--link-color);
-	--link-color--active: var(--link-color);
-	--link-color--focus: var(--link-color);
+	--link-color--hover: var(--teal);
+	--link-color--active: var(--link-color--hover);
+	--link-color--focus: var(--link-color--hover);
 
 	--header-text-primary: var(--white);
 	--header-text-secondary: var(--yellow-neon);
@@ -81,11 +105,11 @@ $bg-count: 25; // must be divisible by 100
 	--font-size-base: 100%;
 	--font-size-scale: 0.5vmin;
 	--line-height-base: 1.5;
-	--line-length-max: 60ch;
+	--line-length-max: 40rem;
 
-	--heading-font-size-base: 1.1rem;
+	--heading-font-size-base: 1rem;
 	--heading-line-height: 1.2;
-	--heading-size-scale: 1.18;
+	--heading-size-scale: 1.2;
 
 	--h6-font-size: calc(var(--heading-font-size-base) * var(--heading-size-scale));
 	--h5-font-size: calc(var(--h6-font-size) * var(--heading-size-scale));

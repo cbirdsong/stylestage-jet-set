@@ -1,7 +1,4 @@
 nav {
-	// position: relative;
-	// z-index: 5;
-
 	display: flex;
 	flex-flow: column nowrap;
 	align-items: center;
@@ -10,39 +7,44 @@ nav {
 
 	padding: 3rem 1rem;
 
+	--link-color: var(--black);
+	--link-color--hover: var(--white);
+	--link-color--active: var(--white);
+	--link-color--focus: var(--white);
+
 	&:before,
 	&:after {
 		content: "Style Stage";
+		display: block;
 
 		@include logo-type-style();
 
-		position: fixed;
-		z-index: -1;
-
-		display: block;
-		top: 5vh;
-		bottom: 5vh;
-		right: 2.5vw;
-		font-size: 8vh;
-
 		writing-mode: vertical-rl;
 		text-orientation: mixed;
+		font-size: 8vh;
 
-		filter: opacity(0.5) brightness(1.5);
-		mix-blend-mode: multiply;
-		mix-blend-mode: luminosity;
+		position: absolute;
+		right: calc(50% - 4vh);
+
+		@media (min-width: $breakpoint-md) {
+			position: fixed;
+			top: 5vh;
+			bottom: 5vh;
+			right: 2.5vw;
+		}
+
+		opacity: 0.25;
+		// filter: opacity(0.5) brightness(1.5);
+		// mix-blend-mode: multiply;
+		// mix-blend-mode: luminosity;
 	}
 
 	&::before {
-		z-index: -1;
-
 		-webkit-text-fill-color: var(--purple);
 		-webkit-text-stroke-width: 1.5px;
 		-webkit-text-stroke-color: var(--purple-dark);
 	}
 	&::after {
-		z-index: -2;
-
 		-webkit-text-stroke-width: 0.33em;
 		-webkit-text-stroke-color: var(--purple-darkest);
 	}
@@ -62,10 +64,33 @@ nav ul {
 
 	@supports (display: grid) {
 		position: sticky;
-		flex-flow: column nowrap;
-		top: 10vh;
-		bottom: 10vh;
-		min-height: 80vh;
+
+		> * {
+			flex-basis: 50%;
+			margin-top: 2vw;
+			margin-bottom: 2vw;
+
+			&:nth-child(4n + 1) {
+				margin-right: -5vw;
+			}
+			&:nth-child(4n + 2) {
+				margin-left: -5vw;
+			}
+		}
+
+		@media (min-width: $breakpoint-md) {
+			top: 10vh;
+			bottom: 10vh;
+			min-height: 80vh;
+
+			flex-flow: column nowrap;
+
+			> *,
+			> *:nth-child(n) {
+				flex-basis: auto;
+				margin: 0.25rem;
+			}
+		}
 	}
 }
 
@@ -87,55 +112,79 @@ nav li {
 	--border-left-width: 0.125rem;
 	--border-bottom-width: 0.125rem;
 	--border-right-width: 0.125rem;
-
-	--link-color: black;
-	--link-color--hover: var(--red-dark);
-	--link-color--active: var(--red);
-	--link-color--focus: var(--orange-dark);
 	--background-color: white;
-
-	color: var(--link-color);
-
-	outline: 0.125rem solid currentColor;
-	@supports (filter: drop-shadow(0 0 0 black)) {
-		outline-width: 0;
-
-		filter: drop-shadow(0 var(--border-top-width) 0 currentColor)
-			drop-shadow(var(--border-right-width) 0 0 currentColor)
-			drop-shadow(0 calc(var(--border-bottom-width) * -1) 0 currentColor)
-			drop-shadow(calc(var(--border-left-width) * -1) 0 0 currentColor);
-	}
 
 	transform: translateX(var(--translateX)) skewX(var(--skewX)) skewY(var(--skewY)) rotateX(var(--rotateX))
 		rotateY(var(--rotateY)) rotateZ(var(--rotateZ));
 	transform-origin: var(--originX) var(--originY);
 
-	animation: beatNav;
-	animation-duration: calc(var(--beat-interval));
-	animation-timing-function: cubic-bezier(0.31, 0.37, 1, 1.65);
-	animation-iteration-count: infinite;
-
-	&:nth-child(odd) {
-		animation-delay: calc((var(--beat-interval) / 2));
-	}
-	&:nth-child(even) {
-		// animation-delay: calc(var(--beat-interval) / 2);
-	}
-
 	a {
 		position: relative;
-		z-index: 5;
 		display: inline-block;
-		padding: 1em 1.2em;
-
-		background-color: var(--background-color);
+		padding: 1em;
 
 		text-shadow: none;
+		filter: none;
 
 		text-decoration: none;
+
+		&:hover,
+		&:focus,
+		&:active {
+			@include ridiculous-text-shadow($width1: 2px, $width2: 3px, $color1: var(--link-color), $color2: var(--black));
+		}
+		&:focus {
+		}
+		&:active {
+		}
+
+		&::after {
+			content: "";
+			display: inline-block;
+			position: absolute;
+			z-index: -1;
+			top: 0;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			background-color: var(--background-color);
+
+			outline: 0.125rem solid var(--link-color);
+			@supports (filter: drop-shadow(0 0 0 var(--link-color))) {
+				outline-width: 0;
+
+				filter: drop-shadow(0 var(--border-top-width) 0 var(--link-color))
+					drop-shadow(var(--border-right-width) 0 0 var(--link-color))
+					drop-shadow(0 calc(var(--border-bottom-width) * -1) 0 var(--link-color))
+					drop-shadow(calc(var(--border-left-width) * -1) 0 0 var(--link-color));
+			}
+
+			animation: beat;
+			animation-duration: calc(var(--beat-interval));
+			animation-timing-function: cubic-bezier(0.31, 0.37, 1, 1.65);
+			animation-iteration-count: infinite;
+			animation-play-state: paused;
+		}
+		&:hover,
+		&:focus,
+		&:active {
+			&:after {
+				animation-play-state: running;
+				background-image: repeating-linear-gradient(
+					var(--gradient-degrees),
+					var(--gradient-color1) var(--gradient-size1),
+					var(--gradient-color1) calc(var(--gradient-size2) * 2),
+					var(--gradient-color2) calc(var(--gradient-size1) * 2),
+					var(--gradient-color2) calc(var(--gradient-size2) * 4)
+				);
+			}
+		}
 	}
 
 	$max: 12;
+	$size1: 12px;
+	$size2: 12px;
+
 	@for $i from 1 through $max {
 		&:nth-child(#{$i}n) {
 			$h: $max - $i;
@@ -154,6 +203,11 @@ nav li {
 			bottom: calc(#{($i * -0.33) + "rem"} + 0.05vh);
 
 			@if $i % 6 == 0 {
+				--gradient-degrees: #{$i * (11 - $i * 1.25) + "deg"};
+				--gradient-size1: #{$size1 * 1.75};
+				--gradient-size2: #{$size2 * 2.125};
+				--gradient-color1: var(--orange-neon);
+				--gradient-color2: var(--red);
 				--border-top-width: #{"0.1" + $i + "5" + "rem"};
 				--translateX: #{$i * -0.0625 + "rem"};
 				--skewX: #{$j * -0.4 + "deg"};
@@ -162,6 +216,11 @@ nav li {
 				--rotateY: #{$h * -1.75 + "deg"};
 				--rotateZ: #{$i * 0.67 + "deg"};
 			} @else if $i % 3 == 0 {
+				--gradient-degrees: #{$i * (26 - $i * 2.33) + "deg"};
+				--gradient-size1: #{$size1 * 0.25};
+				--gradient-size2: #{$size2 * 1.625};
+				--gradient-color1: var(--teal);
+				--gradient-color2: var(--blue-dark);
 				--border-bottom-width: #{"0.1" + $i + "5" + "rem"};
 				--translateX: #{$i * -0.0385 + "rem"};
 				--skewX: #{$h * -0.025 + "deg"};
@@ -170,6 +229,11 @@ nav li {
 				--rotateY: #{$i * -1.475 + "deg"};
 				--rotateZ: #{$h * 1.125 + "deg"};
 			} @else if $i % 2 == 0 {
+				--gradient-degrees: #{$i * (43 - $i * 2.15) + "deg"};
+				--gradient-size1: #{$size1 * 0.45};
+				--gradient-size2: #{$size2 * 1.4};
+				--gradient-color1: var(--red-dark);
+				--gradient-color2: var(--orange-dark);
 				--border-right-width: #{"0.1" + $i + "5" + "rem"};
 				--translateX: #{$i * 0.042 + "rem"};
 				--skewX: #{$i * -0.85 + "deg"};
@@ -178,6 +242,11 @@ nav li {
 				--rotateY: #{$j * -0.825 + "deg"};
 				--rotateZ: #{$i * -0.95 + "deg"};
 			} @else {
+				--gradient-degrees: #{$i * (13 - $i * 3.325) + "deg"};
+				--gradient-size1: #{$size1 * 0.75};
+				--gradient-size2: #{$size2 * 1.125};
+				--gradient-color1: var(--green-dark);
+				--gradient-color2: var(--green-darker);
 				--border-top-width: #{"0.1" + $i + "5" + "rem"};
 				--translateX: #{$i * -0.055 + "rem"};
 				--skewX: #{$h * -0.8 + "deg"};

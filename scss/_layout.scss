@@ -1,27 +1,60 @@
 body {
 	@supports (display: grid) {
 		display: grid;
+	}
+	grid-template-areas:
+		"skip-link"
+		"header"
+		"nav"
+		"main"
+		"styles"
+		"profile"
+		"footer";
+	grid-template-columns: 1fr;
+
+	@media (min-width: 50rem) {
 		grid-template-areas:
 			"skip-link skip-link"
 			"header header"
 			"main nav"
-			"profile nav"
 			"styles nav"
+			"profile nav"
 			"footer footer";
+		grid-template-columns: 3fr 1fr;
 	}
-	grid-template-columns: 3fr 1fr;
 }
 .skip-link {
 	grid-area: "skip-link";
 }
 header {
 	grid-area: header;
+	z-index: 100;
+	contain: content;
+
+	&::before {
+		z-index: -10;
+	}
+	&::after {
+		z-index: -5;
+	}
 }
 nav {
+	z-index: 2;
 	grid-area: nav;
+
+	&::before {
+		z-index: -1;
+	}
+	&::after {
+		z-index: -2;
+	}
 }
 main {
+	z-index: 1;
 	grid-area: main;
+}
+aside {
+	z-index: 1;
 }
 .profile {
 	grid-area: profile;
@@ -31,4 +64,6 @@ main {
 }
 .page-footer {
 	grid-area: footer;
+	z-index: 100;
+	contain: layout;
 }

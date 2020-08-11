@@ -21,21 +21,24 @@
 		opacity: 0.075;
 		font-style: italic;
 		font-size: 15vw;
+
+		width: 6ch;
+		text-indent: -2.6ch;
+
 		line-height: 1;
 		text-transform: uppercase;
 	}
 	&:before {
 		top: -0.5ex;
-		left: -0.5ch;
+		left: 0.5ch;
 	}
 	&:after {
-		right: -0.5ch;
+		right: 0.5ch;
 		bottom: -0.5ex;
 	}
 }
 .page-footer .container {
 	padding: 2rem;
-	position: relative;
 	z-index: 5;
 
 	> * + * {
@@ -70,11 +73,15 @@
 }
 
 .link-twittercontact {
-	--icon: "\002663";
+	--icon: "\00FF03";
+	--icon-fudge-x: -0.2em;
+	--icon-fudge-y: -0.55em;
 }
 .link-rss {
 	--icon: "\002665";
 }
 .link-support {
 	--icon: "\002714";
+	--icon-fudge-x: -0.125em;
+	--icon-fudge-y: -0.55em;
 }

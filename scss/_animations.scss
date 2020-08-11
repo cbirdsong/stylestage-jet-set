@@ -1,66 +1,28 @@
 //animations
 @keyframes beat {
 	0% {
-		transform: translateX(var(--translateX, 0)) translateY(var(--translateY, 0)) skewX(var(--skewX, 0))
-			skewY(var(--skewY, 0)) rotate(var(--rotate, 0)) rotateX(var(--rotateX, 0)) rotateY(var(--rotateY, 0))
-			rotateZ(var(--rotateZ, 0)) scale(1);
+		transform: scale(1);
 	}
 
 	@for $i from 1 through 4 {
 		#{($i * 25) - 2 + "%"} {
-			transform: translateX(var(--translateX, 0))
-				translateY(var(--translateY, 0))
-				skewX(var(--skewX, 0))
-				skewY(var(--skewY, 0))
-				rotate(var(--rotate, 0))
-				rotateX(var(--rotateX, 0))
-				rotateY(var(--rotateY, 0))
-				rotateZ(var(--rotateZ, 0))
-				scale(1);
+			transform: scale(1);
 		}
 		#{($i * 25) - 1 + "%"} {
 			@if $i == 4 {
-				transform: translateX(var(--translateX, 0))
-					translateY(var(--translateY, 0))
-					skewX(var(--skewX, 0))
-					skewY(var(--skewY, 0))
-					rotate(var(--rotate, 0))
-					rotateX(var(--rotateX, 0))
-					rotateY(var(--rotateY, 0))
-					rotateZ(var(--rotateZ, 0))
-					scale(1.08, 1.06);
+				transform: scale(1.08, 1.06);
 			} @else if $i == 2 {
-				transform: translateX(var(--translateX, 0))
-					translateY(var(--translateY, 0))
-					skewX(var(--skewX, 0))
-					skewY(var(--skewY, 0))
-					rotate(var(--rotate, 0))
-					rotateX(var(--rotateX, 0))
-					rotateY(var(--rotateY, 0))
-					rotateZ(var(--rotateZ, 0))
-					scale(1.025, 1.01);
+				transform: scale(1.025, 1.01);
 			} @else {
-				transform: translateX(var(--translateX, 0))
-					translateY(var(--translateY, 0))
-					skewX(var(--skewX, 0))
-					skewY(var(--skewY, 0))
-					rotate(var(--rotate, 0))
-					scale(1.01, 1.025);
+				transform: scale(1.01, 1.025);
 			}
 		}
 		#{$i * 25 + "%"} {
-			transform: translateX(var(--translateX, 0))
-				translateY(var(--translateY, 0))
-				skewX(var(--skewX, 0))
-				skewY(var(--skewY, 0))
-				rotate(var(--rotate, 0))
-				rotateX(var(--rotateX, 0))
-				rotateY(var(--rotateY, 0))
-				rotateZ(var(--rotateZ, 0))
-				scale(1);
+			transform: scale(1);
 		}
 	}
 }
+
 @keyframes beatNav {
 	0% {
 		transform: translateX(var(--translateX, 0)) translateY(var(--translateY, 0)) skewX(var(--skewX, 0))
@@ -68,7 +30,6 @@
 	}
 
 	@for $i from 1 through 4 {
-		// @if $i % 2 == 0
 		#{($i * 25) - 2 + "%"} {
 			transform: translateX(var(--translateX, 0))
 				translateY(var(--translateY, 0))
@@ -152,7 +113,7 @@
 				$size2: $size2 * 2.125;
 			} @else if $i % 5 == 0 {
 				$degrees: $i * (26 - $i * 2.33) + "deg";
-				$color1: var(--orange-dark);
+				$color1: var(--orange-neon);
 				$color2: var(--red);
 				$size1: $size1 * 0.25;
 				$size2: $size2 * 1.625;
@@ -176,8 +137,8 @@
 				$size2: $size2 * 1.4;
 			} @else {
 				$degrees: $i * (22 - $i * 1.5) + "deg";
-				$color1: var(--orange-light);
-				$color2: var(--orange-dark);
+				$color1: var(--orange-dark);
+				$color2: var(--orange-neon);
 				$size1: $size1 * 1.05;
 				$size2: $size2 * 0.95;
 			}
