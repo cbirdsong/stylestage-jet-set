@@ -49,23 +49,25 @@ aside .container {
 	&::before,
 	&::after {
 		content: "";
-		background-color: var(--background-color);
 		display: block;
 		position: absolute;
 		z-index: -10;
 		top: 0;
-		left: -100vw;
+		left: 0;
+		right: auto;
 		bottom: -1rem;
-		width: 200vw;
+		width: 100vw;
 
 		// mix-blend-mode: hue;
 		// opacity: 0.5;
-		transform: rotate(var(--angle));
+		transform: skewY(var(--angle));
 		transform-origin: center left;
 		// backdrop-filter: saturate(110%);
+
+		background-color: var(--background-color);
 	}
 	&::after {
-		transform: rotate(calc(var(--angle) * -1));
+		transform: skewY(calc(var(--angle) * -1));
 		transform-origin: center right;
 	}
 }

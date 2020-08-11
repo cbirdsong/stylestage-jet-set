@@ -38,7 +38,7 @@ nav {
 		mix-blend-mode: color-dodge;
 		filter: contrast(0.5) brightness(0.5) opacity(0.25);
 
-		animation: beat;
+		animation-name: beat;
 		animation-duration: calc(var(--beat-interval));
 		animation-timing-function: cubic-bezier(0.31, 0.37, 1, 1.65);
 		animation-iteration-count: infinite;
@@ -109,7 +109,6 @@ nav li {
 	--skewY: 0deg;
 	--rotateX: 0deg;
 	--rotateY: 0deg;
-	--rotateZ: 0deg;
 
 	--border-top-width: 0.125rem;
 	--border-left-width: 0.125rem;
@@ -118,7 +117,7 @@ nav li {
 	--background-color: white;
 
 	transform: translateX(var(--translateX)) skewX(var(--skewX)) skewY(var(--skewY)) rotateX(var(--rotateX))
-		rotateY(var(--rotateY)) rotateZ(var(--rotateZ));
+		rotateY(var(--rotateY));
 	transform-origin: var(--originX) var(--originY);
 
 	a {
@@ -171,14 +170,13 @@ nav li {
 			--skewY: 0deg;
 			--rotateX: 0deg;
 			--rotateY: 0deg;
-			--rotateZ: 0deg;
 		}
 		&:before {
 			visibility: visible;
 		}
 		&:after {
 			visibility: hidden;
-			animation: beat;
+			animation-name: beat;
 			animation-duration: calc(var(--beat-interval));
 			animation-timing-function: cubic-bezier(0.31, 0.37, 1, 1.65);
 			animation-iteration-count: infinite;
@@ -232,10 +230,11 @@ nav li {
 				--border-top-width: #{"0.1" + $i + "5" + "rem"};
 				--translateX: #{$i * -0.0625 + "rem"};
 				--skewX: #{$j * -0.4 + "deg"};
-				--skewY: #{$i * 0.35 + "deg"};
+				--skewY: #{$i * -0.35 + "deg"};
 				--rotateX: #{$h * 1.25 + "deg"};
-				--rotateY: #{$h * -1.75 + "deg"};
-				--rotateZ: #{$i * 0.67 + "deg"};
+				--rotateY: #{$h * 1.75 + "deg"};
+				--originX: #{($h / 20) * 48 + "%"};
+				--originY: #{($j / 20) * 52 + "%"};
 			} @else if $i % 3 == 0 {
 				--gradient-degrees: #{$i * (26 - $i * 2.33) + "deg"};
 				--gradient-size1: #{$size1 * 0.25};
@@ -244,11 +243,12 @@ nav li {
 				--gradient-color2: var(--blue-dark);
 				--border-bottom-width: #{"0.1" + $i + "5" + "rem"};
 				--translateX: #{$i * -0.0385 + "rem"};
-				--skewX: #{$h * -0.025 + "deg"};
-				--skewY: #{$i * -0.75 + "deg"};
+				--skewX: #{$h * 0.025 + "deg"};
+				--skewY: #{$i * 0.75 + "deg"};
 				--rotateX: #{$i * -1.33 + "deg"};
 				--rotateY: #{$i * -1.475 + "deg"};
-				--rotateZ: #{$h * 1.125 + "deg"};
+				--originX: #{($h / 20) * 48 + "%"};
+				--originY: #{($j / 20) * 52 + "%"};
 			} @else if $i % 2 == 0 {
 				--gradient-degrees: #{$i * (43 - $i * 2.15) + "deg"};
 				--gradient-size1: #{$size1 * 0.45};
@@ -258,10 +258,11 @@ nav li {
 				--border-right-width: #{"0.1" + $i + "5" + "rem"};
 				--translateX: #{$i * 0.042 + "rem"};
 				--skewX: #{$i * -0.85 + "deg"};
-				--skewY: #{$h * 0.5 + "deg"};
+				--skewY: #{$h * -0.5 + "deg"};
 				--rotateX: #{$h * 0.685 + "deg"};
-				--rotateY: #{$j * -0.825 + "deg"};
-				--rotateZ: #{$i * -0.95 + "deg"};
+				--rotateY: #{$j * 0.825 + "deg"};
+				--originX: #{($h / 20) * 48 + "%"};
+				--originY: #{($j / 20) * 52 + "%"};
 			} @else {
 				--gradient-degrees: #{$i * (13 - $i * 3.325) + "deg"};
 				--gradient-size1: #{$size1 * 0.75};
@@ -271,10 +272,11 @@ nav li {
 				--border-top-width: #{"0.1" + $i + "5" + "rem"};
 				--translateX: #{$i * -0.055 + "rem"};
 				--skewX: #{$h * -0.8 + "deg"};
-				--skewY: #{$i * 1.2 + "deg"};
-				--rotateX: #{$i * -1.33 + "deg"};
+				--skewY: #{$i * -1.2 + "deg"};
+				--rotateX: #{$i * 1.33 + "deg"};
 				--rotateY: #{$j * 0.95 + "deg"};
-				--rotateZ: #{$h * -1.75 + "deg"};
+				--originX: #{($h / 20) * 48 + "%"};
+				--originY: #{($j / 20) * 52 + "%"};
 			}
 		}
 	}

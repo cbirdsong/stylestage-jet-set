@@ -13,8 +13,6 @@
 	color: var(--white);
 	background-color: var(--black);
 
-	overflow-x: hidden;
-
 	text-rendering: optimizeLegibility;
 
 	-moz-osx-font-smoothing: grayscale;
@@ -54,5 +52,9 @@ body {
 }
 
 .skip-link {
+	display: inline-block;
+	margin: 1rem auto;
+}
+.skip-link:not(:focus) {
 	@include visually-hidden;
 }

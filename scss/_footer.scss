@@ -29,12 +29,12 @@
 		text-transform: uppercase;
 	}
 	&:before {
-		top: -0.5ex;
-		left: 0.5ch;
+		top: 1ch;
+		left: 1ch;
 	}
 	&:after {
-		right: 0.5ch;
-		bottom: -0.5ex;
+		right: 1ch;
+		bottom: 1ch;
 	}
 }
 .page-footer .container {

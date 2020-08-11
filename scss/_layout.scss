@@ -9,7 +9,8 @@ body {
 		"main"
 		"profile"
 		"styles"
-		"footer";
+		"footer"
+		"sponsor";
 	grid-template-columns: 1fr;
 
 	@media (min-width: 50rem) {
@@ -19,7 +20,8 @@ body {
 			"main nav"
 			"profile nav"
 			"styles nav"
-			"footer footer";
+			"footer footer"
+			"sponsor sponsor";
 		grid-template-columns: 3fr 1fr;
 	}
 }
@@ -66,4 +68,7 @@ aside {
 	grid-area: footer;
 	z-index: 100;
 	contain: layout;
+}
+#sponsor-footer {
+	grid-area: sponsor;
 }
