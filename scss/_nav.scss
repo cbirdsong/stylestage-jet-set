@@ -5,6 +5,10 @@ nav {
 	justify-content: center;
 	text-align: center;
 
+	min-height: 40vw;
+	@media (min-width: $breakpoint-md) {
+		min-height: unset;
+	}
 	padding: 3rem 1rem;
 
 	--link-color: var(--black);
@@ -19,23 +23,34 @@ nav {
 
 		@include logo-type-style();
 
+		font-size: 8vmin;
+		line-height: 1.45;
+		text-indent: -1.5ch;
+
 		writing-mode: vertical-rl;
 		text-orientation: mixed;
-		font-size: 8vh;
+		max-height: 6ch;
 
 		position: absolute;
-		right: calc(50% - 4vh);
+		margin-top: auto;
+		margin-bottom: auto;
 
 		@media (min-width: $breakpoint-md) {
+			font-size: 8vh;
+
+			max-height: unset;
+			text-indent: unset;
+
 			position: fixed;
 			top: 5vh;
 			bottom: 5vh;
-			right: 2.5vw;
+			right: 5vw;
+			left: unset;
 		}
 
 		isolation: isolate;
 		mix-blend-mode: color-dodge;
-		filter: contrast(0.5) brightness(0.5) opacity(0.25);
+		filter: contrast(1.5) brightness(1.5) opacity(0.25);
 
 		animation-name: beat;
 		animation-duration: calc(var(--beat-interval));

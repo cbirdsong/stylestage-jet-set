@@ -64,13 +64,11 @@ header .container {
 		display: grid;
 		grid-template-areas: "link" "title" "subtitle" "credit";
 		grid-template-columns: 100%;
-		grid-template-rows: max-content max-content max-content max-content;
+		grid-template-rows: max-content 1fr max-content max-content;
+		grid-template-rows: max-content minmax(min-content, 3fr) minmax(min-content, 1fr) max-content;
 		min-height: 100vh;
 
-		gap: 2rem;
-		@media (min-width: $breakpoint-lg) {
-			gap: 1rem;
-		}
+		gap: calc(1rem + 0.5vmin);
 
 		* {
 			margin: 0;
@@ -81,8 +79,21 @@ header .container {
 		h2 {
 			align-self: center;
 		}
+		h2 {
+			@media (orientation: portrait) {
+				margin-top: 3rem;
+			}
+		}
+		p:first-of-type {
+			grid-area: credit;
+		}
 		.link-github {
+			margin-left: 1em;
+
 			justify-self: end;
+			@media (orientation: portrait) {
+				justify-self: start;
+			}
 		}
 	}
 }
@@ -103,9 +114,15 @@ header h1 {
 	max-width: 15ch;
 	text-indent: -2.6ch;
 
-	font-size: calc(1.5rem + 9vmin);
-	@media (min-width: $breakpoint-md) {
-		font-size: 6rem;
+	@media (orientation: portrait) {
+		font-size: calc(1.5rem + 9vmin);
+	}
+	@media (orientation: landscape) {
+		font-size: calc(1.5rem + 9vmin);
+
+		@media (min-width: $breakpoint-md) {
+			font-size: calc(4.5rem + 4.5vmax);
+		}
 	}
 	line-height: 1.6;
 
@@ -115,7 +132,7 @@ header h2 {
 	grid-area: subtitle;
 
 	max-width: 28ch;
-	padding: 1rem;
+	padding: 0 1rem;
 
 	font-size: var(--h4-font-size);
 	@media (min-width: $breakpoint-sm) {
@@ -193,16 +210,17 @@ header h1 {
 
 	transform-origin: center center;
 
-	@media (min-width: $breakpoint-md) {
-		--rotate: -20deg;
-		--translateX: 0ch;
-		--translateY: -0.4ch;
+	--rotate: -20deg;
+	--translateX: 0ch;
+	--translateY: -0.4ch;
+
+	@media (orientation: portrait) {
+		--rotate: -60deg;
+		--translateX: -0.4ch;
+		--translateY: 0ch;
+		--scaleX-fudge: 0;
+		--scaleY-fudge: 0;
 	}
-	--rotate: -65deg;
-	--translateX: -0.4ch;
-	--translateY: 0ch;
-	--scaleX-fudge: 0;
-	--scaleY-fudge: 0;
 
 	@supports (-webkit-text-fill-color: white) {
 		z-index: 5;

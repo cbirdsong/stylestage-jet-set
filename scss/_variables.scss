@@ -112,7 +112,7 @@ $bg-count: 25; // must be divisible by 100
 
 	--heading-font-size-base: 1rem;
 	--heading-line-height: 1.2;
-	--heading-size-scale: 1.2;
+	--heading-size-scale: 1.175;
 
 	--h6-font-size: calc(var(--heading-font-size-base) * var(--heading-size-scale));
 	--h5-font-size: calc(var(--h6-font-size) * var(--heading-size-scale));
