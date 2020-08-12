@@ -466,10 +466,13 @@ header .container {
     display: grid;
     grid-template-areas: "link" "title" "subtitle" "credit";
     grid-template-columns: 100%;
-    grid-template-rows: max-content 1fr max-content max-content;
-    grid-template-rows: max-content minmax(min-content, 3fr) minmax(min-content, 1fr) max-content;
-    min-height: 100vh;
+    grid-template-rows: max-content minmax(min-content, max-content) minmax(min-content, max-content) max-content;
     gap: calc(1rem + 0.5vmin);
+  }
+  @media (min-width: 800px) {
+    header .container {
+      grid-template-rows: max-content minmax(min-content, 3fr) minmax(min-content, 1fr) max-content;
+    }
   }
   header .container * {
     margin: 0;
