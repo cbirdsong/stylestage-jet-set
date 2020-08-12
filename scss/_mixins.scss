@@ -39,10 +39,10 @@
 
 //text shadow
 @mixin ridiculous-text-shadow(
-	$width1: 0.06em,
-	$width2: 0.12em,
-	$color1: var(--green-dark),
-	$color2: var(--yellow-neon)
+	$width1: 2px,
+	$width2: 2px,
+	$color1: var(--text-stroke-color),
+	$color2: var(--text-stroke-color)
 ) {
 	text-shadow: 0 #{$width1} #{$color1}, 0 -#{$width1} #{$color1}, #{$width1} 0 #{$color1}, -#{$width1} 0 #{$color1},
 		#{$width1} -#{$width1} #{$color1}, #{$width1} #{$width1} #{$color1}, -#{$width1} #{$width1} #{$color1},

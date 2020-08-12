@@ -148,6 +148,7 @@ nav li {
 		&:focus,
 		&:active {
 			@include ridiculous-text-shadow($width1: 2px, $width2: 3px, $color1: var(--white), $color2: var(--white));
+
 			@supports (-webkit-text-fill-color: var(--white)) {
 				-webkit-text-fill-color: var(--white);
 				@include ridiculous-text-shadow($width1: 2px, $width2: 3px, $color1: var(--black), $color2: var(--black));

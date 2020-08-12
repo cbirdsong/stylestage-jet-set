@@ -53,12 +53,7 @@ header .container {
 
 	text-align: center;
 	color: var(--header-text-primary);
-	@include ridiculous-text-shadow(
-		$width1: 1px,
-		$width2: 2px,
-		$color1: var(--text-stroke-color),
-		$color2: var(--text-stroke-color)
-	);
+	@include ridiculous-text-shadow($width1: 3px, $width2: 3px);
 
 	@supports (display: grid) {
 		display: grid;
@@ -126,7 +121,12 @@ header h1 {
 	}
 	line-height: 1.6;
 
-	@include ridiculous-text-shadow;
+	@include ridiculous-text-shadow(
+		$width1: 0.06em,
+		$width2: 0.12em,
+		$color1: var(--green-dark),
+		$color2: var(--yellow-neon)
+	);
 }
 header h2 {
 	grid-area: subtitle;

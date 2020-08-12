@@ -49,8 +49,8 @@
 	}
 
 	@include ridiculous-text-shadow(
-		$width1: 1px,
-		$width2: 2px,
+		$width1: 3px,
+		$width2: 3px,
 		$color1: var(--text-stroke-color),
 		$color2: var(--text-stroke-color)
 	);

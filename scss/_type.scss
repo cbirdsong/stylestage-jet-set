@@ -14,12 +14,7 @@ a {
 	text-decoration: underline;
 	text-underline-offset: 0.15em;
 
-	@include ridiculous-text-shadow(
-		$width1: 1px,
-		$width2: 2px,
-		$color1: var(--text-stroke-color),
-		$color2: var(--text-stroke-color)
-	);
+	@include ridiculous-text-shadow();
 
 	@supports (text-decoration-color: red) {
 		text-decoration-color: var(--link-accent-color);
@@ -131,7 +126,7 @@ a.link-github {
 		font-style: italic;
 
 		@include ridiculous-text-shadow(
-			$width1: 2px,
+			$width1: 4px,
 			$width2: 4px,
 			$color1: var(--heading-stroke-color),
 			$color2: var(--heading-stroke-color)
