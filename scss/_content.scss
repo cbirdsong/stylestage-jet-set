@@ -91,12 +91,7 @@ main {
 
 			font-weight: bold;
 			mix-blend-mode: color-dodge;
-			@include ridiculous-text-shadow(
-				$width1: 2px,
-				$width2: 2px,
-				$color1: var(--text-stroke-color),
-				$color2: var(--text-stroke-color)
-			);
+			@include ridiculous-text-shadow;
 
 			transform: rotate(var(--list-rotation, 1deg));
 
@@ -218,12 +213,7 @@ main {
 		display: flex;
 		flex-flow: column nowrap;
 
-		@include ridiculous-text-shadow(
-			$width1: 2px,
-			$width2: 2px,
-			$color1: var(--text-stroke-color),
-			$color2: var(--text-stroke-color)
-		);
+		@include ridiculous-text-shadow;
 
 		span:first-child {
 			text-transform: uppercase;

@@ -48,12 +48,7 @@
 		margin-right: auto;
 	}
 
-	@include ridiculous-text-shadow(
-		$width1: 3px,
-		$width2: 3px,
-		$color1: var(--text-stroke-color),
-		$color2: var(--text-stroke-color)
-	);
+	@include ridiculous-text-shadow($width: 3px, $color: var(--text-stroke-color));
 	svg {
 		filter: drop-shadow(2px 0 0 black) drop-shadow(-2px 0 0 black) drop-shadow(0 2px 0 black)
 			drop-shadow(0 -2px 0 black);
