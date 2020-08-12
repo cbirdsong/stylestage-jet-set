@@ -161,17 +161,12 @@ a {
 a {
   color: var(--link-color);
   text-decoration: underline;
-  text-underline-offset: 0.15em;
+  text-underline-offset: 0.1em;
+  text-decoration-thickness: 0.1em;
   text-shadow: 0 2px var(--text-stroke-color), 0 -2px var(--text-stroke-color), 2px 0 var(--text-stroke-color), -2px 0 var(--text-stroke-color), 2px -2px var(--text-stroke-color), 2px 2px var(--text-stroke-color), -2px 2px var(--text-stroke-color), -2px -2px var(--text-stroke-color), 0 2px var(--text-stroke-color), 0 -2px var(--text-stroke-color), 2px 0 var(--text-stroke-color), -2px 0 var(--text-stroke-color), 2px -2px var(--text-stroke-color), 2px 2px var(--text-stroke-color), -2px 2px var(--text-stroke-color), -2px -2px var(--text-stroke-color);
   transition-property: transform, filter, opacity, text-underline-offset;
   transition-duration: 300ms;
   transition-timing-function: ease-in-out;
-}
-@supports (text-decoration-color: red) {
-  a {
-    text-decoration-color: var(--link-accent-color);
-    text-decoration-thickness: 0.1em;
-  }
 }
 
 a:hover {
@@ -703,7 +698,7 @@ nav:before, nav:after {
     position: fixed;
     top: 5vh;
     bottom: 5vh;
-    right: 5vw;
+    right: 2.5vw;
     left: unset;
   }
 }
@@ -1378,7 +1373,7 @@ aside .container::after {
 .profile-twitter span:last-child:before {
   content: "@";
   font-size: 70%;
-  margin-right: 0.3em;
+  margin-right: 0.1em;
   color: white;
   text-decoration: none;
 }
