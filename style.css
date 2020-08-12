@@ -460,7 +460,7 @@ header:before {
 }
 header .container {
   max-width: 100%;
-  padding: 1rem;
+  padding: calc(1rem + 0.5vmin) calc(1rem + 0.5vmin);
   text-align: center;
   color: var(--header-text-primary);
   text-shadow: 0 1px var(--text-stroke-color), 0 -1px var(--text-stroke-color), 1px 0 var(--text-stroke-color), -1px 0 var(--text-stroke-color), 1px -1px var(--text-stroke-color), 1px 1px var(--text-stroke-color), -1px 1px var(--text-stroke-color), -1px -1px var(--text-stroke-color), 0 2px var(--text-stroke-color), 0 -2px var(--text-stroke-color), 2px 0 var(--text-stroke-color), -2px 0 var(--text-stroke-color), 2px -2px var(--text-stroke-color), 2px 2px var(--text-stroke-color), -2px 2px var(--text-stroke-color), -2px -2px var(--text-stroke-color);
