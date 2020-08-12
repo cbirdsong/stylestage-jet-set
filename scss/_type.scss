@@ -14,7 +14,12 @@ a {
 	text-decoration: underline;
 	text-underline-offset: 0.15em;
 
-	@include ridiculous-text-shadow($width1: 1px, $width2: 2px, $color1: black, $color2: black);
+	@include ridiculous-text-shadow(
+		$width1: 1px,
+		$width2: 2px,
+		$color1: var(--text-stroke-color),
+		$color2: var(--text-stroke-color)
+	);
 
 	@supports (text-decoration-color: red) {
 		text-decoration-color: var(--link-accent-color);

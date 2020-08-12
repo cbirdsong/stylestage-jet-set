@@ -53,7 +53,12 @@ header .container {
 
 	text-align: center;
 	color: var(--header-text-primary);
-	@include ridiculous-text-shadow($width1: 1px, $width2: 2px, $color1: black, $color2: black);
+	@include ridiculous-text-shadow(
+		$width1: 1px,
+		$width2: 2px,
+		$color1: var(--text-stroke-color),
+		$color2: var(--text-stroke-color)
+	);
 
 	@supports (display: grid) {
 		display: grid;
@@ -203,7 +208,12 @@ header h1 {
 		z-index: 5;
 
 		line-height: 1.45;
-		@include ridiculous-text-shadow($width1: 3px, $width2: 4px, $color1: black, $color2: black);
+		@include ridiculous-text-shadow(
+			$width1: 3px,
+			$width2: 4px,
+			$color1: var(--text-stroke-color),
+			$color2: var(--text-stroke-color)
+		);
 
 		&::before,
 		&::after {

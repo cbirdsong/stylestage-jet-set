@@ -48,7 +48,12 @@
 		margin-right: auto;
 	}
 
-	@include ridiculous-text-shadow($width1: 1px, $width2: 2px, $color1: black, $color2: black);
+	@include ridiculous-text-shadow(
+		$width1: 1px,
+		$width2: 2px,
+		$color1: var(--text-stroke-color),
+		$color2: var(--text-stroke-color)
+	);
 	svg {
 		filter: drop-shadow(2px 0 0 black) drop-shadow(-2px 0 0 black) drop-shadow(0 2px 0 black)
 			drop-shadow(0 -2px 0 black);
@@ -84,4 +89,8 @@
 	--icon: "\002714";
 	--icon-fudge-x: -0.125em;
 	--icon-fudge-y: -0.55em;
+}
+
+#sponsor-footer {
+	--text-stroke-outline: transparent;
 }

@@ -161,7 +161,7 @@ a {
   color: var(--link-color);
   text-decoration: underline;
   text-underline-offset: 0.15em;
-  text-shadow: 0 1px black, 0 -1px black, 1px 0 black, -1px 0 black, 1px -1px black, 1px 1px black, -1px 1px black, -1px -1px black, 0 2px black, 0 -2px black, 2px 0 black, -2px 0 black, 2px -2px black, 2px 2px black, -2px 2px black, -2px -2px black;
+  text-shadow: 0 1px var(--text-stroke-color), 0 -1px var(--text-stroke-color), 1px 0 var(--text-stroke-color), -1px 0 var(--text-stroke-color), 1px -1px var(--text-stroke-color), 1px 1px var(--text-stroke-color), -1px 1px var(--text-stroke-color), -1px -1px var(--text-stroke-color), 0 2px var(--text-stroke-color), 0 -2px var(--text-stroke-color), 2px 0 var(--text-stroke-color), -2px 0 var(--text-stroke-color), 2px -2px var(--text-stroke-color), 2px 2px var(--text-stroke-color), -2px 2px var(--text-stroke-color), -2px -2px var(--text-stroke-color);
   transition-property: transform, filter, opacity, text-underline-offset;
   transition-duration: 300ms;
   transition-timing-function: ease-in-out;
@@ -424,6 +424,7 @@ aside {
 
 #sponsor-footer {
   grid-area: sponsor;
+  z-index: 100;
 }
 
 header {
@@ -462,7 +463,7 @@ header .container {
   padding: 1rem;
   text-align: center;
   color: var(--header-text-primary);
-  text-shadow: 0 1px black, 0 -1px black, 1px 0 black, -1px 0 black, 1px -1px black, 1px 1px black, -1px 1px black, -1px -1px black, 0 2px black, 0 -2px black, 2px 0 black, -2px 0 black, 2px -2px black, 2px 2px black, -2px 2px black, -2px -2px black;
+  text-shadow: 0 1px var(--text-stroke-color), 0 -1px var(--text-stroke-color), 1px 0 var(--text-stroke-color), -1px 0 var(--text-stroke-color), 1px -1px var(--text-stroke-color), 1px 1px var(--text-stroke-color), -1px 1px var(--text-stroke-color), -1px -1px var(--text-stroke-color), 0 2px var(--text-stroke-color), 0 -2px var(--text-stroke-color), 2px 0 var(--text-stroke-color), -2px 0 var(--text-stroke-color), 2px -2px var(--text-stroke-color), 2px 2px var(--text-stroke-color), -2px 2px var(--text-stroke-color), -2px -2px var(--text-stroke-color);
 }
 @supports (display: grid) {
   header .container {
@@ -600,7 +601,7 @@ header h1 {
   header h1 {
     z-index: 5;
     line-height: 1.45;
-    text-shadow: 0 3px black, 0 -3px black, 3px 0 black, -3px 0 black, 3px -3px black, 3px 3px black, -3px 3px black, -3px -3px black, 0 4px black, 0 -4px black, 4px 0 black, -4px 0 black, 4px -4px black, 4px 4px black, -4px 4px black, -4px -4px black;
+    text-shadow: 0 3px var(--text-stroke-color), 0 -3px var(--text-stroke-color), 3px 0 var(--text-stroke-color), -3px 0 var(--text-stroke-color), 3px -3px var(--text-stroke-color), 3px 3px var(--text-stroke-color), -3px 3px var(--text-stroke-color), -3px -3px var(--text-stroke-color), 0 4px var(--text-stroke-color), 0 -4px var(--text-stroke-color), 4px 0 var(--text-stroke-color), -4px 0 var(--text-stroke-color), 4px -4px var(--text-stroke-color), 4px 4px var(--text-stroke-color), -4px 4px var(--text-stroke-color), -4px -4px var(--text-stroke-color);
   }
   header h1::before, header h1::after {
     content: "Style Stage";
@@ -1139,7 +1140,7 @@ aside .container::after {
   margin: var(--list-spacing, 0);
   font-weight: bold;
   mix-blend-mode: color-dodge;
-  text-shadow: 0 1px black, 0 -1px black, 1px 0 black, -1px 0 black, 1px -1px black, 1px 1px black, -1px 1px black, -1px -1px black, 0 2px black, 0 -2px black, 2px 0 black, -2px 0 black, 2px -2px black, 2px 2px black, -2px 2px black, -2px -2px black;
+  text-shadow: 0 1px var(--text-stroke-color), 0 -1px var(--text-stroke-color), 1px 0 var(--text-stroke-color), -1px 0 var(--text-stroke-color), 1px -1px var(--text-stroke-color), 1px 1px var(--text-stroke-color), -1px 1px var(--text-stroke-color), -1px -1px var(--text-stroke-color), 0 2px var(--text-stroke-color), 0 -2px var(--text-stroke-color), 2px 0 var(--text-stroke-color), -2px 0 var(--text-stroke-color), 2px -2px var(--text-stroke-color), 2px 2px var(--text-stroke-color), -2px 2px var(--text-stroke-color), -2px -2px var(--text-stroke-color);
   transform: rotate(var(--list-rotation, 1deg));
 }
 #about ul li:nth-child(1n) {
@@ -1323,7 +1324,7 @@ aside .container::after {
 .profile li {
   display: flex;
   flex-flow: column nowrap;
-  text-shadow: 0 2px black, 0 -2px black, 2px 0 black, -2px 0 black, 2px -2px black, 2px 2px black, -2px 2px black, -2px -2px black, 0 3px black, 0 -3px black, 3px 0 black, -3px 0 black, 3px -3px black, 3px 3px black, -3px 3px black, -3px -3px black;
+  text-shadow: 0 2px var(--text-stroke-color), 0 -2px var(--text-stroke-color), 2px 0 var(--text-stroke-color), -2px 0 var(--text-stroke-color), 2px -2px var(--text-stroke-color), 2px 2px var(--text-stroke-color), -2px 2px var(--text-stroke-color), -2px -2px var(--text-stroke-color), 0 3px var(--text-stroke-color), 0 -3px var(--text-stroke-color), 3px 0 var(--text-stroke-color), -3px 0 var(--text-stroke-color), 3px -3px var(--text-stroke-color), 3px 3px var(--text-stroke-color), -3px 3px var(--text-stroke-color), -3px -3px var(--text-stroke-color);
 }
 .profile li span:first-child {
   text-transform: uppercase;
@@ -1407,7 +1408,7 @@ aside .container::after {
 .page-footer .container {
   padding: 2rem;
   z-index: 5;
-  text-shadow: 0 1px black, 0 -1px black, 1px 0 black, -1px 0 black, 1px -1px black, 1px 1px black, -1px 1px black, -1px -1px black, 0 2px black, 0 -2px black, 2px 0 black, -2px 0 black, 2px -2px black, 2px 2px black, -2px 2px black, -2px -2px black;
+  text-shadow: 0 1px var(--text-stroke-color), 0 -1px var(--text-stroke-color), 1px 0 var(--text-stroke-color), -1px 0 var(--text-stroke-color), 1px -1px var(--text-stroke-color), 1px 1px var(--text-stroke-color), -1px 1px var(--text-stroke-color), -1px -1px var(--text-stroke-color), 0 2px var(--text-stroke-color), 0 -2px var(--text-stroke-color), 2px 0 var(--text-stroke-color), -2px 0 var(--text-stroke-color), 2px -2px var(--text-stroke-color), 2px 2px var(--text-stroke-color), -2px 2px var(--text-stroke-color), -2px -2px var(--text-stroke-color);
 }
 .page-footer .container > * + * {
   margin-top: 2rem;
@@ -1447,6 +1448,10 @@ aside .container::after {
   --icon: "✔";
   --icon-fudge-x: -0.125em;
   --icon-fudge-y: -0.55em;
+}
+
+#sponsor-footer {
+  --text-stroke-outline: transparent;
 }
 
 /* Animations were generated with many insane Sass loops. */
