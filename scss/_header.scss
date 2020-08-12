@@ -68,7 +68,7 @@ header .container {
 		min-height: 100vh;
 
 		gap: 2rem;
-		@media (min-width: 65rem) {
+		@media (min-width: $breakpoint-lg) {
 			gap: 1rem;
 		}
 
@@ -103,7 +103,7 @@ header h1 {
 	max-width: 15ch;
 	text-indent: -2.6ch;
 
-	font-size: calc(1.5rem + 9vw);
+	font-size: calc(1.5rem + 9vmin);
 	@media (min-width: $breakpoint-md) {
 		font-size: 6rem;
 	}
@@ -193,16 +193,16 @@ header h1 {
 
 	transform-origin: center center;
 
+	@media (min-width: $breakpoint-md) {
+		--rotate: -20deg;
+		--translateX: 0ch;
+		--translateY: -0.4ch;
+	}
 	--rotate: -65deg;
 	--translateX: -0.4ch;
 	--translateY: 0ch;
 	--scaleX-fudge: 0;
 	--scaleY-fudge: 0;
-	@media (min-width: $breakpoint-sm) {
-		--rotate: -20deg;
-		--translateX: 0ch;
-		--translateY: -0.4ch;
-	}
 
 	@supports (-webkit-text-fill-color: white) {
 		z-index: 5;

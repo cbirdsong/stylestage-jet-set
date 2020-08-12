@@ -1,6 +1,8 @@
-$breakpoint-md: 50rem;
-$breakpoint-sm: 35rem;
-$breakpoint-xs: 25rem;
+$breakpoint-xl: 1440px;
+$breakpoint-lg: 1040px;
+$breakpoint-md: 800px;
+$breakpoint-sm: 560px;
+$breakpoint-xs: 350px;
 
 $beat-interval: 2.5;
 $bg-count: 25; // must be divisible by 100

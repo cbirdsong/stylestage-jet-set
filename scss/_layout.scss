@@ -13,7 +13,7 @@ body {
 		"sponsor";
 	grid-template-columns: 1fr;
 
-	@media (min-width: 50rem) {
+	@media (min-width: $breakpoint-md) {
 		grid-template-areas:
 			"skiplink skiplink"
 			"header header"

@@ -365,7 +365,7 @@ body {
     display: grid;
   }
 }
-@media (min-width: 50rem) {
+@media (min-width: 800px) {
   body {
     grid-template-areas: "skiplink skiplink" "header header" "main nav" "profile nav" "styles nav" "footer footer" "sponsor sponsor";
     grid-template-columns: 3fr 1fr;
@@ -474,7 +474,7 @@ header .container {
     min-height: 100vh;
     gap: 2rem;
   }
-  @media (min-width: 65rem) {
+  @media (min-width: 1040px) {
     header .container {
       gap: 1rem;
     }
@@ -510,11 +510,11 @@ header h1 {
   width: 6ch;
   max-width: 15ch;
   text-indent: -2.6ch;
-  font-size: calc(1.5rem + 9vw);
+  font-size: calc(1.5rem + 9vmin);
   line-height: 1.6;
   text-shadow: 0 0.06em var(--green-dark), 0 -0.06em var(--green-dark), 0.06em 0 var(--green-dark), -0.06em 0 var(--green-dark), 0.06em -0.06em var(--green-dark), 0.06em 0.06em var(--green-dark), -0.06em 0.06em var(--green-dark), -0.06em -0.06em var(--green-dark), 0 0.12em var(--yellow-neon), 0 -0.12em var(--yellow-neon), 0.12em 0 var(--yellow-neon), -0.12em 0 var(--yellow-neon), 0.12em -0.12em var(--yellow-neon), 0.12em 0.12em var(--yellow-neon), -0.12em 0.12em var(--yellow-neon), -0.12em -0.12em var(--yellow-neon);
 }
-@media (min-width: 50rem) {
+@media (min-width: 800px) {
   header h1 {
     font-size: 6rem;
   }
@@ -527,12 +527,12 @@ header h2 {
   font-size: var(--h4-font-size);
   color: var(--header-text-secondary);
 }
-@media (min-width: 35rem) {
+@media (min-width: 560px) {
   header h2 {
     font-size: var(--h3-font-size);
   }
 }
-@media (min-width: 50rem) {
+@media (min-width: 800px) {
   header h2 {
     font-size: var(--h2-font-size);
   }
@@ -590,7 +590,7 @@ header h1 {
   --scaleX-fudge: 0;
   --scaleY-fudge: 0;
 }
-@media (min-width: 35rem) {
+@media (min-width: 800px) {
   header h1 {
     --rotate: -20deg;
     --translateX: 0ch;
@@ -665,7 +665,7 @@ nav:before, nav:after {
   animation-timing-function: cubic-bezier(0.31, 0.37, 1, 1.65);
   animation-iteration-count: infinite;
 }
-@media (min-width: 50rem) {
+@media (min-width: 800px) {
   nav:before, nav:after {
     position: fixed;
     top: 5vh;
@@ -707,7 +707,7 @@ nav ul {
   nav ul > *:nth-child(4n+2) {
     margin-left: -5vw;
   }
-  @media (min-width: 50rem) {
+  @media (min-width: 800px) {
     nav ul {
       top: 10vh;
       bottom: 10vh;
