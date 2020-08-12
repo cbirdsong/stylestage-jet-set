@@ -658,7 +658,6 @@ nav:before, nav:after {
   position: absolute;
   right: calc(50% - 4vh);
   isolation: isolate;
-  backdrop-filter: saturate(80%);
   mix-blend-mode: color-dodge;
   filter: contrast(0.5) brightness(0.5) opacity(0.25);
   animation-name: beat;
