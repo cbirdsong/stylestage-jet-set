@@ -14,7 +14,7 @@
 	"homepage": "https://github.com/cbirdsong/untitled-stage#readme",
 	"scripts": {
 		"build": "npm-run-all build:sass build:11ty",
-		"serve": "npm-run-all --parallel watch:sass watch:11ty",
+		"serve": "npm-run-all --parallel serve:sass serve:11ty",
 		"build:11ty": "eleventy",
 		"serve:11ty": "eleventy --serve",
 		"build:sass": "sass src/scss:src/css",
