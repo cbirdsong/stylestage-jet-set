@@ -1,3 +1,3 @@
 # Jet Set
 
-Style stage project inspired by Jet Set Radio.
+[Style Stage](https://stylestage.dev) project inspired by Jet Set Radio.

@@ -4,13 +4,10 @@ module.exports = function (eleventyConfig) {
 	// Don't process folders with static assets e.g. images
 	eleventyConfig.addPassthroughCopy("fonts/");
 	eleventyConfig.addPassthroughCopy("scss/");
-	eleventyConfig.addPassthroughCopy("reset.css");
-	eleventyConfig.addPassthroughCopy("reset.css.map");
-	eleventyConfig.addPassthroughCopy("style.css");
-	eleventyConfig.addPassthroughCopy("style.css.map");
+	eleventyConfig.addPassthroughCopy("css/");
 
 	eleventyConfig.addWatchTarget("./scss/");
-	eleventyConfig.addWatchTarget("style.css");
+	eleventyConfig.addWatchTarget("./css/");
 
 	// Date formatting (machine readable)
 	eleventyConfig.addFilter("utcDate", (dateObj) => {

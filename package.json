@@ -17,8 +17,8 @@
 		"serve": "eleventy --serve & sass --watch scss/style.scss style.css",
 		"11ty:build": "eleventy",
 		"11ty:serve": "eleventy --serve",
-		"sass:build": "sass scss/style.scss style.css && sass scss/reset.scss reset.css",
-		"sass:serve": "sass --watch scss/style.scss style.css"
+		"sass:build": "sass scss:css",
+		"sass:serve": "sass --watch scss:css"
 	},
 	"devDependencies": {
 		"@11ty/eleventy": "^0.11.1",
