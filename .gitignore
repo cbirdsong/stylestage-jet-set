@@ -14,10 +14,10 @@ bower_components
 node_modules
 
 # Compiled CSS
-css/*/**
+src/css
 
 # 11ty deploy
-_site/*/**
+dist
 
 # Mac OS detritus
 .DS_Store
