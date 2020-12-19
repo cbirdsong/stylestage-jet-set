@@ -1,28 +1,25 @@
 {
-	"name": "untitled-stage",
+	"name": "stylestage-jet-set",
 	"version": "1.0.0",
-	"description": "A style stage style.",
+	"description": "A Style Stage style inspired by Jet Set Radio.",
 	"repository": {
 		"type": "git",
-		"url": "git+https://cbirdsong@github.com/cbirdsong/untitled-stage.git"
+		"url": "git+https://cbirdsong@github.com/cbirdsong/stylestage-jet-set.git"
 	},
 	"author": "Cory Birdsong",
 	"license": "CC0",
 	"bugs": {
-		"url": "https://github.com/cbirdsong/untitled-stage/issues"
+		"url": "https://github.com/cbirdsong/stylestage-jet-set/issues"
 	},
-	"homepage": "https://github.com/cbirdsong/untitled-stage#readme",
+	"homepage": "https://github.com/cbirdsong/stylestage-jet-set#readme",
 	"scripts": {
-		"build": "npm-run-all build:sass build:11ty",
-		"serve": "npm-run-all --parallel serve:sass serve:11ty",
-		"build:11ty": "eleventy",
-		"serve:11ty": "eleventy --serve",
-		"build:sass": "sass src/scss:src/css",
-		"serve:sass": "sass --watch src/scss:src/css"
+		"build": "sass scss:css",
+		"serve": "sass --watch scss:css"
 	},
 	"devDependencies": {
-		"@11ty/eleventy": "^0.11.1",
-		"npm-run-all": "^4.1.5",
 		"sass": "^1.29.0"
+	},
+	"dependencies": {
+		"browsersync": "0.0.1-security"
 	}
 }

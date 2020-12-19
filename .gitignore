@@ -6,18 +6,9 @@ yarn-debug.log*
 yarn-error.log*
 lerna-debug.log*
 
-# Secrets
-.env
-
 # Package managers
 bower_components
 node_modules
-
-# Compiled CSS
-src/css
-
-# 11ty deploy
-dist
 
 # Mac OS detritus
 .DS_Store
