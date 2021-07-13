@@ -72,6 +72,9 @@ header .container {
 			align-self: end;
 			justify-self: center;
 		}
+		*:not(h1) {
+			z-index: 5;
+		}
 		h1,
 		h2 {
 			align-self: center;
