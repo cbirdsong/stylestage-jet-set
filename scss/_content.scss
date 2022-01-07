@@ -85,12 +85,17 @@ main {
 		list-style-type: none;
 		margin-left: 0;
 
+		// This fixes a weird chrome bug around mix-blend-mode and the background pseudo element
+		position: relative;
+		z-index: 10;
+
 		li {
 			padding: 1rem;
 			margin: var(--list-spacing, 0);
 
 			font-weight: bold;
 			mix-blend-mode: color-dodge;
+			color: rgba(255, 255, 255, 0.99);
 			@include ridiculous-text-shadow;
 
 			transform: rotate(var(--list-rotation, 1deg));

@@ -480,6 +480,9 @@ header .container {
     align-self: end;
     justify-self: center;
   }
+  header .container *:not(h1) {
+    z-index: 5;
+  }
   header .container h1,
 header .container h2 {
     align-self: center;
@@ -1166,12 +1169,15 @@ aside .container::after {
   justify-content: center;
   list-style-type: none;
   margin-left: 0;
+  position: relative;
+  z-index: 10;
 }
 #about ul li {
   padding: 1rem;
   margin: var(--list-spacing, 0);
   font-weight: bold;
   mix-blend-mode: color-dodge;
+  color: rgba(255, 255, 255, 0.99);
   text-shadow: 0 2px var(--text-stroke-color), 0 -2px var(--text-stroke-color), 2px 0 var(--text-stroke-color), -2px 0 var(--text-stroke-color), 2px -2px var(--text-stroke-color), 2px 2px var(--text-stroke-color), -2px 2px var(--text-stroke-color), -2px -2px var(--text-stroke-color), 0 2px var(--text-stroke-color), 0 -2px var(--text-stroke-color), 2px 0 var(--text-stroke-color), -2px 0 var(--text-stroke-color), 2px -2px var(--text-stroke-color), 2px 2px var(--text-stroke-color), -2px 2px var(--text-stroke-color), -2px -2px var(--text-stroke-color);
   transform: rotate(var(--list-rotation, 1deg));
 }
