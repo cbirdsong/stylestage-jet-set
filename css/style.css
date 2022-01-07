@@ -487,6 +487,9 @@ header .container {
 header .container h2 {
     align-self: center;
   }
+  header .container h2 {
+    z-index: 10;
+  }
   @media (orientation: portrait) {
     header .container h2 {
       margin-top: 3rem;
@@ -1177,7 +1180,6 @@ aside .container::after {
   margin: var(--list-spacing, 0);
   font-weight: bold;
   mix-blend-mode: color-dodge;
-  color: rgba(255, 255, 255, 0.99);
   text-shadow: 0 2px var(--text-stroke-color), 0 -2px var(--text-stroke-color), 2px 0 var(--text-stroke-color), -2px 0 var(--text-stroke-color), 2px -2px var(--text-stroke-color), 2px 2px var(--text-stroke-color), -2px 2px var(--text-stroke-color), -2px -2px var(--text-stroke-color), 0 2px var(--text-stroke-color), 0 -2px var(--text-stroke-color), 2px 0 var(--text-stroke-color), -2px 0 var(--text-stroke-color), 2px -2px var(--text-stroke-color), 2px 2px var(--text-stroke-color), -2px 2px var(--text-stroke-color), -2px -2px var(--text-stroke-color);
   transform: rotate(var(--list-rotation, 1deg));
 }

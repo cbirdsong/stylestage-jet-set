@@ -80,6 +80,7 @@ header .container {
 			align-self: center;
 		}
 		h2 {
+			z-index: 10;
 			@media (orientation: portrait) {
 				margin-top: 3rem;
 			}
