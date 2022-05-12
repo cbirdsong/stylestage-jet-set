@@ -72,6 +72,6 @@ aside {
 	contain: layout;
 }
 #sponsor-footer {
-	grid-area: sponsor;
+	grid-area: sponsor !important;
 	z-index: 100;
 }

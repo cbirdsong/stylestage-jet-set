@@ -45,6 +45,11 @@ header {
 	}
 	&:after {
 	}
+
+	::selection {
+		color: var(--teal);
+		background-color: var(--purple-transparent);
+	}
 }
 
 header .container {
